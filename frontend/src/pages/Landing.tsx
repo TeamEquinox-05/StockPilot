@@ -1,7 +1,8 @@
-import { useRef, useLayoutEffect, useEffect } from 'react';
+import { useRef, useLayoutEffect, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lottie from 'lottie-react';
 
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
@@ -15,6 +16,15 @@ const Landing = () => {
   const navigate = useNavigate();
   const main = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
+  const [heroAnimation, setHeroAnimation] = useState(null);
+
+  // Load hero animation
+  useEffect(() => {
+    fetch('/hero.json')
+      .then(response => response.json())
+      .then(data => setHeroAnimation(data))
+      .catch(error => console.error('Error loading animation:', error));
+  }, []);
 
   // Custom gradient cursor effect
   useEffect(() => {
@@ -204,7 +214,7 @@ const Landing = () => {
 
       {/* Hero Section */}
       <main className="pt-24 relative">
-        <section className="px-6 py-20 md:py-32 text-center min-h-screen flex items-center justify-center relative">
+        <section className="px-6 py-20 md:py-32 min-h-screen flex items-center justify-center relative">
           {/* RippleGrid Background */}
           <div className="absolute inset-0 w-full h-full overflow-hidden">
             <RippleGrid 
@@ -224,58 +234,80 @@ const Landing = () => {
           </div>
 
           {/* Content overlay */}
-          <div className="relative z-10 max-w-6xl mx-auto">
-            {/* Floating geometric accents */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-black/10 rounded-full animate-pulse" style={{ animationDuration: '6s' }}></div>
-              <div className="absolute bottom-1/4 right-1/4 w-16 h-16 border border-black/10 rotate-45" style={{ animation: 'spin 25s linear infinite' }}></div>
-              <div className="absolute top-1/3 right-1/4 w-1 h-24 bg-black/5 rotate-12"></div>
-              <div className="absolute bottom-1/3 left-1/3 w-1 h-16 bg-black/5 -rotate-12"></div>
-            </div>
-
-            <div className="relative z-20">
-              {/* Hero Typography */}
-              <div className="mb-12">
-                <h1 className="text-5xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-8 leading-none">
-                  <span className="hero-title block text-black drop-shadow-sm">PRECISION.</span>
-                  <span className="hero-title block text-black/60 drop-shadow-sm">PROFIT.</span>
-                  <span className="hero-title block text-black drop-shadow-sm">PILOT.</span>
-                </h1>
+          <div className="relative z-10 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              
+              {/* Left Content */}
+              <div className="space-y-8">
+                {/* Hero Typography */}
+                <div>
+                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6 leading-tight">
+                    <span className="hero-title block text-black">PRECISION.</span>
+                    <span className="hero-title block text-black/60">PROFIT.</span>
+                    <span className="hero-title block text-black">PILOT.</span>
+                  </h1>
+                  
+                  {/* Animated divider */}
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-px bg-black/20"></div>
+                    <div className="w-3 h-3 border border-black/20 rotate-45 mx-4"></div>
+                    <div className="w-12 h-px bg-black/20"></div>
+                  </div>
+                </div>
                 
-                {/* Animated divider */}
-                <div className="flex items-center justify-center mb-8">
-                  <div className="w-8 h-px bg-black/20"></div>
-                  <div className="w-4 h-4 border border-black/20 rotate-45 mx-4"></div>
-                  <div className="w-8 h-px bg-black/20"></div>
+                {/* Hero Description */}
+                <p className="hero-p text-lg md:text-xl text-black/70 font-light leading-relaxed max-w-lg">
+                  Transform inventory chaos into <span className="text-black font-medium">predictive intelligence</span>. 
+                  Our AI eliminates guesswork, prevents stockouts, and maximizes profits through 
+                  <span className="text-black font-medium"> precision automation</span>.
+                </p>
+                
+                {/* CTA Buttons */}
+                <div className="hero-btn flex flex-col sm:flex-row gap-6 items-start">
+                  <Button 
+                    onClick={handleGetStarted} 
+                    size="lg" 
+                    className="text-base px-12 py-6 bg-black text-white hover:bg-black/90 rounded-none border-0 font-medium tracking-wider interactive group transition-all duration-300 hover:scale-105"
+                  >
+                    <span>LAUNCH PRECISION</span>
+                    <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-2 transition-transform" />
+                  </Button>
+                  
+                  <button className="text-base text-black/60 hover:text-black font-light interactive group transition-all duration-300">
+                    <span className="border-b border-black/20 group-hover:border-black">Experience Demo</span>
+                    <ArrowRight className="w-4 h-4 ml-2 inline group-hover:translate-x-1 transition-transform" />
+                  </button>
                 </div>
               </div>
-              
-              {/* Hero Description */}
-              <p className="hero-p text-xl md:text-2xl lg:text-3xl text-black/70 mb-16 max-w-4xl mx-auto font-light leading-relaxed">
-                Transform inventory chaos into <span className="text-black font-medium">predictive intelligence</span>. 
-                Our AI eliminates guesswork, prevents stockouts, and maximizes profits through 
-                <span className="text-black font-medium"> precision automation</span>.
-              </p>
-              
-              {/* CTA Buttons */}
-              <div className="hero-btn flex flex-col sm:flex-row gap-8 items-center justify-center">
-                <Button 
-                  onClick={handleGetStarted} 
-                  size="lg" 
-                  className="text-lg px-16 py-8 bg-black text-white hover:bg-black/90 rounded-none border-0 font-medium tracking-wider interactive group transition-all duration-300 hover:scale-105"
-                >
-                  <span>LAUNCH PRECISION</span>
-                  <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform" />
-                </Button>
-                
-                <button className="text-lg text-black/60 hover:text-black font-light interactive group transition-all duration-300">
-                  <span className="border-b border-black/20 group-hover:border-black">Experience Demo</span>
-                  <ArrowRight className="w-4 h-4 ml-2 inline group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
 
-              {/* Core Value Propositions */}
-              <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {/* Right Visual */}
+              <div className="hero-visual relative">
+                <div className="relative">
+                  {/* Hero Lottie Animation */}
+                  {heroAnimation ? (
+                    <Lottie 
+                      animationData={heroAnimation}
+                      className="w-full h-auto"
+                      style={{ maxHeight: '600px' }}
+                      loop={true}
+                      autoplay={true}
+                    />
+                  ) : (
+                    <div className="w-full h-96 flex items-center justify-center">
+                      <div className="animate-pulse text-black/60">Loading animation...</div>
+                    </div>
+                  )}
+
+                  {/* Floating elements around the GIF */}
+                  <div className="absolute -top-4 -left-4 w-8 h-8 border-2 border-black/20 rounded-full animate-pulse" style={{ animationDuration: '4s' }}></div>
+                  <div className="absolute -bottom-6 -right-6 w-12 h-12 border border-black/10 rotate-45" style={{ animation: 'spin 20s linear infinite' }}></div>
+                  <div className="absolute top-1/4 -right-2 w-px h-16 bg-black/10 rotate-12"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Core Value Propositions - Moved below the hero */}
+            <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                 <div className="stats-item group p-6 border border-black/10 rounded-lg hover:bg-black hover:text-white transition-all duration-300 interactive">
                   <div className="w-12 h-12 border-2 border-black group-hover:border-white mx-auto mb-4 flex items-center justify-center rounded-lg">
                     <TrendingUp className="w-6 h-6" />
@@ -299,7 +331,6 @@ const Landing = () => {
                 </div>
               </div>
             </div>
-          </div>
         </section>
 
         {/* Problem/Solution Section */}
