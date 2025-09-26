@@ -188,128 +188,14 @@ const getProductsWithPricing = async (req, res) => {
   }
 };
 
-// Get low stock products (quantity < 5)
-const getLowStockProducts = async (req, res) => {
-  try {
-    const threshold = parseInt(req.query.threshold) || 5;
 
-    // Aggregate to get current stock levels for all products
-    const lowStockProducts = await ProductBatch.aggregate([
-      {
-        $group: {
-          _id: '$product_id',
-          totalQuantity: { $sum: '$quantity_in_stock' },
-          batches: { $push: '$$ROOT' }
-        }
-      },
-      {
-        $match: {
-          totalQuantity: { $lt: threshold }
-        }
-      },
-      {
-        $lookup: {
-          from: 'products',
-          localField: '_id',
-          foreignField: '_id',
-          as: 'productInfo'
-        }
-      },
-      {
-        $unwind: '$productInfo'
-      },
-      {
-        $lookup: {
-          from: 'purchaseitems',
-          let: { productId: '$_id' },
-          pipeline: [
-            {
-              $lookup: {
-                from: 'productbatches',
-                localField: 'batch_id',
-                foreignField: '_id',
-                as: 'batch'
-              }
-            },
-            {
-              $unwind: '$batch'
-            },
-            {
-              $match: {
-                $expr: { $eq: ['$batch.product_id', '$$productId'] }
-              }
-            },
-            {
-              $sort: { createdAt: -1 }
-            },
-            {
-              $limit: 1
-            }
-          ],
-          as: 'latestPurchase'
-        }
-      },
-      {
-        $project: {
-          _id: '$productInfo._id',
-          product_name: '$productInfo.product_name',
-          category: '$productInfo.category',
-          hsn_code: '$productInfo.hsn_code',
-          description: '$productInfo.description',
-          currentStock: '$totalQuantity',
-          latestPurchaseRate: {
-            $cond: {
-              if: { $gt: [{ $size: '$latestPurchase' }, 0] },
-              then: { $arrayElemAt: ['$latestPurchase.rate', 0] },
-              else: null
-            }
-          },
-          latestTaxRate: {
-            $cond: {
-              if: { $gt: [{ $size: '$latestPurchase' }, 0] },
-              then: { $arrayElemAt: ['$latestPurchase.tax_rate', 0] },
-              else: 0
-            }
-          },
-          avgPurchaseRate: {
-            $cond: {
-              if: { $gt: [{ $size: '$latestPurchase' }, 0] },
-              then: { $arrayElemAt: ['$latestPurchase.rate', 0] },
-              else: null
-            }
-          },
-          stockStatus: {
-            $cond: {
-              if: { $eq: ['$totalQuantity', 0] },
-              then: 'Out of Stock',
-              else: {
-                $cond: {
-                  if: { $lt: ['$totalQuantity', 3] },
-                  then: 'Critical',
-                  else: 'Low Stock'
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        $sort: { currentStock: 1, product_name: 1 }
-      }
-    ]);
 
-    res.json(lowStockProducts);
-  } catch (error) {
-    console.error('Error fetching low stock products:', error);
-    res.status(500).json({ message: 'Error fetching low stock products', error: error.message });
-  }
-};
+
 
 module.exports = {
   searchProducts,
   createProduct,
   getProducts,
   getProductBatches,
-  getProductsWithPricing,
-  getLowStockProducts
+  getProductsWithPricing
 };
