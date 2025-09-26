@@ -137,9 +137,61 @@ const getProducts = async (req, res) => {
   }
 };
 
+// Get products with latest purchase pricing for purchase orders
+const getProductsWithPricing = async (req, res) => {
+  try {
+    const products = await Product.find({}).sort({ product_name: 1 });
+
+    // For each product, get the latest purchase details
+    const productsWithPricing = await Promise.all(
+      products.map(async (product) => {
+        // Get the latest purchase item for this product
+        const latestPurchaseItem = await PurchaseItem.findOne()
+          .populate({
+            path: 'batch_id',
+            match: { product_id: product._id },
+            select: 'product_id'
+          })
+          .sort({ createdAt: -1 })
+          .exec();
+
+        // Calculate average purchase rate from all purchase items for this product
+        const purchaseItems = await PurchaseItem.find()
+          .populate({
+            path: 'batch_id',
+            match: { product_id: product._id }
+          })
+          .exec();
+
+        const validItems = purchaseItems.filter(item => item.batch_id);
+        const avgPurchaseRate = validItems.length > 0 
+          ? validItems.reduce((sum, item) => sum + item.purchase_rate, 0) / validItems.length 
+          : 0;
+
+        return {
+          _id: product._id,
+          product_name: product.product_name,
+          category: product.category,
+          hsn_code: product.hsn_code,
+          description: product.description,
+          latestPurchaseRate: latestPurchaseItem?.purchase_rate || 0,
+          latestTaxRate: latestPurchaseItem?.tax_percent || 0,
+          avgPurchaseRate: avgPurchaseRate
+        };
+      })
+    );
+
+    res.json(productsWithPricing);
+  } catch (error) {
+    console.error('Error fetching products with pricing:', error);
+    res.status(500).json({ message: 'Error fetching products with pricing', error: error.message });
+  }
+};
+
 module.exports = {
   searchProducts,
   createProduct,
   getProducts,
-  getProductBatches
+  getProductBatches,
+  getProductsWithPricing
 };

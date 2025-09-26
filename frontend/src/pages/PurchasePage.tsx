@@ -58,6 +58,14 @@ const PurchasePage = () => {
       path: "/purchases/create-order",
       color: "bg-green-50 border-green-200 hover:bg-green-100",
       buttonColor: "bg-green-600 hover:bg-green-700"
+    },
+    {
+      title: "View Purchase Orders",
+      description: "View, manage and download all purchase orders",
+      icon: "📄",
+      path: "/purchases/orders",
+      color: "bg-purple-50 border-purple-200 hover:bg-purple-100", 
+      buttonColor: "bg-purple-600 hover:bg-purple-700"
     }
   ];
 
@@ -268,7 +276,7 @@ const PurchasePage = () => {
         )}
 
         {/* Purchase Options */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           {purchaseOptions.map((option, index) => (
             <Card 
               key={index} 
