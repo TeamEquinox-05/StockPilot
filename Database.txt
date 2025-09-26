@@ -1,0 +1,100 @@
+===================================
+   StockPilot - Database Schema
+===================================
+
+----------------------
+1. Vendors
+----------------------
+Table: Vendors
+    vendor_id       // Primary Key 👑
+    vendor_name
+    phone
+    email
+    address
+    gst_number      // Optional (compliance)
+    payment_terms   // e.g., Net 15 / Net 30
+
+
+----------------------
+2. Customers
+----------------------
+Table: Customers
+    customer_id     // Primary Key 👑
+    customer_name
+    phone
+    email
+    address
+    gst_number      // Optional (if business customer)
+
+
+----------------------
+3. Products
+----------------------
+Table: Products
+    product_id      // Primary Key 👑
+    product_name
+    category
+    hsn_code        // Optional (for GST compliance)
+    description
+
+
+----------------------
+4. Product_Batches
+----------------------
+Table: Product_Batches
+    batch_id        // Primary Key 👑
+    product_id      // FK → Products.product_id
+    batch_number
+    barcode
+    expiry_date     // NULL if not applicable
+    mrp             // Same as selling price (as per your rule)
+    quantity_in_stock
+
+
+----------------------
+5. Purchases
+----------------------
+Table: Purchases
+    purchase_id     // Primary Key 👑
+    vendor_id      // FK → Vendors.vendor_id
+    bill no       
+    purchase_date
+    total_amount
+    payment_status  // Pending / Paid / Partial
+
+
+----------------------
+6. Purchase_Items
+----------------------
+Table: Purchase_Items
+    purchase_item_id    // Primary Key 👑
+    purchase_id         // FK → Purchases.purchase_id
+    batch_id            // FK → Product_Batches.batch_id
+    quantity
+    purchase_rate
+    tax_percent
+    discount_percent
+
+
+----------------------
+7. Sales
+----------------------
+Table: Sales
+    sale_id         // Primary Key 👑
+    customer_id     // FK → Customers.customer_id
+    sale_date
+    total_amount
+    payment_mode  // UPI / CARD / CASH
+
+
+----------------------
+8. Sale_Items
+----------------------
+Table: Sale_Items
+    sale_item_id    // Primary Key 👑
+    sale_id         // FK → Sales.sale_id
+    batch_id        // FK → Product_Batches.batch_id
+    quantity
+    mrp             // Selling price (same as batch MRP)
+    tax_percent
+    discount_percent

@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import Inventory from './pages/Inventory';
 import Sales from './pages/Sales';
 import Purchases from './pages/Purchases';
+import Vendors from './pages/Vendors';
 import ProtectedRoute from './components/ProtectedRoute';
 import AuthRouter from './components/AuthRouter';
 
@@ -35,6 +36,11 @@ const AppRouter = () => (
         <Route path="/purchases" element={
           <ProtectedRoute>
             <Purchases />
+          </ProtectedRoute>
+        } />
+        <Route path="/vendors" element={
+          <ProtectedRoute>
+            <Vendors />
           </ProtectedRoute>
         } />
       </Routes>

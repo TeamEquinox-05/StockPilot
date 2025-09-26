@@ -18,6 +18,7 @@ const Sidebar = () => {
     { id: 'inventory', label: 'Inventory', icon: '', path: '/inventory' },
     { id: 'sales', label: 'Sales', icon: '', path: '/sales' },
     { id: 'purchases', label: 'Purchases', icon: '', path: '/purchases' },
+    { id: 'vendors', label: 'Vendors', icon: '', path: '/vendors' },
     { id: 'integrations', label: 'Integrations', icon: '', path: '/integrations' },
     { id: 'channels', label: 'Active Channels', icon: '', path: '/channels' },
     { id: 'reports', label: 'Reports', icon: '', path: '/reports' },
