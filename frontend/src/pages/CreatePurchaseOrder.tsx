@@ -37,6 +37,19 @@ interface Product {
   avgPurchaseRate?: number;
 }
 
+interface LowStockProduct {
+  _id: string;
+  product_name: string;
+  category: string;
+  hsn_code: string;
+  description: string;
+  currentStock: number;
+  latestPurchaseRate?: number;
+  latestTaxRate?: number;
+  avgPurchaseRate?: number;
+  stockStatus: 'Out of Stock' | 'Critical' | 'Low Stock';
+}
+
 const CreatePurchaseOrder = () => {
   const navigate = useNavigate();
   const [orderItems, setOrderItems] = useState<PurchaseOrderItem[]>([]);
@@ -49,6 +62,11 @@ const CreatePurchaseOrder = () => {
   const [showProductSuggestions, setShowProductSuggestions] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   
+  // Low stock products states
+  const [lowStockProducts, setLowStockProducts] = useState<LowStockProduct[]>([]);
+  const [showLowStockSuggestions, setShowLowStockSuggestions] = useState(true);
+  const [lowStockLoading, setLowStockLoading] = useState(false);
+  
   // Form states
   const [orderNumber, setOrderNumber] = useState('');
   const [orderDate, setOrderDate] = useState('');
@@ -60,6 +78,10 @@ const CreatePurchaseOrder = () => {
   // Loading states
   const [isLoading, setIsLoading] = useState(false);
   const [vendorsLoading, setVendorsLoading] = useState(true);
+
+  // Notification states
+  const [sendWhatsApp, setSendWhatsApp] = useState(false);
+  const [sendEmail, setSendEmail] = useState(false);
 
   // Item form state
   const [newItem, setNewItem] = useState<PurchaseOrderItem>({
@@ -77,6 +99,7 @@ const CreatePurchaseOrder = () => {
   useEffect(() => {
     fetchVendors();
     fetchProducts();
+    fetchLowStockProducts();
     generateOrderNumber();
     setOrderDate(new Date().toISOString().split('T')[0]);
     setExpectedDelivery(new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]);
@@ -136,6 +159,21 @@ const CreatePurchaseOrder = () => {
     }
   };
 
+  const fetchLowStockProducts = async () => {
+    setLowStockLoading(true);
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/products/low-stock?threshold=5`);
+      if (response.ok) {
+        const data = await response.json();
+        setLowStockProducts(data);
+      }
+    } catch (error) {
+      console.error('Error fetching low stock products:', error);
+    } finally {
+      setLowStockLoading(false);
+    }
+  };
+
   // Filter products based on search term
   useEffect(() => {
     if (productSearchTerm.length >= 2) {
@@ -169,6 +207,35 @@ const CreatePurchaseOrder = () => {
     const baseRate = (product.latestPurchaseRate || product.avgPurchaseRate || 0);
     const taxRate = (product.latestTaxRate || 0);
     return Math.round((baseRate * (1 + taxRate / 100)) * 100) / 100; // Round to 2 decimal places
+  };
+
+  // Handle low stock product selection
+  const selectLowStockProduct = (product: LowStockProduct) => {
+    const calculatedPrice = calculateLowStockProductPrice(product);
+    const suggestedQuantity = Math.max(10 - product.currentStock, 5); // Suggest quantity to bring stock to 10
+    
+    setProductSearchTerm(product.product_name);
+    setNewItem(prev => ({
+      ...prev,
+      productName: product.product_name,
+      description: product.description || product.category,
+      estimatedRate: calculatedPrice,
+      quantity: suggestedQuantity
+    }));
+    setShowLowStockSuggestions(false);
+    
+    // Scroll to the form
+    const formElement = document.getElementById('item-form');
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
+  // Calculate low stock product price including taxes
+  const calculateLowStockProductPrice = (product: LowStockProduct) => {
+    const baseRate = (product.latestPurchaseRate || product.avgPurchaseRate || 0);
+    const taxRate = (product.latestTaxRate || 0);
+    return Math.round((baseRate * (1 + taxRate / 100)) * 100) / 100;
   };
 
   // Calculate item amount when quantity or rate changes
@@ -253,7 +320,11 @@ const CreatePurchaseOrder = () => {
       terms,
       items: orderItems,
       totalAmount: calculateTotal(),
-      status: 'Draft'
+      status: 'Draft',
+      notifications: {
+        whatsapp: sendWhatsApp,
+        email: sendEmail
+      }
     };
 
     try {
@@ -267,14 +338,55 @@ const CreatePurchaseOrder = () => {
       });
 
       if (response.ok) {
-        await response.json();
-        alert('Purchase Order created successfully!');
+        const result = await response.json();
+        
+        // Show success message with notification status
+        let message = 'Purchase Order created successfully!';
+        let hasErrors = false;
+        
+        if (result.notifications) {
+          if (result.notifications.whatsapp) {
+            if (result.notifications.whatsapp.success) {
+              message += '\n\n✅ WhatsApp: Message sent to vendor successfully!';
+            } else {
+              hasErrors = true;
+              const error = result.notifications.whatsapp.error;
+              if (error.includes('WhatsApp Channel Error')) {
+                message += '\n\n📱 WhatsApp Setup Required:';
+                message += '\n• Use Twilio sandbox number: +1 415 523 8886';
+                message += '\n• Vendor must send "join <code>" to that number first';
+                message += '\n• Check WHATSAPP_QUICKFIX.md for detailed setup';
+              } else {
+                message += '\n\n❌ WhatsApp failed: ' + error;
+              }
+            }
+          }
+          
+          if (result.notifications.email) {
+            if (result.notifications.email.success) {
+              message += '\n\n✅ Email: Purchase order sent with PDF attachment!';
+            } else {
+              hasErrors = true;
+              message += '\n\n❌ Email failed: ' + result.notifications.email.error;
+              message += '\n• Check your email configuration in .env file';
+            }
+          }
+        }
+        
+        if (hasErrors) {
+          message += '\n\n💡 Note: Purchase order was created successfully.';
+          message += '\nOnly the notifications had issues.';
+        }
+        
+        alert(message);
         
         // Reset form
         setOrderItems([]);
         setSelectedVendor(null);
         setNotes('');
         setTerms('');
+        setSendWhatsApp(false);
+        setSendEmail(false);
         generateOrderNumber();
         
         // Navigate back to purchases page
@@ -436,12 +548,131 @@ const CreatePurchaseOrder = () => {
             </CardContent>
           </Card>
 
+          {/* Low Stock Suggestions */}
+          {(lowStockProducts.length > 0 || lowStockLoading) && (
+            <Card className="border-orange-200 bg-orange-50">
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <CardTitle className="flex items-center space-x-2 text-orange-800">
+                    <span>⚠️</span>
+                    <span>Low Stock Alert - Quick Add</span>
+                    <span className="text-sm font-normal text-orange-600">
+                      ({lowStockProducts.length} items need restocking)
+                    </span>
+                  </CardTitle>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setShowLowStockSuggestions(!showLowStockSuggestions)}
+                    className="text-orange-700 border-orange-300 hover:bg-orange-100"
+                  >
+                    {showLowStockSuggestions ? 'Hide' : 'Show'} Suggestions
+                  </Button>
+                </div>
+              </CardHeader>
+              {showLowStockSuggestions && (
+                <CardContent>
+                  {lowStockLoading ? (
+                    <div className="flex items-center justify-center py-8">
+                      <div className="text-center">
+                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-600 mx-auto mb-2"></div>
+                        <p className="text-sm text-gray-600">Checking for low stock items...</p>
+                      </div>
+                    </div>
+                  ) : lowStockProducts.length === 0 ? (
+                    <div className="text-center py-8">
+                      <div className="text-4xl mb-2">✅</div>
+                      <h3 className="text-lg font-medium text-gray-900 mb-2">All Products Well Stocked!</h3>
+                      <p className="text-gray-600">No products are running low on stock at the moment.</p>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {lowStockProducts.slice(0, 6).map((product) => (
+                      <div
+                        key={product._id}
+                        className="border border-gray-200 rounded-lg p-3 cursor-pointer transition-all hover:border-orange-400 hover:bg-white hover:shadow-md"
+                        onClick={() => selectLowStockProduct(product)}
+                      >
+                        <div className="flex items-start justify-between mb-2">
+                          <div className="flex-1 min-w-0">
+                            <h4 className="text-sm font-semibold text-gray-900 truncate">
+                              {product.product_name}
+                            </h4>
+                            <p className="text-xs text-gray-600 truncate">
+                              {product.category}
+                            </p>
+                          </div>
+                          <span
+                            className={`ml-2 px-2 py-1 text-xs rounded-full flex-shrink-0 ${
+                              product.stockStatus === 'Out of Stock'
+                                ? 'bg-red-100 text-red-800'
+                                : product.stockStatus === 'Critical'
+                                ? 'bg-red-100 text-red-700'
+                                : 'bg-yellow-100 text-yellow-800'
+                            }`}
+                          >
+                            {product.stockStatus}
+                          </span>
+                        </div>
+                        
+                        <div className="space-y-1">
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs text-gray-500">Current Stock:</span>
+                            <span className="text-xs font-medium text-gray-900">
+                              {product.currentStock} units
+                            </span>
+                          </div>
+                          {product.latestPurchaseRate && (
+                            <div className="flex justify-between items-center">
+                              <span className="text-xs text-gray-500">Last Rate:</span>
+                              <span className="text-xs font-medium text-green-600">
+                                ₹{product.latestPurchaseRate.toLocaleString('en-IN')}
+                              </span>
+                            </div>
+                          )}
+                          <div className="flex justify-between items-center">
+                            <span className="text-xs text-gray-500">Suggested Qty:</span>
+                            <span className="text-xs font-medium text-blue-600">
+                              {Math.max(10 - product.currentStock, 5)} units
+                            </span>
+                          </div>
+                        </div>
+                        
+                        <div className="mt-2 pt-2 border-t border-gray-100">
+                          <div className="flex items-center justify-center text-xs text-orange-600 font-medium">
+                            <span className="mr-1">👆</span>
+                            Click to add to order
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                    </div>
+                  )}
+                  
+                  {!lowStockLoading && lowStockProducts.length > 6 && (
+                    <div className="mt-4 text-center">
+                      <Button
+                        variant="outline"
+                        onClick={() => {
+                          // Show more products or navigate to full inventory
+                        }}
+                        className="text-orange-700 border-orange-300 hover:bg-orange-100"
+                      >
+                        View All {lowStockProducts.length} Low Stock Items
+                      </Button>
+                    </div>
+                  )}
+                </CardContent>
+              )}
+            </Card>
+          )}
+
           {/* Add Items */}
           <Card>
             <CardHeader>
               <CardTitle>Add Items</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent id="item-form">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-4">
                 <div className="relative">
                   <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -697,6 +928,113 @@ const CreatePurchaseOrder = () => {
                   />
                 </div>
               </div>
+            </CardContent>
+          </Card>
+
+          {/* Notification Options */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <span>📱</span>
+                <span>Send Notifications</span>
+              </CardTitle>
+              <p className="text-sm text-gray-600">
+                Choose how to notify the vendor about this purchase order
+              </p>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                    <input
+                      type="checkbox"
+                      id="whatsapp-notification"
+                      checked={sendWhatsApp}
+                      onChange={(e) => setSendWhatsApp(e.target.checked)}
+                      className="w-5 h-5 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2"
+                    />
+                    <div className="flex-1">
+                      <label htmlFor="whatsapp-notification" className="flex items-center cursor-pointer">
+                        <span className="text-2xl mr-3">💬</span>
+                        <div>
+                          <div className="text-sm font-medium text-gray-900">WhatsApp Message</div>
+                          <div className="text-xs text-gray-500">
+                            Send purchase order details via WhatsApp
+                            {selectedVendor?.phone && (
+                              <span className="block text-green-600">📞 {selectedVendor.phone}</span>
+                            )}
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                    <input
+                      type="checkbox"
+                      id="email-notification"
+                      checked={sendEmail}
+                      onChange={(e) => setSendEmail(e.target.checked)}
+                      className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+                    />
+                    <div className="flex-1">
+                      <label htmlFor="email-notification" className="flex items-center cursor-pointer">
+                        <span className="text-2xl mr-3">📧</span>
+                        <div>
+                          <div className="text-sm font-medium text-gray-900">Email Notification</div>
+                          <div className="text-xs text-gray-500">
+                            Send detailed purchase order via email with PDF attachment
+                            {selectedVendor?.email && (
+                              <span className="block text-blue-600">✉️ {selectedVendor.email}</span>
+                            )}
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {!selectedVendor && (
+                <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-md">
+                  <p className="text-sm text-yellow-800">
+                    ⚠️ Please select a vendor first to see their contact information for notifications.
+                  </p>
+                </div>
+              )}
+
+              {selectedVendor && (!selectedVendor.phone || !selectedVendor.email) && (
+                <div className="mt-4 p-3 bg-orange-50 border border-orange-200 rounded-md">
+                  <p className="text-sm text-orange-800">
+                    ⚠️ Some contact information is missing for the selected vendor:
+                    {!selectedVendor.phone && <span className="block">• WhatsApp requires phone number</span>}
+                    {!selectedVendor.email && <span className="block">• Email requires email address</span>}
+                  </p>
+                </div>
+              )}
+
+              {sendWhatsApp && (
+                <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-md">
+                  <p className="text-sm text-yellow-800">
+                    📱 <strong>WhatsApp Setup Required:</strong>
+                  </p>
+                  <ul className="text-xs text-yellow-700 mt-2 ml-4 list-disc">
+                    <li>Vendor must first send "join &lt;code&gt;" to +1 415 523 8886</li>
+                    <li>Check WHATSAPP_QUICKFIX.md for complete setup instructions</li>
+                    <li>If setup is incomplete, WhatsApp notification may fail</li>
+                  </ul>
+                </div>
+              )}
+
+              {(sendWhatsApp || sendEmail) && selectedVendor && (
+                <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-md">
+                  <p className="text-sm text-blue-800">
+                    ℹ️ Selected notifications will be sent automatically after the purchase order is created successfully.
+                  </p>
+                </div>
+              )}
             </CardContent>
           </Card>
 

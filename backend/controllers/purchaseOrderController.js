@@ -1,6 +1,7 @@
 const PurchaseOrder = require('../models/PurchaseOrder');
 const Vendor = require('../models/Vendor');
 const { generatePurchaseOrderNumber } = require('../utils/sequenceGenerator');
+const { sendPurchaseOrderNotifications } = require('../utils/twilioIntegration');
 
 // Create a new purchase order
 const createPurchaseOrder = async (req, res) => {
@@ -13,7 +14,8 @@ const createPurchaseOrder = async (req, res) => {
       status = 'Draft',
       items,
       notes = '',
-      terms = ''
+      terms = '',
+      notifications = { whatsapp: false, email: false }
     } = req.body;
 
     // Validate required fields (orderNumber is now auto-generated)
@@ -71,11 +73,25 @@ const createPurchaseOrder = async (req, res) => {
 
     // Return purchase order with populated vendor data
     const completePurchaseOrder = await PurchaseOrder.findById(savedPurchaseOrder._id)
-      .populate('vendor_id', 'vendor_name phone email address');
+      .populate('vendor_id', 'vendor_name phone email address gst_number payment_terms');
+
+    let notificationResults = null;
+
+    // Send notifications if requested
+    if (notifications.whatsapp || notifications.email) {
+      try {
+        console.log('Sending notifications:', notifications);
+        notificationResults = await sendPurchaseOrderNotifications(completePurchaseOrder, notifications);
+      } catch (notificationError) {
+        console.error('Error sending notifications:', notificationError);
+        // Don't fail the entire request if notifications fail
+      }
+    }
 
     res.status(201).json({
       purchaseOrder: completePurchaseOrder,
-      message: 'Purchase order created successfully'
+      message: 'Purchase order created successfully',
+      notifications: notificationResults
     });
 
   } catch (error) {
@@ -358,6 +374,24 @@ const getNextPurchaseOrderNumber = async (req, res) => {
   }
 };
 
+// Test notification services
+const testNotificationServices = async (req, res) => {
+  try {
+    const { testTwilioConnection, testEmailConnection } = require('../utils/twilioIntegration');
+    
+    const twilioTest = await testTwilioConnection();
+    const emailTest = await testEmailConnection();
+
+    res.json({
+      twilio: twilioTest,
+      email: emailTest
+    });
+  } catch (error) {
+    console.error('Error testing notification services:', error);
+    res.status(500).json({ message: 'Error testing notification services', error: error.message });
+  }
+};
+
 module.exports = {
   createPurchaseOrder,
   getPurchaseOrders,
@@ -366,5 +400,6 @@ module.exports = {
   updatePurchaseOrder,
   deletePurchaseOrder,
   getPurchaseOrderStats,
-  getNextPurchaseOrderNumber
+  getNextPurchaseOrderNumber,
+  testNotificationServices
 };
