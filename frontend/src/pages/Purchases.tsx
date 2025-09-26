@@ -45,30 +45,7 @@ interface Product {
 }
 
 const Purchases = () => {
-  const [purchaseItems, setPurchaseItems] = useState<PurchaseItem[]>([
-    {
-      id: '1',
-      name: 'Paracetamol 500mg',
-      batch: 'B123',
-      qty: 10,
-      purchaseRate: 12.5,
-      tax: 5,
-      mrp: 20,
-      discount: 2,
-      amount: 125
-    },
-    {
-      id: '2',
-      name: 'Vitamin C Tablets',
-      batch: 'V456',
-      qty: 5,
-      purchaseRate: 30,
-      tax: 12,
-      mrp: 40,
-      discount: 0,
-      amount: 150
-    }
-  ]);
+  const [purchaseItems, setPurchaseItems] = useState<PurchaseItem[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
   const [newProduct, setNewProduct] = useState({
@@ -97,6 +74,9 @@ const Purchases = () => {
   const [showProductDropdown, setShowProductDropdown] = useState(false);
   const [isNewProduct, setIsNewProduct] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [originalBatch, setOriginalBatch] = useState('');
+  const [isAutoFilling, setIsAutoFilling] = useState(false);
+  const [pendingAutofill, setPendingAutofill] = useState<Product | null>(null);
 
   // Fetch vendors from backend
   const fetchVendors = async () => {
@@ -147,30 +127,25 @@ const Purchases = () => {
     setProductSearchTerm(product.product_name);
     setShowProductDropdown(false);
     setIsNewProduct(false);
+    setIsAutoFilling(true);
     
-    // Fill form with latest details if available
-    if (product.latestDetails) {
-      setNewProduct(prev => ({
-        ...prev,
-        name: product.product_name,
-        batch: product.latestDetails?.batch_number || '',
-        purchaseRate: product.latestDetails?.purchase_rate || 0,
-        tax: product.latestDetails?.tax_percent || 0,
-        mrp: product.latestDetails?.mrp || 0,
-        discount: product.latestDetails?.discount_percent || 0
-      }));
-    } else {
-      setNewProduct(prev => ({
-        ...prev,
-        name: product.product_name
-      }));
-    }
+    // Set pending autofill to be processed in useEffect
+    setPendingAutofill(product);
+  };
+
+  // Generate unique barcode using timestamp (numbers only)
+  const generateBarcode = () => {
+    const timestamp = Date.now();
+    const randomSuffix = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+    const barcode = `${timestamp}${randomSuffix}`;
+    setNewProduct(prev => ({ ...prev, barcode }));
   };
 
   // Handle new product creation
   const handleNewProduct = () => {
     setIsNewProduct(true);
     setSelectedProduct(null);
+    setOriginalBatch('');
     setNewProduct(prev => ({
       ...prev,
       name: productSearchTerm,
@@ -206,6 +181,38 @@ const Purchases = () => {
     fetchVendors();
   }, []);
 
+  // Handle pending autofill (without barcode auto-fill)
+  useEffect(() => {
+    if (pendingAutofill) {
+      if (pendingAutofill.latestDetails) {
+        const batchNumber = pendingAutofill.latestDetails?.batch_number || '';
+        
+        setNewProduct(prev => ({
+          ...prev,
+          name: pendingAutofill.product_name,
+          batch: batchNumber,
+          barcode: '', // Don't auto-fill barcode
+          purchaseRate: pendingAutofill.latestDetails?.purchase_rate || 0,
+          tax: pendingAutofill.latestDetails?.tax_percent || 0,
+          mrp: pendingAutofill.latestDetails?.mrp || 0,
+          discount: pendingAutofill.latestDetails?.discount_percent || 0
+        }));
+        setOriginalBatch(batchNumber);
+      } else {
+        setNewProduct(prev => ({
+          ...prev,
+          name: pendingAutofill.product_name,
+          batch: '',
+          barcode: ''
+        }));
+        setOriginalBatch('');
+      }
+      
+      setPendingAutofill(null);
+      setIsAutoFilling(false);
+    }
+  }, [pendingAutofill]);
+
   // Add new purchase item logic (could be a modal or inline row)
 
   return (
@@ -240,6 +247,7 @@ const Purchases = () => {
                   setProductSearchTerm('');
                   setIsNewProduct(false);
                   setSelectedProduct(null);
+                  setOriginalBatch('');
                   setModalOpen(true);
                 }}>
                   Add Product
@@ -322,15 +330,53 @@ const Purchases = () => {
                           Batch {selectedProduct && !isNewProduct && <span className="text-blue-600 text-xs">(Using existing product)</span>}
                         </label>
                         <Input ref={batchRef} type="text" placeholder="Batch number" value={newProduct.batch}
-                          onChange={e => setNewProduct(p => ({ ...p, batch: e.target.value }))}
+                          onChange={e => {
+                            const newBatch = e.target.value;
+                            
+                            // Clear barcode when batch changes from original (manual change)
+                            if (!isAutoFilling && newBatch !== originalBatch && originalBatch !== '') {
+                              setNewProduct(p => ({ ...p, batch: newBatch, barcode: '' }));
+                            } else {
+                              setNewProduct(p => ({ ...p, batch: newBatch }));
+                            }
+                          }}
                           onKeyDown={e => { if (e.key === 'Enter') qtyRef.current?.focus(); }} />
                       </div>
                       
-                      {isNewProduct && (
+                      {/* Show barcode field only for new products or when batch changed */}
+                      {(isNewProduct || (selectedProduct && originalBatch && newProduct.batch !== originalBatch)) && (
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Barcode (Optional)</label>
-                          <Input type="text" placeholder="Enter barcode manually" value={newProduct.barcode}
-                            onChange={e => setNewProduct(p => ({ ...p, barcode: e.target.value }))} />
+                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                            Barcode {isNewProduct ? '(Optional)' : '(Required for new batch)'}
+                          </label>
+                          <div className="flex gap-2">
+                            <Input 
+                              type="text" 
+                              placeholder={isNewProduct ? "Enter barcode or generate" : "Enter barcode for this batch"} 
+                              value={newProduct.barcode}
+                              onChange={e => setNewProduct(p => ({ ...p, barcode: e.target.value }))} 
+                              className="flex-1"
+                            />
+                            <Button 
+                              type="button"
+                              variant="outline" 
+                              size="sm"
+                              onClick={generateBarcode}
+                              className="whitespace-nowrap"
+                            >
+                              Generate
+                            </Button>
+                          </div>
+                          {newProduct.barcode && (
+                            <p className="text-xs text-gray-500 mt-1">
+                              {isNewProduct ? 'Generated:' : 'Barcode:'} {newProduct.barcode}
+                            </p>
+                          )}
+                          {selectedProduct && !isNewProduct && !newProduct.barcode && originalBatch && newProduct.batch !== originalBatch && (
+                            <p className="text-xs text-orange-600 mt-1">
+                              ⚠️ Barcode cleared - different batch needs new barcode
+                            </p>
+                          )}
                         </div>
                       )}
                       <div>
