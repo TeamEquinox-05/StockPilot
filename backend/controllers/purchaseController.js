@@ -221,9 +221,139 @@ const updatePaymentStatus = async (req, res) => {
   }
 };
 
+// Get recent purchase activity for dashboard
+const getRecentActivity = async (req, res) => {
+  try {
+    const limit = parseInt(req.query.limit) || 5;
+    
+    // Get recent purchases sorted by creation date (most recent first)
+    const recentPurchases = await Purchase.find({})
+      .populate('vendor_id', 'vendor_name')
+      .sort({ createdAt: -1 })
+      .limit(limit);
+
+    // Format the activity data
+    const activities = recentPurchases.map(purchase => {
+      const timeDiff = new Date() - new Date(purchase.createdAt);
+      const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+      const days = Math.floor(hours / 24);
+      
+      let timeAgo;
+      if (days > 0) {
+        timeAgo = `${days} day${days > 1 ? 's' : ''} ago`;
+      } else if (hours > 0) {
+        timeAgo = `${hours} hour${hours > 1 ? 's' : ''} ago`;
+      } else {
+        timeAgo = 'Just now';
+      }
+
+      let activityType, icon, iconColor;
+      if (purchase.payment_status === 'Paid') {
+        activityType = 'completed';
+        icon = '✅';
+        iconColor = 'green';
+      } else if (purchase.payment_status === 'Pending') {
+        activityType = 'pending';
+        icon = '⏳';
+        iconColor = 'orange';
+      } else {
+        activityType = 'partial';
+        icon = '💰';
+        iconColor = 'blue';
+      }
+
+      return {
+        id: purchase._id,
+        type: activityType,
+        title: `Purchase #${purchase.bill_no} ${purchase.payment_status === 'Paid' ? 'completed' : 'created'}`,
+        description: `Vendor: ${purchase.vendor_id.vendor_name} • Amount: ₹${purchase.total_amount.toLocaleString()}`,
+        icon,
+        iconColor,
+        timeAgo,
+        amount: purchase.total_amount,
+        vendor: purchase.vendor_id.vendor_name,
+        payment_status: purchase.payment_status
+      };
+    });
+
+    res.json({ activities });
+  } catch (error) {
+    console.error('Error fetching recent activity:', error);
+    res.status(500).json({ message: 'Error fetching recent activity', error: error.message });
+  }
+};
+
+// Get purchase statistics for dashboard
+const getPurchaseStats = async (req, res) => {
+  try {
+    const currentDate = new Date();
+    const currentMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+    
+    // Get this month's purchase total and details
+    const thisMonthPurchases = await Purchase.aggregate([
+      {
+        $match: {
+          purchase_date: { $gte: currentMonth }
+        }
+      },
+      {
+        $group: {
+          _id: null,
+          totalAmount: { $sum: '$total_amount' },
+          count: { $sum: 1 },
+          avgAmount: { $avg: '$total_amount' }
+        }
+      }
+    ]);
+
+    // Get completed orders count (paid status)
+    const completedOrders = await Purchase.countDocuments({ payment_status: 'Paid' });
+    
+    // Get pending orders count (pending or partial status)  
+    const pendingOrders = await Purchase.countDocuments({ 
+      payment_status: { $in: ['Pending', 'Partial'] } 
+    });
+
+    // Get total pending amount for pending/partial orders
+    const pendingAmount = await Purchase.aggregate([
+      {
+        $match: {
+          payment_status: { $in: ['Pending', 'Partial'] }
+        }
+      },
+      {
+        $group: {
+          _id: null,
+          totalPendingAmount: { $sum: '$total_amount' }
+        }
+      }
+    ]);
+
+    // Get total purchases count
+    const totalOrders = await Purchase.countDocuments({});
+
+    const stats = {
+      thisMonthAmount: thisMonthPurchases.length > 0 ? thisMonthPurchases[0].totalAmount : 0,
+      thisMonthCount: thisMonthPurchases.length > 0 ? thisMonthPurchases[0].count : 0,
+      avgPurchaseAmount: thisMonthPurchases.length > 0 ? thisMonthPurchases[0].avgAmount : 0,
+      completedOrders,
+      pendingOrders,
+      pendingAmount: pendingAmount.length > 0 ? pendingAmount[0].totalPendingAmount : 0,
+      totalOrders
+    };
+
+    res.json({ stats });
+  } catch (error) {
+    console.error('Error fetching purchase stats:', error);
+    res.status(500).json({ message: 'Error fetching purchase stats', error: error.message });
+  }
+};
+
 module.exports = {
   createPurchase,
   getPurchases,
   getPurchaseById,
-  updatePaymentStatus
+  updatePaymentStatus,
+  getRecentActivity,
+  getPurchaseStats
 };

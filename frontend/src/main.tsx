@@ -11,6 +11,12 @@ import Purchases from './pages/Purchases';
 import Vendors from './pages/Vendors';
 import ProtectedRoute from './components/ProtectedRoute';
 import AuthRouter from './components/AuthRouter';
+import PurchasePage from './pages/purchasepage';
+import ViewPurchases from './pages/ViewPurchases';
+import PurchaseDetailsView from './pages/PurchaseDetailsView';
+import CreatePurchaseOrder from './pages/CreatePurchaseOrder';
+import ViewPurchaseOrders from './pages/ViewPurchaseOrders';
+import PurchaseOrderDetails from './pages/PurchaseOrderDetails';
 
 const AppRouter = () => (
   <Router>
@@ -35,7 +41,37 @@ const AppRouter = () => (
         } />
         <Route path="/purchases" element={
           <ProtectedRoute>
+            <PurchasePage />
+          </ProtectedRoute>
+        } />
+        <Route path="/purchases/add" element={
+          <ProtectedRoute>
             <Purchases />
+          </ProtectedRoute>
+        } />
+        <Route path="/purchases/list" element={
+          <ProtectedRoute>
+            <ViewPurchases />
+          </ProtectedRoute>
+        } />
+        <Route path="/purchases/create-order" element={
+          <ProtectedRoute>
+            <CreatePurchaseOrder />
+          </ProtectedRoute>
+        } />
+        <Route path="/purchases/orders" element={
+          <ProtectedRoute>
+            <ViewPurchaseOrders />
+          </ProtectedRoute>
+        } />
+        <Route path="/purchase-orders/:id" element={
+          <ProtectedRoute>
+            <PurchaseOrderDetails />
+          </ProtectedRoute>
+        } />
+        <Route path="/purchases/:id" element={
+          <ProtectedRoute>
+            <PurchaseDetailsView />
           </ProtectedRoute>
         } />
         <Route path="/vendors" element={

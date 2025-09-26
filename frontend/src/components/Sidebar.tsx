@@ -28,8 +28,41 @@ const Sidebar = () => {
   // Get current active item based on current route
   const getCurrentActiveItem = () => {
     const currentPath = location.pathname;
-    const currentItem = navItems.find(item => item.path === currentPath);
-    return currentItem ? currentItem.id : 'dashboard';
+    
+    // Check for exact matches first
+    const exactMatch = navItems.find(item => item.path === currentPath);
+    if (exactMatch) {
+      return exactMatch.id;
+    }
+    
+    // Check for sub-route matches
+    if (currentPath.startsWith('/purchases')) {
+      return 'purchases';
+    }
+    if (currentPath.startsWith('/inventory')) {
+      return 'inventory';
+    }
+    if (currentPath.startsWith('/sales')) {
+      return 'sales';
+    }
+    if (currentPath.startsWith('/vendors')) {
+      return 'vendors';
+    }
+    if (currentPath.startsWith('/integrations')) {
+      return 'integrations';
+    }
+    if (currentPath.startsWith('/channels')) {
+      return 'channels';
+    }
+    if (currentPath.startsWith('/reports')) {
+      return 'reports';
+    }
+    if (currentPath.startsWith('/documents')) {
+      return 'documents';
+    }
+    
+    // Default to dashboard
+    return 'dashboard';
   };
 
   const handleItemClick = (item: NavItem) => {
