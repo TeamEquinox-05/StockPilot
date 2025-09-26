@@ -8,6 +8,7 @@ interface PurchaseItem {
   id: string;
   name: string;
   batch: string;
+  expiryDate: string;
   qty: number;
   purchaseRate: number;
   tax: number;
@@ -49,13 +50,14 @@ const Purchases = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
   const [newProduct, setNewProduct] = useState({
-    name: '', batch: '', barcode: '', qty: 1, purchaseRate: 0, tax: 0, mrp: 0, discount: 0, amount: 0
+    name: '', batch: '', barcode: '', expiryDate: '', qty: 1, purchaseRate: 0, tax: 0, mrp: 0, discount: 0, amount: 0
   });
   const [editIndex, setEditIndex] = useState<number | null>(null);
 
   // Refs for modal inputs
   const nameRef = React.useRef<HTMLInputElement>(null);
   const batchRef = React.useRef<HTMLInputElement>(null);
+  const expiryDateRef = React.useRef<HTMLInputElement>(null);
   const qtyRef = React.useRef<HTMLInputElement>(null);
   const rateRef = React.useRef<HTMLInputElement>(null);
   const taxRef = React.useRef<HTMLInputElement>(null);
@@ -175,6 +177,7 @@ const Purchases = () => {
       name: productSearchTerm,
       batch: '',
       barcode: '',
+      expiryDate: '',
       purchaseRate: 0,
       tax: 0,
       mrp: 0,
@@ -219,6 +222,7 @@ const Purchases = () => {
           name: pendingAutofill.product_name,
           batch: batchNumber,
           barcode: '', // Don't auto-fill barcode
+          expiryDate: pendingAutofill.latestDetails?.expiry_date ? new Date(pendingAutofill.latestDetails.expiry_date).toISOString().slice(0, 10) : '',
           purchaseRate: pendingAutofill.latestDetails?.purchase_rate || 0,
           tax: pendingAutofill.latestDetails?.tax_percent || 0,
           mrp: pendingAutofill.latestDetails?.mrp || 0,
@@ -230,7 +234,8 @@ const Purchases = () => {
           ...prev,
           name: pendingAutofill.product_name,
           batch: '',
-          barcode: ''
+          barcode: '',
+          expiryDate: ''
         }));
         setOriginalBatch('');
       }
@@ -270,7 +275,7 @@ const Purchases = () => {
                 </div>
                 <Button className="bg-gray-900 hover:bg-gray-800 text-white ml-3" onClick={() => {
                   setEditIndex(null);
-                  setNewProduct({ name: '', batch: '', barcode: '', qty: 1, purchaseRate: 0, tax: 0, mrp: 0, discount: 0, amount: 0 });
+                  setNewProduct({ name: '', batch: '', barcode: '', expiryDate: '', qty: 1, purchaseRate: 0, tax: 0, mrp: 0, discount: 0, amount: 0 });
                   setProductSearchTerm('');
                   setIsNewProduct(false);
                   setSelectedProduct(null);
@@ -451,6 +456,20 @@ const Purchases = () => {
                           )}
                         </div>
                       )}
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Expiry Date (Optional)
+                        </label>
+                        <Input 
+                          ref={expiryDateRef}
+                          type="date" 
+                          value={newProduct.expiryDate}
+                          onChange={e => setNewProduct(p => ({ ...p, expiryDate: e.target.value }))}
+                          onKeyDown={e => { if (e.key === 'Enter') qtyRef.current?.focus(); }}
+                        />
+                      </div>
+                      
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Qty</label>
                         <Input ref={qtyRef} type="number" min={1} placeholder="Qty" value={newProduct.qty}
@@ -542,7 +561,7 @@ const Purchases = () => {
                       ]);
                     }
                     setModalOpen(false);
-                    setNewProduct({ name: '', batch: '', barcode: '', qty: 1, purchaseRate: 0, tax: 0, mrp: 0, discount: 0, amount: 0 });
+                    setNewProduct({ name: '', batch: '', barcode: '', expiryDate: '', qty: 1, purchaseRate: 0, tax: 0, mrp: 0, discount: 0, amount: 0 });
                     setProductSearchTerm('');
                     setIsNewProduct(false);
                     setSelectedProduct(null);
@@ -624,6 +643,7 @@ const Purchases = () => {
                     <tr>
                       <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
                       <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Batch</th>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Expiry Date</th>
                       <th className="px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Qty</th>
                       <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Purchase Rate</th>
                       <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Tax</th>
@@ -642,6 +662,11 @@ const Purchases = () => {
                         </td>
                         <td className="px-4 py-3 whitespace-nowrap">
                           <div className="text-sm text-gray-500">{item.batch}</div>
+                        </td>
+                        <td className="px-4 py-3 whitespace-nowrap">
+                          <div className="text-sm text-gray-500">
+                            {item.expiryDate ? new Date(item.expiryDate).toLocaleDateString() : '-'}
+                          </div>
                         </td>
                         <td className="px-4 py-3 whitespace-nowrap text-center">
                           <span className="text-sm font-medium text-gray-900">{item.qty}</span>
@@ -675,6 +700,7 @@ const Purchases = () => {
                               name: item.name,
                               batch: item.batch,
                               barcode: '', // Will be filled if editing existing product
+                              expiryDate: item.expiryDate, // Fill with existing expiry date
                               qty: item.qty,
                               purchaseRate: item.purchaseRate,
                               tax: item.tax,
@@ -816,6 +842,7 @@ const Purchases = () => {
                           name: item.name,
                           batch: item.batch,
                           barcode: '',
+                          expiryDate: item.expiryDate,
                           qty: item.qty,
                           purchaseRate: item.purchaseRate,
                           tax: item.tax,

@@ -27,7 +27,7 @@ const createPurchase = async (req, res) => {
 
     // Process each item
     for (const item of items) {
-      const { name, batch, barcode, qty, purchaseRate, tax, mrp, discount } = item;
+      const { name, batch, barcode, expiryDate, qty, purchaseRate, tax, mrp, discount } = item;
 
       if (!name || !batch || qty <= 0 || purchaseRate < 0) {
         return res.status(400).json({ 
@@ -61,18 +61,21 @@ const createPurchase = async (req, res) => {
           product_id: product._id,
           batch_number: batch.trim(),
           barcode: barcode || '',
-          expiry_date: null,
+          expiry_date: expiryDate ? new Date(expiryDate) : null,
           mrp: mrp || 0,
           quantity_in_stock: 0
         });
         await productBatch.save();
       } else {
-        // Update MRP if provided
+        // Update fields if provided
         if (mrp && mrp > 0) {
           productBatch.mrp = mrp;
         }
         if (barcode) {
           productBatch.barcode = barcode;
+        }
+        if (expiryDate) {
+          productBatch.expiry_date = new Date(expiryDate);
         }
         await productBatch.save();
       }
