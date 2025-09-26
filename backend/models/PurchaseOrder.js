@@ -45,7 +45,7 @@ const purchaseOrderSchema = new mongoose.Schema({
   },
   vendor_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Vendor',
+    ref: 'Vendors',
     required: true
   },
   orderDate: {

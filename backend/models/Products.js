@@ -28,6 +28,6 @@ const productSchema = new mongoose.Schema({
 // Add index for better search performance
 productSchema.index({ product_name: 1, category: 1 });
 
-const Product = mongoose.model('Product', productSchema);
+const Products = mongoose.model('Products', productSchema);
 
-module.exports = Product;
+module.exports = Products;

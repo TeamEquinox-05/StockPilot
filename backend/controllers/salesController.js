@@ -1,7 +1,7 @@
-const ProductBatch = require('../models/ProductBatch');
-const Sale = require('../models/Sale');
-const SaleItem = require('../models/SaleItem');
-const Product = require('../models/Product');
+const ProductBatch = require('../models/Product_batches');
+const Sale = require('../models/Sales');
+const SaleItem = require('../models/Sale_items');
+const Product = require('../models/Products');
 
 // Search products for sales
 const searchProductsForSales = async (req, res) => {
@@ -15,7 +15,6 @@ const searchProductsForSales = async (req, res) => {
     const searchRegex = new RegExp(search, 'i');
     
     // First find products that match the search term
-    const Product = require('../models/Product');
     const matchingProducts = await Product.find({
       product_name: { $regex: searchRegex }
     });

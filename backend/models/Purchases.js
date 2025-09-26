@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const purchaseSchema = new mongoose.Schema({
   vendor_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Vendor',
+    ref: 'Vendors',
     required: true
   },
   bill_no: {
@@ -33,6 +33,6 @@ const purchaseSchema = new mongoose.Schema({
 purchaseSchema.index({ vendor_id: 1, purchase_date: -1 });
 purchaseSchema.index({ bill_no: 1 });
 
-const Purchase = mongoose.model('Purchase', purchaseSchema);
+const Purchases = mongoose.model('Purchases', purchaseSchema);
 
-module.exports = Purchase;
+module.exports = Purchases;

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const saleItemSchema = new mongoose.Schema({
   sale_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Sale',
+    ref: 'Sales',
     required: true
   },
   product_name: {
@@ -50,4 +50,4 @@ const saleItemSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('SaleItem', saleItemSchema);
+module.exports = mongoose.model('Sale_items', saleItemSchema);

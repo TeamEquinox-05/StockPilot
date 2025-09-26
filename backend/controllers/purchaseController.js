@@ -1,8 +1,8 @@
-const Purchase = require('../models/Purchase');
-const PurchaseItem = require('../models/PurchaseItem');
-const Product = require('../models/Product');
-const ProductBatch = require('../models/ProductBatch');
-const Vendor = require('../models/Vendor');
+const Purchase = require('../models/Purchases');
+const PurchaseItem = require('../models/Purchase_items');
+const Product = require('../models/Products');
+const ProductBatch = require('../models/Product_batches');
+const Vendor = require('../models/Vendors');
 
 // Create complete purchase with items and batches
 const createPurchase = async (req, res) => {

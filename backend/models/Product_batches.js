@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const productBatchSchema = new mongoose.Schema({
   product_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Product',
+    ref: 'Products',
     required: true
   },
   batch_number: {
@@ -43,6 +43,6 @@ const productBatchSchema = new mongoose.Schema({
 productBatchSchema.index({ product_id: 1, batch_number: 1 });
 productBatchSchema.index({ barcode: 1 });
 
-const ProductBatch = mongoose.model('ProductBatch', productBatchSchema);
+const Product_batches = mongoose.model('Product_batches', productBatchSchema);
 
-module.exports = ProductBatch;
+module.exports = Product_batches;

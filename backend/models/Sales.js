@@ -59,4 +59,4 @@ const saleSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Sale', saleSchema);
+module.exports = mongoose.model('Sales', saleSchema);

@@ -39,6 +39,6 @@ const vendorSchema = new mongoose.Schema({
 // Add index for better search performance
 vendorSchema.index({ vendor_name: 1, email: 1 });
 
-const Vendor = mongoose.model('Vendor', vendorSchema);
+const Vendors = mongoose.model('Vendors', vendorSchema);
 
-module.exports = Vendor;
+module.exports = Vendors;

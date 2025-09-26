@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const purchaseItemSchema = new mongoose.Schema({
   purchase_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Purchase',
+    ref: 'Purchases',
     required: true
   },
   batch_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'ProductBatch',
+    ref: 'Product_batches',
     required: true
   },
   quantity: {
@@ -39,6 +39,6 @@ const purchaseItemSchema = new mongoose.Schema({
 purchaseItemSchema.index({ purchase_id: 1 });
 purchaseItemSchema.index({ batch_id: 1 });
 
-const PurchaseItem = mongoose.model('PurchaseItem', purchaseItemSchema);
+const Purchase_items = mongoose.model('Purchase_items', purchaseItemSchema);
 
-module.exports = PurchaseItem;
+module.exports = Purchase_items;

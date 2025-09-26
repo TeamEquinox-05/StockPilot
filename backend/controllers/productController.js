@@ -1,6 +1,6 @@
-const Product = require('../models/Product');
-const ProductBatch = require('../models/ProductBatch');
-const PurchaseItem = require('../models/PurchaseItem');
+const Product = require('../models/Products');
+const ProductBatch = require('../models/Product_batches');
+const PurchaseItem = require('../models/Purchase_items');
 
 // Search products with latest purchase details
 const searchProducts = async (req, res) => {

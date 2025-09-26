@@ -1,5 +1,5 @@
 const PurchaseOrder = require('../models/PurchaseOrder');
-const Vendor = require('../models/Vendor');
+const Vendor = require('../models/Vendors');
 const { generatePurchaseOrderNumber } = require('../utils/sequenceGenerator');
 const { sendPurchaseOrderNotifications } = require('../utils/twilioIntegration');
 

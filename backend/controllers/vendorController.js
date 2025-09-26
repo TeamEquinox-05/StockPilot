@@ -1,4 +1,4 @@
-const Vendor = require('../models/Vendor');
+const Vendor = require('../models/Vendors');
 
 // Get all vendors
 const getVendors = async (req, res) => {
