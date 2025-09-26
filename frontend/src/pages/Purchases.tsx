@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
@@ -46,6 +47,7 @@ interface Product {
 }
 
 const Purchases = () => {
+  const navigate = useNavigate();
   const [purchaseItems, setPurchaseItems] = useState<PurchaseItem[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
@@ -258,8 +260,16 @@ const Purchases = () => {
           <div className="flex-1 flex flex-col">
             {/* Header */}
             <div className="mb-6">
+              <Button
+                variant="outline"
+                onClick={() => navigate('/purchases')}
+                className="mb-4 flex items-center space-x-2"
+              >
+                <span>←</span>
+                <span>Back to Purchase Management</span>
+              </Button>
               <div className="flex items-center justify-between">
-                <h1 className="text-3xl font-bold text-gray-900">Purchases</h1>
+                <h1 className="text-3xl font-bold text-gray-900">Add New Purchase</h1>
                 <div className="relative w-full max-w-md">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
