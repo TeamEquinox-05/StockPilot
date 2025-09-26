@@ -25,6 +25,11 @@ const productBatchSchema = new mongoose.Schema({
     required: true,
     min: 0
   },
+  tax_rate: {
+    type: Number,
+    default: 0,
+    min: 0
+  },
   quantity_in_stock: {
     type: Number,
     default: 0,

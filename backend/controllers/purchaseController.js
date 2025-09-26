@@ -63,6 +63,7 @@ const createPurchase = async (req, res) => {
           barcode: barcode || '',
           expiry_date: expiryDate ? new Date(expiryDate) : null,
           mrp: mrp || 0,
+          tax_rate: tax || 0,
           quantity_in_stock: 0
         });
         await productBatch.save();
@@ -70,6 +71,9 @@ const createPurchase = async (req, res) => {
         // Update fields if provided
         if (mrp && mrp > 0) {
           productBatch.mrp = mrp;
+        }
+        if (tax) {
+          productBatch.tax_rate = tax;
         }
         if (barcode) {
           productBatch.barcode = barcode;
