@@ -11,7 +11,7 @@ import Purchases from './pages/Purchases';
 import Vendors from './pages/Vendors';
 import ProtectedRoute from './components/ProtectedRoute';
 import AuthRouter from './components/AuthRouter';
-import PurchasePage from './pages/purchasepage';
+import PurchasePage from './pages/PurchasePage';
 import ViewPurchases from './pages/ViewPurchases';
 import PurchaseDetailsView from './pages/PurchaseDetailsView';
 import CreatePurchaseOrder from './pages/CreatePurchaseOrder';
