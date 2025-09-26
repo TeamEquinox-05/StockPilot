@@ -26,6 +26,24 @@ interface Vendor {
   payment_terms: string;
 }
 
+interface Product {
+  _id: string;
+  product_name: string;
+  category: string;
+  hsn_code: string;
+  description: string;
+  isNewProduct: boolean;
+  latestDetails?: {
+    batch_number: string;
+    barcode: string;
+    mrp: number;
+    expiry_date?: string;
+    purchase_rate: number;
+    tax_percent: number;
+    discount_percent: number;
+  };
+}
+
 const Purchases = () => {
   const [purchaseItems, setPurchaseItems] = useState<PurchaseItem[]>([
     {
@@ -54,7 +72,7 @@ const Purchases = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
   const [newProduct, setNewProduct] = useState({
-    name: '', batch: '', qty: 1, purchaseRate: 0, tax: 0, mrp: 0, discount: 0, amount: 0
+    name: '', batch: '', barcode: '', qty: 1, purchaseRate: 0, tax: 0, mrp: 0, discount: 0, amount: 0
   });
   const [editIndex, setEditIndex] = useState<number | null>(null);
 
@@ -72,6 +90,13 @@ const Purchases = () => {
   const [showVendorDropdown, setShowVendorDropdown] = useState(false);
   const [date, setDate] = useState(() => new Date().toISOString().slice(0, 10));
   const [billNo, setBillNo] = useState('');
+  
+  // Product autocomplete states
+  const [products, setProducts] = useState<Product[]>([]);
+  const [productSearchTerm, setProductSearchTerm] = useState('');
+  const [showProductDropdown, setShowProductDropdown] = useState(false);
+  const [isNewProduct, setIsNewProduct] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   // Fetch vendors from backend
   const fetchVendors = async () => {
@@ -98,12 +123,76 @@ const Purchases = () => {
     setShowVendorDropdown(false);
   };
 
+  // Search products from backend
+  const searchProducts = async (searchTerm: string) => {
+    if (searchTerm.length < 2) {
+      setProducts([]);
+      return;
+    }
+    
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/products/search?search=${encodeURIComponent(searchTerm)}`);
+      if (response.ok) {
+        const data = await response.json();
+        setProducts(data);
+      }
+    } catch (error) {
+      console.error('Error searching products:', error);
+    }
+  };
+
+  // Handle product selection
+  const handleProductSelect = (product: Product) => {
+    setSelectedProduct(product);
+    setProductSearchTerm(product.product_name);
+    setShowProductDropdown(false);
+    setIsNewProduct(false);
+    
+    // Fill form with latest details if available
+    if (product.latestDetails) {
+      setNewProduct(prev => ({
+        ...prev,
+        name: product.product_name,
+        batch: product.latestDetails?.batch_number || '',
+        purchaseRate: product.latestDetails?.purchase_rate || 0,
+        tax: product.latestDetails?.tax_percent || 0,
+        mrp: product.latestDetails?.mrp || 0,
+        discount: product.latestDetails?.discount_percent || 0
+      }));
+    } else {
+      setNewProduct(prev => ({
+        ...prev,
+        name: product.product_name
+      }));
+    }
+  };
+
+  // Handle new product creation
+  const handleNewProduct = () => {
+    setIsNewProduct(true);
+    setSelectedProduct(null);
+    setNewProduct(prev => ({
+      ...prev,
+      name: productSearchTerm,
+      batch: '',
+      barcode: '',
+      purchaseRate: 0,
+      tax: 0,
+      mrp: 0,
+      discount: 0
+    }));
+    setShowProductDropdown(false);
+  };
+
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
       if (!target.closest('.vendor-autocomplete')) {
         setShowVendorDropdown(false);
+      }
+      if (!target.closest('.product-autocomplete')) {
+        setShowProductDropdown(false);
       }
     };
 
@@ -147,7 +236,10 @@ const Purchases = () => {
                 </div>
                 <Button className="bg-gray-900 hover:bg-gray-800 text-white ml-3" onClick={() => {
                   setEditIndex(null);
-                  setNewProduct({ name: '', batch: '', qty: 1, purchaseRate: 0, tax: 0, mrp: 0, discount: 0, amount: 0 });
+                  setNewProduct({ name: '', batch: '', barcode: '', qty: 1, purchaseRate: 0, tax: 0, mrp: 0, discount: 0, amount: 0 });
+                  setProductSearchTerm('');
+                  setIsNewProduct(false);
+                  setSelectedProduct(null);
                   setModalOpen(true);
                 }}>
                   Add Product
@@ -164,18 +256,83 @@ const Purchases = () => {
                   <h2 className="text-xl font-bold mb-4 text-gray-900">Add Product</h2>
                   <div className="space-y-3">
                     <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                        <Input ref={nameRef} type="text" placeholder="Name" value={newProduct.name}
-                          onChange={e => setNewProduct(p => ({ ...p, name: e.target.value }))}
-                          onKeyDown={e => { if (e.key === 'Enter') batchRef.current?.focus(); }} />
+                      <div className="relative product-autocomplete">
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Product Name {isNewProduct && <span className="text-green-600 text-xs">(Adding New Product)</span>}
+                        </label>
+                        <Input 
+                          ref={nameRef} 
+                          type="text" 
+                          placeholder="Search or enter product name..." 
+                          value={productSearchTerm || newProduct.name}
+                          onChange={(e) => {
+                            const value = e.target.value;
+                            setProductSearchTerm(value);
+                            setNewProduct(p => ({ ...p, name: value }));
+                            searchProducts(value);
+                            setShowProductDropdown(true);
+                            setIsNewProduct(false);
+                          }}
+                          onFocus={() => {
+                            if (productSearchTerm) {
+                              searchProducts(productSearchTerm);
+                              setShowProductDropdown(true);
+                            }
+                          }}
+                          onKeyDown={e => { if (e.key === 'Enter') batchRef.current?.focus(); }} 
+                        />
+                        
+                        {/* Product Autocomplete Dropdown */}
+                        {showProductDropdown && products.length > 0 && (
+                          <div className="absolute top-full left-0 right-0 z-20 bg-white border border-gray-200 rounded-md shadow-lg max-h-32 overflow-y-auto">
+                            {products.map((product) => (
+                              <div
+                                key={product._id}
+                                className="px-3 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                                onClick={() => handleProductSelect(product)}
+                              >
+                                <div className="font-medium">{product.product_name}</div>
+                                <div className="text-gray-500 text-xs">
+                                  {product.category} • 
+                                  {product.latestDetails ? 
+                                    ` Last: ₹${product.latestDetails.purchase_rate} • ${product.latestDetails.tax_percent}% tax` : 
+                                    ' No previous purchase'
+                                  }
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        
+                        {/* New product option */}
+                        {showProductDropdown && productSearchTerm && products.length === 0 && productSearchTerm.length >= 2 && (
+                          <div className="absolute top-full left-0 right-0 z-20 bg-white border border-gray-200 rounded-md shadow-lg">
+                            <div 
+                              className="px-3 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                              onClick={handleNewProduct}
+                            >
+                              <div className="font-medium text-green-600">+ Add "{productSearchTerm}" as new product</div>
+                              <div className="text-gray-500 text-xs">This will create a new product in the system</div>
+                            </div>
+                          </div>
+                        )}
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Batch</label>
-                        <Input ref={batchRef} type="text" placeholder="Batch" value={newProduct.batch}
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Batch {selectedProduct && !isNewProduct && <span className="text-blue-600 text-xs">(Using existing product)</span>}
+                        </label>
+                        <Input ref={batchRef} type="text" placeholder="Batch number" value={newProduct.batch}
                           onChange={e => setNewProduct(p => ({ ...p, batch: e.target.value }))}
                           onKeyDown={e => { if (e.key === 'Enter') qtyRef.current?.focus(); }} />
                       </div>
+                      
+                      {isNewProduct && (
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Barcode (Optional)</label>
+                          <Input type="text" placeholder="Enter barcode manually" value={newProduct.barcode}
+                            onChange={e => setNewProduct(p => ({ ...p, barcode: e.target.value }))} />
+                        </div>
+                      )}
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Qty</label>
                         <Input ref={qtyRef} type="number" min={1} placeholder="Qty" value={newProduct.qty}
@@ -219,11 +376,41 @@ const Purchases = () => {
                       </div>
                     </div>
                   </div>
-                  <Button className="w-full bg-gray-900 hover:bg-gray-800 text-white mt-6" onClick={() => {
+                  <Button className="w-full bg-gray-900 hover:bg-gray-800 text-white mt-6" onClick={async () => {
+                    if (!newProduct.name || !newProduct.batch) {
+                      alert('Please enter product name and batch');
+                      return;
+                    }
+
                     const base = newProduct.qty * newProduct.purchaseRate;
                     const discountAmount = base * (newProduct.discount / 100);
                     const taxAmount = (base - discountAmount) * (newProduct.tax / 100);
                     const amount = base - discountAmount + taxAmount;
+                    
+                    // If it's a new product, create it in the backend first
+                    if (isNewProduct) {
+                      try {
+                        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/products`, {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({
+                            product_name: newProduct.name,
+                            category: '',
+                            hsn_code: '',
+                            description: ''
+                          })
+                        });
+                        
+                        if (response.ok) {
+                          console.log('New product created in database');
+                        } else if (response.status === 409) {
+                          console.log('Product already exists');
+                        }
+                      } catch (error) {
+                        console.error('Error creating product:', error);
+                      }
+                    }
+                    
                     if (editIndex !== null) {
                       setPurchaseItems(items => items.map((item, idx) => idx === editIndex ? { ...item, ...newProduct, amount } : item));
                     } else {
@@ -237,7 +424,10 @@ const Purchases = () => {
                       ]);
                     }
                     setModalOpen(false);
-                    setNewProduct({ name: '', batch: '', qty: 1, purchaseRate: 0, tax: 0, mrp: 0, discount: 0, amount: 0 });
+                    setNewProduct({ name: '', batch: '', barcode: '', qty: 1, purchaseRate: 0, tax: 0, mrp: 0, discount: 0, amount: 0 });
+                    setProductSearchTerm('');
+                    setIsNewProduct(false);
+                    setSelectedProduct(null);
                     setEditIndex(null);
                   }}>
                     {editIndex !== null ? 'Update' : 'Add'}
@@ -366,6 +556,7 @@ const Purchases = () => {
                             setNewProduct({
                               name: item.name,
                               batch: item.batch,
+                              barcode: '', // Will be filled if editing existing product
                               qty: item.qty,
                               purchaseRate: item.purchaseRate,
                               tax: item.tax,
@@ -373,6 +564,8 @@ const Purchases = () => {
                               discount: item.discount,
                               amount: item.amount
                             });
+                            setProductSearchTerm(item.name);
+                            setIsNewProduct(false);
                             setModalOpen(true);
                           }}>
                             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
