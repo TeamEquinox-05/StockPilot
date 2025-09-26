@@ -681,7 +681,62 @@ const Purchases = () => {
                     }, 0).toFixed(2)}</span>
                   </div>
                 </div>
-                <Button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 text-base font-semibold">
+                <Button 
+                  className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 text-base font-semibold"
+                  onClick={async () => {
+                    if (!vendor || !billNo || purchaseItems.length === 0) {
+                      alert('Please select vendor, enter bill number, and add at least one item');
+                      return;
+                    }
+
+                    try {
+                      const purchaseData = {
+                        vendor_name: vendor,
+                        bill_no: billNo,
+                        purchase_date: date,
+                        items: purchaseItems.map(item => ({
+                          name: item.name,
+                          batch: item.batch,
+                          barcode: '',
+                          qty: item.qty,
+                          purchaseRate: item.purchaseRate,
+                          tax: item.tax,
+                          mrp: item.mrp,
+                          discount: item.discount
+                        })),
+                        payment_status: 'Pending'
+                      };
+
+                      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/purchases`, {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(purchaseData)
+                      });
+
+                      if (response.ok) {
+                        const result = await response.json();
+                        alert('Purchase completed successfully!');
+                        
+                        // Reset form
+                        setPurchaseItems([]);
+                        setVendor('');
+                        setVendorSearchTerm('');
+                        setBillNo('');
+                        setDate(new Date().toISOString().slice(0, 10));
+                        
+                        console.log('Purchase created:', result);
+                      } else {
+                        const error = await response.json();
+                        alert(`Error: ${error.message}`);
+                      }
+                    } catch (error) {
+                      console.error('Error completing purchase:', error);
+                      alert('Error completing purchase. Please try again.');
+                    }
+                  }}
+                >
                   Complete Purchase
                 </Button>
               </CardContent>

@@ -29,19 +29,6 @@ const productBatchSchema = new mongoose.Schema({
     type: Number,
     default: 0,
     min: 0
-  },
-  // Additional fields for purchase tracking
-  latest_purchase_rate: {
-    type: Number,
-    default: 0
-  },
-  latest_tax_percent: {
-    type: Number,
-    default: 0
-  },
-  latest_discount_percent: {
-    type: Number,
-    default: 0
   }
 }, {
   timestamps: true
