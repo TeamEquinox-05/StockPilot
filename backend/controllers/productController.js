@@ -68,6 +68,31 @@ const searchProducts = async (req, res) => {
   }
 };
 
+// Get batches for a specific product
+const getProductBatches = async (req, res) => {
+  try {
+    const { productId } = req.params;
+    const { search } = req.query;
+
+    let query = { product_id: productId };
+    
+    // If search term provided, filter by batch number
+    if (search && search.trim()) {
+      query.batch_number = { $regex: search.trim(), $options: 'i' };
+    }
+
+    const batches = await ProductBatch.find(query)
+      .select('batch_number barcode mrp expiry_date')
+      .sort({ createdAt: -1 })
+      .limit(10);
+
+    res.json(batches);
+  } catch (error) {
+    console.error('Error fetching product batches:', error);
+    res.status(500).json({ message: 'Error fetching product batches', error: error.message });
+  }
+};
+
 // Create new product
 const createProduct = async (req, res) => {
   try {
@@ -115,5 +140,6 @@ const getProducts = async (req, res) => {
 module.exports = {
   searchProducts,
   createProduct,
-  getProducts
+  getProducts,
+  getProductBatches
 };

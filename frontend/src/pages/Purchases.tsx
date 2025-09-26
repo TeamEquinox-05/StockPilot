@@ -77,6 +77,9 @@ const Purchases = () => {
   const [originalBatch, setOriginalBatch] = useState('');
   const [isAutoFilling, setIsAutoFilling] = useState(false);
   const [pendingAutofill, setPendingAutofill] = useState<Product | null>(null);
+  const [batches, setBatches] = useState<string[]>([]);
+  const [showBatchDropdown, setShowBatchDropdown] = useState(false);
+  const [batchSelectedFromSuggestions, setBatchSelectedFromSuggestions] = useState(false);
 
   // Fetch vendors from backend
   const fetchVendors = async () => {
@@ -121,6 +124,25 @@ const Purchases = () => {
     }
   };
 
+  // Search batches for a specific product
+  const searchBatches = async (productId: string, searchTerm: string) => {
+    if (!productId) {
+      setBatches([]);
+      return;
+    }
+    
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/products/${productId}/batches?search=${encodeURIComponent(searchTerm)}`);
+      if (response.ok) {
+        const data = await response.json();
+        setBatches(data.map((batch: any) => batch.batch_number));
+      }
+    } catch (error) {
+      console.error('Error searching batches:', error);
+      setBatches([]);
+    }
+  };
+
   // Handle product selection
   const handleProductSelect = (product: Product) => {
     setSelectedProduct(product);
@@ -128,6 +150,7 @@ const Purchases = () => {
     setShowProductDropdown(false);
     setIsNewProduct(false);
     setIsAutoFilling(true);
+    setBatchSelectedFromSuggestions(false);
     
     // Set pending autofill to be processed in useEffect
     setPendingAutofill(product);
@@ -146,6 +169,7 @@ const Purchases = () => {
     setIsNewProduct(true);
     setSelectedProduct(null);
     setOriginalBatch('');
+    setBatchSelectedFromSuggestions(false);
     setNewProduct(prev => ({
       ...prev,
       name: productSearchTerm,
@@ -168,6 +192,9 @@ const Purchases = () => {
       }
       if (!target.closest('.product-autocomplete')) {
         setShowProductDropdown(false);
+      }
+      if (!target.closest('.batch-autocomplete')) {
+        setShowBatchDropdown(false);
       }
     };
 
@@ -248,6 +275,7 @@ const Purchases = () => {
                   setIsNewProduct(false);
                   setSelectedProduct(null);
                   setOriginalBatch('');
+                  setBatchSelectedFromSuggestions(false);
                   setModalOpen(true);
                 }}>
                   Add Product
@@ -325,13 +353,22 @@ const Purchases = () => {
                           </div>
                         )}
                       </div>
-                      <div>
+                      <div className="relative batch-autocomplete">
                         <label className="block text-sm font-medium text-gray-700 mb-1">
                           Batch {selectedProduct && !isNewProduct && <span className="text-blue-600 text-xs">(Using existing product)</span>}
                         </label>
                         <Input ref={batchRef} type="text" placeholder="Batch number" value={newProduct.batch}
                           onChange={e => {
                             const newBatch = e.target.value;
+                            
+                            // Reset batch selection flag when user types manually
+                            setBatchSelectedFromSuggestions(false);
+                            
+                            // Search for batches if product is selected
+                            if (selectedProduct && !isNewProduct) {
+                              searchBatches(selectedProduct._id, newBatch);
+                              setShowBatchDropdown(true);
+                            }
                             
                             // Clear barcode when batch changes from original (manual change)
                             if (!isAutoFilling && newBatch !== originalBatch && originalBatch !== '') {
@@ -340,11 +377,46 @@ const Purchases = () => {
                               setNewProduct(p => ({ ...p, batch: newBatch }));
                             }
                           }}
-                          onKeyDown={e => { if (e.key === 'Enter') qtyRef.current?.focus(); }} />
+                          onFocus={() => {
+                            if (selectedProduct && !isNewProduct && newProduct.batch) {
+                              searchBatches(selectedProduct._id, newProduct.batch);
+                              setShowBatchDropdown(true);
+                            }
+                          }}
+                          onKeyDown={e => { 
+                            if (e.key === 'Enter') {
+                              setShowBatchDropdown(false);
+                              qtyRef.current?.focus();
+                            }
+                          }} />
+                        
+                        {/* Batch Autocomplete Dropdown */}
+                        {showBatchDropdown && selectedProduct && !isNewProduct && batches.length > 0 && (
+                          <div className="absolute top-full left-0 right-0 z-20 bg-white border border-gray-200 rounded-md shadow-lg max-h-32 overflow-y-auto">
+                            {batches.map((batchNumber, index) => (
+                              <div
+                                key={index}
+                                className="px-3 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                                onClick={() => {
+                                  const newBatch = batchNumber;
+                                  setNewProduct(p => ({ 
+                                    ...p, 
+                                    batch: newBatch,
+                                    barcode: newBatch !== originalBatch ? '' : p.barcode
+                                  }));
+                                  setBatchSelectedFromSuggestions(true);
+                                  setShowBatchDropdown(false);
+                                }}
+                              >
+                                <div className="font-medium">{batchNumber}</div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
                       
-                      {/* Show barcode field only for new products or when batch changed */}
-                      {(isNewProduct || (selectedProduct && originalBatch && newProduct.batch !== originalBatch)) && (
+                      {/* Show barcode field only for new products or when batch changed manually (not from suggestions) */}
+                      {(isNewProduct || (selectedProduct && originalBatch && newProduct.batch !== originalBatch && !batchSelectedFromSuggestions)) && (
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-1">
                             Barcode {isNewProduct ? '(Optional)' : '(Required for new batch)'}
