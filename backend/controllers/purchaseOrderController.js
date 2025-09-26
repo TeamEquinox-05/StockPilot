@@ -1,11 +1,11 @@
 const PurchaseOrder = require('../models/PurchaseOrder');
 const Vendor = require('../models/Vendor');
+const { generatePurchaseOrderNumber } = require('../utils/sequenceGenerator');
 
 // Create a new purchase order
 const createPurchaseOrder = async (req, res) => {
   try {
     const {
-      orderNumber,
       vendorId,
       orderDate,
       expectedDelivery,
@@ -16,12 +16,15 @@ const createPurchaseOrder = async (req, res) => {
       terms = ''
     } = req.body;
 
-    // Validate required fields
-    if (!orderNumber || !vendorId || !orderDate || !expectedDelivery || !items || items.length === 0) {
+    // Validate required fields (orderNumber is now auto-generated)
+    if (!vendorId || !orderDate || !expectedDelivery || !items || items.length === 0) {
       return res.status(400).json({
-        message: 'Missing required fields: orderNumber, vendorId, orderDate, expectedDelivery, and items are required'
+        message: 'Missing required fields: vendorId, orderDate, expectedDelivery, and items are required'
       });
     }
+
+    // Generate auto-incrementing order number
+    const orderNumber = await generatePurchaseOrderNumber();
 
     // Verify vendor exists
     const vendor = await Vendor.findById(vendorId);
@@ -330,6 +333,31 @@ const getPurchaseOrderStats = async (req, res) => {
   }
 };
 
+// Get next purchase order number for preview (without incrementing)
+const getNextPurchaseOrderNumber = async (req, res) => {
+  try {
+    // Get current sequence without incrementing
+    const Counter = require('../models/Counter');
+    let currentSequence = 0;
+    
+    const counter = await Counter.findById('purchase_order');
+    if (counter) {
+      currentSequence = counter.sequence_value;
+    }
+    
+    const nextSequence = currentSequence + 1;
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    
+    const nextOrderNumber = `PO-${year}-${month}-${String(nextSequence).padStart(4, '0')}`;
+    res.json({ nextOrderNumber });
+  } catch (error) {
+    console.error('Error getting next purchase order number:', error);
+    res.status(500).json({ message: 'Error getting next purchase order number', error: error.message });
+  }
+};
+
 module.exports = {
   createPurchaseOrder,
   getPurchaseOrders,
@@ -337,5 +365,6 @@ module.exports = {
   updatePurchaseOrderStatus,
   updatePurchaseOrder,
   deletePurchaseOrder,
-  getPurchaseOrderStats
+  getPurchaseOrderStats,
+  getNextPurchaseOrderNumber
 };

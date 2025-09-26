@@ -82,14 +82,32 @@ const CreatePurchaseOrder = () => {
     setExpectedDelivery(new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]);
   }, []);
 
-  // Generate automatic order number
-  const generateOrderNumber = () => {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    const time = String(Date.now()).slice(-4);
-    setOrderNumber(`PO-${year}${month}${day}-${time}`);
+  // Fetch next auto-generated order number
+  const generateOrderNumber = async () => {
+    try {
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiBaseUrl}/api/purchase-orders/next-number`);
+      
+      if (response.ok) {
+        const data = await response.json();
+        setOrderNumber(data.nextOrderNumber);
+      } else {
+        // Fallback to local generation if API fails
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const time = String(Date.now()).slice(-4);
+        setOrderNumber(`PO-${year}-${month}-${time}`);
+      }
+    } catch (error) {
+      console.error('Error fetching next order number:', error);
+      // Fallback to local generation
+      const date = new Date();
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const time = String(Date.now()).slice(-4);
+      setOrderNumber(`PO-${year}-${month}-${time}`);
+    }
   };
 
   const fetchVendors = async () => {
@@ -226,7 +244,7 @@ const CreatePurchaseOrder = () => {
     setIsLoading(true);
 
     const purchaseOrderData = {
-      orderNumber,
+      // orderNumber is auto-generated on backend
       vendorId: selectedVendor._id,
       orderDate,
       expectedDelivery,
@@ -312,14 +330,14 @@ const CreatePurchaseOrder = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Order Number
+                    Order Number (Auto-Generated)
                   </label>
                   <Input
                     type="text"
                     value={orderNumber}
-                    onChange={(e) => setOrderNumber(e.target.value)}
-                    className="w-full"
-                    required
+                    className="w-full bg-gray-50 text-gray-600"
+                    readOnly
+                    disabled
                   />
                 </div>
                 
