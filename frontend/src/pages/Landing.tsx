@@ -188,7 +188,7 @@ const Landing = () => {
       />
 
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-sm border-b border-black/10">
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-sm border-b border-black/10 shadow-lg">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 rounded-lg bg-gray-900 flex items-center justify-center">
@@ -196,7 +196,7 @@ const Landing = () => {
             </div>
             <span className="text-2xl font-bold tracking-tight text-black">{import.meta.env.VITE_APP_NAME || 'StockPilot'}</span>
           </div>
-          <Button onClick={handleGetStarted} variant="ghost" className="hidden md:block text-black hover:bg-black/5 interactive">
+          <Button onClick={handleGetStarted} variant="ghost" className="hidden md:block text-black hover:bg-black/5 interactive border border-black/20 hover:border-black">
             Sign In
           </Button>
         </div>
@@ -274,19 +274,28 @@ const Landing = () => {
                 </button>
               </div>
 
-              {/* Stats or trust indicators */}
-              <div className="mt-20 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-                <div className="stats-item text-center">
-                  <div className="text-2xl font-bold text-black mb-2">99.2%</div>
-                  <div className="text-sm text-black/50 font-light">ACCURACY</div>
+              {/* Core Value Propositions */}
+              <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div className="stats-item group p-6 border border-black/10 rounded-lg hover:bg-black hover:text-white transition-all duration-300 interactive">
+                  <div className="w-12 h-12 border-2 border-black group-hover:border-white mx-auto mb-4 flex items-center justify-center rounded-lg">
+                    <TrendingUp className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-bold mb-2">REAL-TIME INSIGHTS</h3>
+                  <p className="text-sm opacity-70">Live data that drives decisions</p>
                 </div>
-                <div className="stats-item text-center">
-                  <div className="text-2xl font-bold text-black mb-2">$2.4M</div>
-                  <div className="text-sm text-black/50 font-light">SAVED MONTHLY</div>
+                <div className="stats-item group p-6 border border-black/10 rounded-lg hover:bg-black hover:text-white transition-all duration-300 interactive">
+                  <div className="w-12 h-12 border-2 border-black group-hover:border-white mx-auto mb-4 flex items-center justify-center rounded-lg">
+                    <BarChart className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-bold mb-2">SMART FORECASTING</h3>
+                  <p className="text-sm opacity-70">AI-powered demand prediction</p>
                 </div>
-                <div className="stats-item text-center">
-                  <div className="text-2xl font-bold text-black mb-2">5000+</div>
-                  <div className="text-sm text-black/50 font-light">BUSINESSES</div>
+                <div className="stats-item group p-6 border border-black/10 rounded-lg hover:bg-black hover:text-white transition-all duration-300 interactive">
+                  <div className="w-12 h-12 border-2 border-black group-hover:border-white mx-auto mb-4 flex items-center justify-center rounded-lg">
+                    <Warehouse className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-bold mb-2">ZERO WASTE</h3>
+                  <p className="text-sm opacity-70">Optimize every unit in stock</p>
                 </div>
               </div>
             </div>
@@ -452,9 +461,57 @@ const Landing = () => {
       </main>
 
       {/* Footer */}
-      <footer className="px-6 py-12 bg-white border-t border-black/10">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-black/60 font-light">&copy; {new Date().getFullYear()} StockPilot. Precision. Profit. Pilot.</p>
+      <footer className="px-6 py-16 bg-gray-50 border-t border-black/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            {/* Logo and Description */}
+            <div className="md:col-span-2">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-gray-900 flex items-center justify-center">
+                  <div className="w-5 h-5 bg-white rounded-sm"></div>
+                </div>
+                <span className="text-2xl font-bold tracking-tight text-black">StockPilot</span>
+              </div>
+              <p className="text-black/60 font-light leading-relaxed max-w-md">
+                Transform your inventory chaos into profit with intelligent management. 
+                Precision-driven solutions for modern businesses.
+              </p>
+            </div>
+
+            {/* Product Links */}
+            <div>
+              <h3 className="font-bold text-black mb-4">Product</h3>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-black/60 hover:text-black transition-colors">Features</a></li>
+                <li><a href="#" className="text-black/60 hover:text-black transition-colors">Pricing</a></li>
+                <li><a href="#" className="text-black/60 hover:text-black transition-colors">API</a></li>
+                <li><a href="#" className="text-black/60 hover:text-black transition-colors">Integrations</a></li>
+              </ul>
+            </div>
+
+            {/* Company Links */}
+            <div>
+              <h3 className="font-bold text-black mb-4">Company</h3>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-black/60 hover:text-black transition-colors">About</a></li>
+                <li><a href="#" className="text-black/60 hover:text-black transition-colors">Blog</a></li>
+                <li><a href="#" className="text-black/60 hover:text-black transition-colors">Careers</a></li>
+                <li><a href="#" className="text-black/60 hover:text-black transition-colors">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-black/10">
+            <p className="text-black/60 font-light text-sm mb-4 md:mb-0">
+              &copy; {new Date().getFullYear()} StockPilot. All rights reserved. Precision. Profit. Pilot.
+            </p>
+            <div className="flex space-x-6">
+              <a href="#" className="text-black/60 hover:text-black transition-colors text-sm">Privacy Policy</a>
+              <a href="#" className="text-black/60 hover:text-black transition-colors text-sm">Terms of Service</a>
+              <a href="#" className="text-black/60 hover:text-black transition-colors text-sm">Support</a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
