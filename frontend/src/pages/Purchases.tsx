@@ -69,6 +69,7 @@ const Purchases = () => {
   const [showVendorDropdown, setShowVendorDropdown] = useState(false);
   const [date, setDate] = useState(() => new Date().toISOString().slice(0, 10));
   const [billNo, setBillNo] = useState('');
+  const [paymentStatus, setPaymentStatus] = useState('Pending');
   
   // Product autocomplete states
   const [products, setProducts] = useState<Product[]>([]);
@@ -634,6 +635,31 @@ const Purchases = () => {
             <label className="block ml-5 text-sm font-medium text-gray-700 mb-1">Date</label>
             <Input type="date" value={date} onChange={e => setDate(e.target.value)} className="w-40" />
           </div>
+          <div>
+            <label className="block ml-5 text-sm font-medium text-gray-700 mb-1">Payment Status</label>
+            <div className="flex items-center space-x-2">
+              <select 
+                value={paymentStatus} 
+                onChange={(e) => setPaymentStatus(e.target.value)}
+                className={`w-32 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                  paymentStatus === 'Paid' ? 'border-green-300 bg-green-50' :
+                  paymentStatus === 'Partial' ? 'border-yellow-300 bg-yellow-50' :
+                  'border-red-300 bg-red-50'
+                }`}
+              >
+                <option value="Pending">Pending</option>
+                <option value="Paid">Paid</option>
+                <option value="Partial">Partial</option>
+              </select>
+              <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                paymentStatus === 'Paid' ? 'bg-green-100 text-green-800' :
+                paymentStatus === 'Partial' ? 'bg-yellow-100 text-yellow-800' :
+                'bg-red-100 text-red-800'
+              }`}>
+                {paymentStatus.toUpperCase()}
+              </span>
+            </div>
+          </div>
         </div>
             {/* Purchases Table */}
             <div className="flex-1 bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
@@ -824,6 +850,17 @@ const Purchases = () => {
                       return sum + amount;
                     }, 0).toFixed(2)}</span>
                   </div>
+                  <hr className="border-gray-200" />
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-700 font-medium">Payment Status</span>
+                    <span className={`px-3 py-1 text-sm font-medium rounded-full ${
+                      paymentStatus === 'Paid' ? 'bg-green-100 text-green-800' :
+                      paymentStatus === 'Partial' ? 'bg-yellow-100 text-yellow-800' :
+                      'bg-red-100 text-red-800'
+                    }`}>
+                      {paymentStatus}
+                    </span>
+                  </div>
                 </div>
                 <Button 
                   className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 text-base font-semibold"
@@ -849,7 +886,7 @@ const Purchases = () => {
                           mrp: item.mrp,
                           discount: item.discount
                         })),
-                        payment_status: 'Pending'
+                        payment_status: paymentStatus
                       };
 
                       const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/purchases`, {
@@ -870,6 +907,7 @@ const Purchases = () => {
                         setVendorSearchTerm('');
                         setBillNo('');
                         setDate(new Date().toISOString().slice(0, 10));
+                        setPaymentStatus('Pending');
                         
                         console.log('Purchase created:', result);
                       } else {

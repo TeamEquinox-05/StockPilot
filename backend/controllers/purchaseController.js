@@ -181,8 +181,49 @@ const getPurchaseById = async (req, res) => {
   }
 };
 
+// Update payment status for an existing purchase
+const updatePaymentStatus = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { payment_status } = req.body;
+
+    // Validate payment status
+    if (!['Pending', 'Paid', 'Partial'].includes(payment_status)) {
+      return res.status(400).json({ 
+        message: 'Invalid payment status. Must be one of: Pending, Paid, Partial' 
+      });
+    }
+
+    // Find and update the purchase
+    const purchase = await Purchase.findByIdAndUpdate(
+      id,
+      { payment_status },
+      { new: true, runValidators: true }
+    ).populate('vendor_id', 'vendor_name');
+
+    if (!purchase) {
+      return res.status(404).json({ message: 'Purchase not found' });
+    }
+
+    res.json({ 
+      message: 'Payment status updated successfully',
+      purchase: {
+        _id: purchase._id,
+        bill_no: purchase.bill_no,
+        payment_status: purchase.payment_status,
+        vendor_name: purchase.vendor_id.vendor_name,
+        total_amount: purchase.total_amount
+      }
+    });
+  } catch (error) {
+    console.error('Error updating payment status:', error);
+    res.status(500).json({ message: 'Error updating payment status', error: error.message });
+  }
+};
+
 module.exports = {
   createPurchase,
   getPurchases,
-  getPurchaseById
+  getPurchaseById,
+  updatePaymentStatus
 };
