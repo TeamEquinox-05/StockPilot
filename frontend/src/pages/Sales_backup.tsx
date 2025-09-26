@@ -13,7 +13,6 @@ interface SalesItem {
   qty: number;
   sellingPrice: number;
   mrp: number;
-  taxRate: number;
   discount: number;
   amount: number;
 }
@@ -25,7 +24,6 @@ interface ProductBatch {
   barcode: string;
   expiry_date?: string;
   mrp: number;
-  tax_rate: number;
   quantity_in_stock: number;
   purchase_rate: number;
 }
@@ -40,33 +38,6 @@ const Sales = () => {
   const [customerEmail, setCustomerEmail] = useState('');
   const [date, setDate] = useState(() => new Date().toISOString().slice(0, 10));
   const [billNo, setBillNo] = useState('');
-  const [discount, setDiscount] = useState(0); // Discount in percentage
-  const [paymentMethod, setPaymentMethod] = useState('CARD');
-
-  // Generate auto-incrementing bill number
-  const generateBillNumber = async () => {
-    try {
-      // Get the next bill number from backend
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/sales/next-bill-number`);
-      if (response.ok) {
-        const data = await response.json();
-        return data.billNumber;
-      } else {
-        // Fallback to timestamp-based if API fails
-        const today = new Date();
-        const dateStr = today.toISOString().slice(0, 10).replace(/-/g, '');
-        const timeStr = Date.now().toString().slice(-6);
-        return `BILL-${dateStr}-${timeStr}`;
-      }
-    } catch (error) {
-      console.error('Error generating bill number:', error);
-      // Fallback to timestamp-based
-      const today = new Date();
-      const dateStr = today.toISOString().slice(0, 10).replace(/-/g, '');
-      const timeStr = Date.now().toString().slice(-6);
-      return `BILL-${dateStr}-${timeStr}`;
-    }
-  };
 
   // Search products from backend
   const searchProducts = async (searchTerm: string) => {
@@ -92,12 +63,11 @@ const Sales = () => {
       id: Date.now().toString(),
       name: product.product_name,
       batch: product.batch_number,
-      barcode: product.barcode || '',
+      barcode: product.barcode,
       expiryDate: product.expiry_date ? new Date(product.expiry_date).toISOString().slice(0, 10) : '',
       qty: 1,
       sellingPrice: product.mrp, // Default to MRP
       mrp: product.mrp,
-      taxRate: product.tax_rate,
       discount: 0,
       amount: product.mrp
     };
@@ -141,24 +111,7 @@ const Sales = () => {
 
   // Calculate totals
   const subtotal = salesItems.reduce((sum, item) => sum + item.amount, 0);
-  // Calculate total tax amount from all items (tax is already included in MRP)
-  const tax = salesItems.reduce((sum, item) => {
-    const itemTaxRate = item.taxRate / 100; // Convert percentage to decimal
-    const itemTax = item.amount * (itemTaxRate / (1 + itemTaxRate)); // Extract tax component from MRP
-    return sum + itemTax;
-  }, 0);
-  // Calculate discount amount from percentage
-  const discountAmount = subtotal * (discount / 100);
-  const finalTotal = subtotal - discountAmount; // Apply percentage-based discount
-
-  // Initialize bill number on component mount
-  useEffect(() => {
-    const initializeBillNumber = async () => {
-      const newBillNo = await generateBillNumber();
-      setBillNo(newBillNo);
-    };
-    initializeBillNumber();
-  }, []);
+  const finalTotal = subtotal;
 
   // Handle search term changes
   useEffect(() => {
@@ -168,27 +121,8 @@ const Sales = () => {
 
   // Process sale
   const processSale = async () => {
-    // Validation checks
     if (salesItems.length === 0) {
-      alert('Please add items to the sales list before completing the sale.');
-      return;
-    }
-
-    if (!billNo) {
-      alert('Bill number is required. Please wait for it to generate.');
-      return;
-    }
-
-    // Check if any item has zero or negative quantity
-    const invalidItems = salesItems.filter(item => item.qty <= 0 || item.sellingPrice <= 0);
-    if (invalidItems.length > 0) {
-      alert('Please ensure all items have valid quantity and price.');
-      return;
-    }
-
-    // Confirm sale
-    const confirmMessage = `Confirm Sale:\nBill: ${billNo}\nItems: ${salesItems.length}\nTotal: ₹${finalTotal.toFixed(2)}\nPayment: ${paymentMethod}`;
-    if (!confirm(confirmMessage)) {
+      alert('Please add items to the sales list');
       return;
     }
 
@@ -196,24 +130,12 @@ const Sales = () => {
       const saleData = {
         date,
         customerName: customerName || 'Cash Customer',
-        customerPhone: customerPhone || '',
-        customerEmail: customerEmail || '',
-        billNo: billNo,
+        customerPhone,
+        customerEmail,
+        billNo,
         items: salesItems,
-        subtotal: subtotal,
-        discountPercentage: discount,
-        discountAmount: discountAmount,
-        tax: tax, // Tax component within MRP
-        total: finalTotal, // Subtotal - Discount
-        paymentMethod: paymentMethod
+        total: finalTotal
       };
-
-      // Show loading state
-      const completeButton = document.querySelector('[data-complete-sale]') as HTMLButtonElement;
-      if (completeButton) {
-        completeButton.textContent = 'Processing...';
-        completeButton.disabled = true;
-      }
 
       const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/sales`, {
         method: 'POST',
@@ -224,139 +146,19 @@ const Sales = () => {
       });
 
       if (response.ok) {
-        const result = await response.json();
-        
-        // Success feedback
-        alert(`✅ Sale Completed Successfully!\n\n📋 Bill Number: ${billNo}\n💰 Total Amount: ₹${finalTotal.toFixed(2)}\n💳 Payment Method: ${paymentMethod}\n👤 Customer: ${customerName || 'Cash Customer'}`);
-        
-        // Print receipt option
-        if (confirm('Would you like to print the receipt?')) {
-          printReceipt(saleData, result.sale._id);
-        }
-
-        // Reset form for next sale
+        alert(`Sale processed successfully! Total: ₹${finalTotal.toFixed(2)}`);
         setSalesItems([]);
         setCustomerName('');
         setCustomerPhone('');
         setCustomerEmail('');
-        setDiscount(0);
-        setPaymentMethod('CARD');
-        
-        // Generate new bill number for next sale
-        const newBillNo = await generateBillNumber();
-        setBillNo(newBillNo);
-        
+        setBillNo('');
       } else {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to process sale');
+        throw new Error('Failed to process sale');
       }
     } catch (error) {
       console.error('Error processing sale:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
-      alert(`❌ Sale Failed\n\nError: ${errorMessage}\n\nPlease check your connection and try again.`);
-    } finally {
-      // Restore button state
-      const completeButton = document.querySelector('[data-complete-sale]') as HTMLButtonElement;
-      if (completeButton) {
-        completeButton.textContent = 'Complete Sale';
-        completeButton.disabled = false;
-      }
+      alert('Error processing sale. Please try again.');
     }
-  };
-
-  // Print receipt function
-  const printReceipt = (saleData: any, saleId?: string) => {
-    const receiptWindow = window.open('', '_blank');
-    if (!receiptWindow) {
-      alert('Could not open receipt window. Please check your popup blocker.');
-      return;
-    }
-    const receiptHTML = `
-      <!DOCTYPE html>
-      <html>
-      <head>
-        <title>Receipt - ${saleData.billNo}</title>
-        <style>
-          body { font-family: Arial, sans-serif; max-width: 400px; margin: 0 auto; padding: 20px; }
-          .header { text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px; }
-          .bill-info { margin-bottom: 20px; }
-          .items { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-          .items th, .items td { border-bottom: 1px solid #ddd; padding: 8px; text-align: left; }
-          .items th { background-color: #f5f5f5; }
-          .total-section { border-top: 2px solid #000; padding-top: 10px; }
-          .total-row { display: flex; justify-content: space-between; margin: 5px 0; }
-          .final-total { font-weight: bold; font-size: 1.2em; }
-          .footer { text-align: center; margin-top: 30px; border-top: 1px solid #ddd; padding-top: 10px; }
-          @media print { body { margin: 0; padding: 10px; } }
-        </style>
-      </head>
-      <body>
-        <div class="header">
-          <h2>StockPilot</h2>
-          <p>Sales Receipt</p>
-        </div>
-        
-        <div class="bill-info">
-          <p><strong>Bill No:</strong> ${saleData.billNo}</p>
-          <p><strong>Date:</strong> ${new Date(saleData.date).toLocaleDateString()}</p>
-          <p><strong>Customer:</strong> ${saleData.customerName}</p>
-          ${saleData.customerPhone ? `<p><strong>Phone:</strong> ${saleData.customerPhone}</p>` : ''}
-          <p><strong>Payment:</strong> ${saleData.paymentMethod}</p>
-        </div>
-
-        <table class="items">
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Qty</th>
-              <th>Price</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${saleData.items.map((item: any) => `
-              <tr>
-                <td>${item.name}<br><small>Batch: ${item.batch}</small></td>
-                <td>${item.qty}</td>
-                <td>₹${item.sellingPrice.toFixed(2)}</td>
-                <td>₹${item.amount.toFixed(2)}</td>
-              </tr>
-            `).join('')}
-          </tbody>
-        </table>
-
-        <div class="total-section">
-          <div class="total-row">
-            <span>Subtotal:</span>
-            <span>₹${saleData.subtotal.toFixed(2)}</span>
-          </div>
-          ${saleData.discountPercentage > 0 ? `
-            <div class="total-row">
-              <span>Discount (${saleData.discountPercentage}%):</span>
-              <span>-₹${saleData.discountAmount.toFixed(2)}</span>
-            </div>
-          ` : ''}
-          <div class="total-row">
-            <span>Tax (included):</span>
-            <span>₹${saleData.tax.toFixed(2)}</span>
-          </div>
-          <div class="total-row final-total">
-            <span>Total Amount:</span>
-            <span>₹${saleData.total.toFixed(2)}</span>
-          </div>
-        </div>
-
-        <div class="footer">
-          <p>Thank you for your business!</p>
-          <p><small>Generated on ${new Date().toLocaleString()}</small></p>
-        </div>
-      </body>
-      </html>
-    `;
-    
-    receiptWindow.document.write(receiptHTML);
-    receiptWindow.document.close();
-    receiptWindow.print();
   };
 
   return (
@@ -383,29 +185,6 @@ const Sales = () => {
                   Start Scan
                 </Button>
               </div>
-              
-              {/* Bill No and Date */}
-              <div className="mb-4">
-                <div className="grid grid-cols-2 gap-4 w-96">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Bill No</label>
-                    <Input
-                      value={billNo}
-                      readOnly
-                      className="bg-gray-50"
-                      placeholder="Auto-generated"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Date</label>
-                    <Input
-                      type="date"
-                      value={date}
-                      onChange={(e) => setDate(e.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
               <div className="relative w-full">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -419,30 +198,31 @@ const Sales = () => {
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                
-                {/* Product Dropdown */}
-                {showProductDropdown && (
-                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-48 overflow-y-auto">
-                    {products.length > 0 ? (
-                      products.map((product) => (
-                        <div
-                          key={product._id}
-                          className="px-4 py-3 hover:bg-gray-100 cursor-pointer border-b last:border-b-0"
-                          onClick={() => handleProductSelect(product)}
-                        >
-                          <div className="font-semibold">{product.product_name}</div>
-                          <div className="text-sm text-gray-600">
-                            Batch: {product.batch_number} | Stock: {product.quantity_in_stock} | MRP: ₹{product.mrp} | Tax: {product.tax_rate}%
+                  
+                  {/* Product Dropdown */}
+                  {showProductDropdown && (
+                    <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-48 overflow-y-auto">
+                      {products.length > 0 ? (
+                        products.map((product) => (
+                          <div
+                            key={product._id}
+                            className="px-4 py-3 hover:bg-gray-100 cursor-pointer border-b last:border-b-0"
+                            onClick={() => handleProductSelect(product)}
+                          >
+                            <div className="font-semibold">{product.product_name}</div>
+                            <div className="text-sm text-gray-600">
+                              Batch: {product.batch_number} | Stock: {product.quantity_in_stock} | MRP: ₹{product.mrp}
+                            </div>
                           </div>
+                        ))
+                      ) : searchTerm.length >= 2 ? (
+                        <div className="px-4 py-3 text-gray-500">
+                          No products found
                         </div>
-                      ))
-                    ) : searchTerm.length >= 2 ? (
-                      <div className="px-4 py-3 text-gray-500">
-                        No products found
-                      </div>
-                    ) : null}
-                  </div>
-                )}
+                      ) : null}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -543,6 +323,22 @@ const Sales = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
+                  <label className="block text-sm font-medium mb-2">Date</label>
+                  <Input
+                    type="date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Bill No</label>
+                  <Input
+                    value={billNo}
+                    onChange={(e) => setBillNo(e.target.value)}
+                    placeholder="Enter bill number"
+                  />
+                </div>
+                <div>
                   <label className="block text-sm font-medium mb-2">Customer Name</label>
                   <Input
                     value={customerName}
@@ -570,70 +366,34 @@ const Sales = () => {
               </CardContent>
             </Card>
 
-            {/* Checkout */}
+            {/* Sale Summary */}
             <Card className="sticky top-6">
               <CardHeader>
-                <CardTitle className="text-lg font-semibold text-gray-900">Checkout</CardTitle>
+                <CardTitle>Sale Summary</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="space-y-3 text-sm">
+                <div className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-gray-500">Subtotal</span>
-                    <span className="font-medium text-gray-900">₹{subtotal.toFixed(2)}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-500">Discount</span>
-                    <div className="flex items-center gap-2">
-                      <Input
-                        type="number"
-                        min={0}
-                        max={100}
-                        step={0.1}
-                        value={discount}
-                        onChange={e => setDiscount(Number(e.target.value))}
-                        className="w-16 text-right text-sm"
-                        placeholder="0"
-                      />
-                      <span className="text-xs text-gray-400">%</span>
-                      <span className="font-medium text-gray-900">₹{discountAmount.toFixed(2)}</span>
-                    </div>
+                    <span>Items:</span>
+                    <span>{salesItems.length}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-500">Tax included</span>
-                    <span className="font-medium text-gray-900">₹{tax.toFixed(2)}</span>
+                    <span>Subtotal:</span>
+                    <span>₹{subtotal.toFixed(2)}</span>
                   </div>
-                  <div className="border-t border-dashed border-gray-300 pt-3">
-                    <div className="flex justify-between text-lg font-bold">
-                      <span className="text-gray-900">Total</span>
-                      <span className="text-blue-600">₹{finalTotal.toFixed(2)}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6">
-                  <h3 className="text-sm font-medium text-gray-500 mb-3">Payment Method</h3>
-                  <div className="grid grid-cols-3 gap-2">
-                    {['CASH', 'CARD', 'UPI'].map((method) => (
-                      <Button
-                        key={method}
-                        variant={paymentMethod === method ? "default" : "outline"}
-                        size="sm"
-                        className={`text-xs ${paymentMethod === method ? 'bg-gray-900 hover:bg-gray-800 text-white' : ''}`}
-                        onClick={() => setPaymentMethod(method)}
-                      >
-                        {method}
-                      </Button>
-                    ))}
+                  <div className="flex justify-between font-bold text-lg border-t pt-2">
+                    <span>Total:</span>
+                    <span>₹{finalTotal.toFixed(2)}</span>
                   </div>
                 </div>
 
                 <Button
                   onClick={processSale}
                   disabled={salesItems.length === 0}
-                  className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 text-base font-semibold mt-6"
-                  data-complete-sale
+                  className="w-full bg-green-600 hover:bg-green-700"
+                  size="lg"
                 >
-                  Complete Sale
+                  Process Sale
                 </Button>
               </CardContent>
             </Card>
