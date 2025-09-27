@@ -18,6 +18,8 @@ import CreatePurchaseOrder from './pages/CreatePurchaseOrder';
 import ViewPurchaseOrders from './pages/ViewPurchaseOrders';
 import PurchaseOrderDetails from './pages/PurchaseOrderDetails';
 import Chat from './pages/Chat';
+import Integrations from './pages/Integrations';
+import Reports from './pages/Reports';
 
 const AppRouter = () => (
   <Router>
@@ -83,6 +85,16 @@ const AppRouter = () => (
         <Route path="/chat" element={
           <ProtectedRoute>
             <Chat />
+          </ProtectedRoute>
+        } />
+        <Route path="/integrations" element={
+          <ProtectedRoute>
+            <Integrations />
+          </ProtectedRoute>
+        } />
+        <Route path="/reports" element={
+          <ProtectedRoute>
+            <Reports />
           </ProtectedRoute>
         } />
       </Routes>

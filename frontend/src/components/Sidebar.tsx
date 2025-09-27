@@ -21,9 +21,7 @@ const Sidebar = () => {
     { id: 'vendors', label: 'Vendors', icon: '', path: '/vendors' },
     { id: 'chat', label: 'Chat Assistant', icon: '', path: '/chat' },
     { id: 'integrations', label: 'Integrations', icon: '', path: '/integrations' },
-    { id: 'channels', label: 'Active Channels', icon: '', path: '/channels' },
     { id: 'reports', label: 'Reports', icon: '', path: '/reports' },
-    { id: 'documents', label: 'Documents', icon: '', path: '/documents' },
   ];
 
   // Get current active item based on current route
@@ -55,14 +53,8 @@ const Sidebar = () => {
     if (currentPath.startsWith('/integrations')) {
       return 'integrations';
     }
-    if (currentPath.startsWith('/channels')) {
-      return 'channels';
-    }
     if (currentPath.startsWith('/reports')) {
       return 'reports';
-    }
-    if (currentPath.startsWith('/documents')) {
-      return 'documents';
     }
     
     // Default to dashboard
