@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { FiFileText, FiBarChart, FiTrendingUp, FiPackage, FiUsers, FiDollarSign, FiCalendar, FiDownload, FiFilter } from 'react-icons/fi';
+import toast, { Toaster } from 'react-hot-toast';
 
 interface Report {
   id: string;
@@ -21,8 +22,8 @@ const Reports = () => {
   const [dateRange, setDateRange] = useState({ from: '', to: '' });
 
   const categories = [
-    { id: 'all', name: 'All Reports', count: 12 },
-    { id: 'stock', name: 'Stock Reports', count: 4 },
+    { id: 'all', name: 'All Reports', count: 10 },
+    { id: 'stock', name: 'Stock Reports', count: 2 },
     { id: 'sales', name: 'Sales Reports', count: 3 },
     { id: 'financial', name: 'Financial Reports', count: 3 },
     { id: 'vendor', name: 'Vendor Reports', count: 2 }
@@ -40,15 +41,6 @@ const Reports = () => {
       status: 'ready'
     },
     {
-      id: 'low-stock-alert',
-      title: 'Low Stock Alert Report',
-      description: 'Items running low on inventory with reorder recommendations',
-      category: 'stock',
-      icon: 'trending-up',
-      lastGenerated: '1 day ago',
-      status: 'ready'
-    },
-    {
       id: 'stock-movement',
       title: 'Stock Movement Report',
       description: 'Detailed view of stock transactions, receipts, and adjustments',
@@ -56,14 +48,6 @@ const Reports = () => {
       icon: 'bar-chart',
       lastGenerated: '3 hours ago',
       status: 'ready'
-    },
-    {
-      id: 'dead-stock',
-      title: 'Dead Stock Analysis',
-      description: 'Items with no movement for extended periods',
-      category: 'stock',
-      icon: 'file-text',
-      status: 'generating'
     },
     
     // Sales Reports
@@ -178,12 +162,105 @@ const Reports = () => {
     return icons[iconName as keyof typeof icons] || <FiFileText className="w-6 h-6 text-gray-600" />;
   };
 
-  const handleGenerateReport = (reportId: string) => {
-    alert(`Generating ${reports.find(r => r.id === reportId)?.title}...`);
+  const handleGenerateReport = async (reportId: string) => {
+    const report = reports.find(r => r.id === reportId);
+    
+    if (reportId === 'stock-statement') {
+      const loadingToast = toast.loading('Generating Stock Statement Report...');
+      
+      try {
+        const token = localStorage.getItem('token');
+        const response = await fetch('http://localhost:5000/api/reports/stock-statement', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to generate report');
+        }
+
+        // Get the PDF blob
+        const blob = await response.blob();
+        
+        // Create download link
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `Stock_Statement_${new Date().toISOString().split('T')[0]}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        
+        // Cleanup
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(link);
+        
+        toast.success('Stock Statement Report downloaded successfully!', {
+          id: loadingToast,
+        });
+        
+      } catch (error) {
+        console.error('Error generating report:', error);
+        toast.error('Error generating report. Please try again.', {
+          id: loadingToast,
+        });
+      }
+    } else if (reportId === 'vendor-performance') {
+      const loadingToast = toast.loading('Generating Vendor Performance Report...');
+      
+      try {
+        const token = localStorage.getItem('token');
+        const response = await fetch('http://localhost:5000/api/reports/vendor-performance', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to generate report');
+        }
+
+        // Get the PDF blob
+        const blob = await response.blob();
+        
+        // Create download link
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `Vendor_Performance_${new Date().toISOString().split('T')[0]}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        
+        // Cleanup
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(link);
+        
+        toast.success('Vendor Performance Report downloaded successfully!', {
+          id: loadingToast,
+        });
+        
+      } catch (error) {
+        console.error('Error generating vendor performance report:', error);
+        toast.error('Error generating vendor performance report. Please try again.', {
+          id: loadingToast,
+        });
+      }
+    } else {
+      toast.success(`Generating ${report?.title}...`);
+    }
   };
 
-  const handleDownloadReport = (reportId: string) => {
-    alert(`Downloading ${reports.find(r => r.id === reportId)?.title}...`);
+  const handleDownloadReport = async (reportId: string) => {
+    // Call generate report for implemented reports
+    if (reportId === 'stock-statement' || reportId === 'vendor-performance') {
+      await handleGenerateReport(reportId);
+    } else {
+      toast(`Downloading ${reports.find(r => r.id === reportId)?.title}...`);
+    }
   };
 
   return (
@@ -341,6 +418,18 @@ const Reports = () => {
           </div>
         </div>
       </div>
+      <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: 'white',
+            color: 'black',
+            border: '1px solid #e5e7eb',
+            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+          },
+        }}
+      />
     </DashboardLayout>
   );
 };
