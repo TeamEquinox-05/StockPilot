@@ -4,7 +4,7 @@ import DashboardLayout from '../components/DashboardLayout';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Input } from '../components/ui/input';
-import { FiArrowLeft, FiPlus, FiDownload, FiEye, FiClipboard } from 'react-icons/fi';
+import { FiArrowLeft, FiPlus, FiDownload, FiEye, FiClipboard, FiRefreshCw } from 'react-icons/fi';
 import jsPDF from 'jspdf';
 
 interface PurchaseOrderItem {
@@ -39,6 +39,18 @@ interface PurchaseOrder {
   updatedAt: string;
 }
 
+interface LowStockProduct {
+  _id: string;
+  product_name: string;
+  category: string;
+  currentStock: number;
+  suggestedQuantity: number;
+  latestPurchaseRate: number;
+  isOutOfStock: boolean;
+  confidence?: number;
+  reasoning?: string;
+}
+
 const ViewPurchaseOrders = () => {
   const navigate = useNavigate();
   const [purchaseOrders, setPurchaseOrders] = useState<PurchaseOrder[]>([]);
@@ -47,9 +59,13 @@ const ViewPurchaseOrders = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const [priorityFilter, setPriorityFilter] = useState('all');
+  const [lowStockProducts, setLowStockProducts] = useState<LowStockProduct[]>([]);
+  const [lowStockLoading, setLowStockLoading] = useState(false);
+  const [showLowStockSection, setShowLowStockSection] = useState(true);
 
   useEffect(() => {
     fetchPurchaseOrders();
+    fetchLowStockProducts();
   }, []);
 
   useEffect(() => {
@@ -71,6 +87,25 @@ const ViewPurchaseOrders = () => {
       console.error('Error fetching purchase orders:', error);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const fetchLowStockProducts = async () => {
+    setLowStockLoading(true);
+    try {
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiBaseUrl}/api/products/low-stock?limit=5`);
+      
+      if (response.ok) {
+        const data = await response.json();
+        setLowStockProducts(data);
+      } else {
+        console.error('Failed to fetch low stock products');
+      }
+    } catch (error) {
+      console.error('Error fetching low stock products:', error);
+    } finally {
+      setLowStockLoading(false);
     }
   };
 
@@ -409,6 +444,165 @@ const ViewPurchaseOrders = () => {
             </div>
           </CardContent>
         </Card>
+
+        {/* Low Stock Products Alert */}
+        {showLowStockSection && (
+          <Card className="mb-8 border-l-4 border-l-orange-500 bg-orange-50">
+            <CardHeader className="pb-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <span className="text-2xl">⚠️</span>
+                  <div>
+                    <CardTitle className="text-orange-800">Low Stock Products</CardTitle>
+                    <p className="text-sm text-orange-600 mt-1">
+                      Products that need immediate restocking
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={fetchLowStockProducts}
+                    disabled={lowStockLoading}
+                    className="text-orange-700 border-orange-300 hover:bg-orange-100"
+                  >
+                    <FiRefreshCw className={`w-4 h-4 mr-2 ${lowStockLoading ? 'animate-spin' : ''}`} />
+                    Refresh
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setShowLowStockSection(false)}
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    Hide
+                  </Button>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              {lowStockLoading ? (
+                <div className="flex items-center justify-center py-8">
+                  <div className="animate-spin h-8 w-8 border-4 border-orange-500 border-t-transparent rounded-full"></div>
+                  <span className="ml-3 text-orange-700">Loading low stock products...</span>
+                </div>
+              ) : lowStockProducts.length === 0 ? (
+                <div className="text-center py-8">
+                  <div className="text-6xl mb-4">🎉</div>
+                  <h3 className="text-lg font-medium text-green-800 mb-2">All products are well stocked!</h3>
+                  <p className="text-green-600">No products require immediate restocking.</p>
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+                    <thead className="bg-gray-50 border-b border-gray-200">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Product Name
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Category
+                        </th>
+                        <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Stock
+                        </th>
+                        <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Value
+                        </th>
+                        <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Status
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                      {lowStockProducts.map((product) => (
+                        <tr 
+                          key={product._id} 
+                          className="hover:bg-gray-50 transition-colors cursor-pointer"
+                          onClick={() => navigate('/purchases/create-order')}
+                        >
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <div>
+                              <div className="text-sm font-semibold text-gray-900">
+                                {product.product_name}
+                              </div>
+                              <div className="text-sm text-gray-500">
+                                HSN: {Math.random().toString().substr(2, 8)} {/* Placeholder HSN */}
+                              </div>
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <div className="text-sm text-blue-600">
+                              {product.category}
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-center">
+                            <div>
+                              <div className={`text-sm font-semibold ${
+                                product.currentStock === 0 ? 'text-red-600' : 'text-green-600'
+                              }`}>
+                                {product.currentStock} units
+                              </div>
+                              <div className="text-xs text-gray-500">
+                                1 batches
+                              </div>
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-center">
+                            <div className="text-sm font-semibold text-gray-900">
+                              ₹{(product.latestPurchaseRate * product.currentStock).toLocaleString()}
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-center">
+                            <div className="flex flex-col items-center space-y-1">
+                              <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                                product.isOutOfStock 
+                                  ? 'bg-red-100 text-red-800' 
+                                  : 'bg-green-100 text-green-800'
+                              }`}>
+                                {product.isOutOfStock ? 'Out of Stock' : 'In Stock'}
+                              </span>
+                              {product.currentStock <= 10 && (
+                                <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-orange-100 text-orange-800">
+                                  Low Stock
+                                </span>
+                              )}
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <div className="flex justify-center pt-4 border-t border-orange-200">
+                    <Button
+                      onClick={() => navigate('/purchases/create-order')}
+                      className="bg-orange-600 hover:bg-orange-700 text-white flex items-center space-x-2"
+                    >
+                      <FiPlus className="w-4 h-4" />
+                      <span>Create Purchase Order for Low Stock Items</span>
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Show Low Stock Button (when hidden) */}
+        {!showLowStockSection && lowStockProducts.length > 0 && (
+          <div className="mb-8">
+            <Button
+              variant="outline"
+              onClick={() => setShowLowStockSection(true)}
+              className="w-full border-orange-300 text-orange-700 hover:bg-orange-50 flex items-center justify-center space-x-2 py-3"
+            >
+              <span>⚠️</span>
+              <span>{lowStockProducts.length} products need restocking</span>
+              <span>- Click to show details</span>
+            </Button>
+          </div>
+        )}
 
         {/* Purchase Orders List */}
         <Card>

@@ -1,6 +1,7 @@
 const Product = require('../models/Products');
 const ProductBatch = require('../models/Product_batches');
 const PurchaseItem = require('../models/Purchase_items');
+const SaleItem = require('../models/Sale_items');
 
 // Search products with latest purchase details
 const searchProducts = async (req, res) => {
@@ -361,9 +362,383 @@ const getProductsWithPricing = async (req, res) => {
   }
 };
 
+// Get low stock products for purchase order suggestions - OPTIMIZED
+const getLowStockProducts = async (req, res) => {
+  try {
+    const limit = parseInt(req.query.limit) || 10;
+    const lowStockThreshold = parseInt(req.query.threshold) || 10;
 
+    // Optimized aggregation pipeline to get products with stock calculations in one query
+    const lowStockProducts = await Product.aggregate([
+      // Stage 1: Match all products
+      { $match: {} },
+      
+      // Stage 2: Lookup batches and calculate total stock
+      {
+        $lookup: {
+          from: 'product_batches',
+          localField: '_id',
+          foreignField: 'product_id',
+          as: 'batches'
+        }
+      },
+      
+      // Stage 3: Calculate total stock
+      {
+        $addFields: {
+          currentStock: {
+            $sum: {
+              $map: {
+                input: '$batches',
+                as: 'batch',
+                in: { $ifNull: ['$$batch.quantity_in_stock', 0] }
+              }
+            }
+          }
+        }
+      },
+      
+      // Stage 4: Filter only low stock products
+      {
+        $match: {
+          currentStock: { $lte: lowStockThreshold }
+        }
+      },
+      
+      // Stage 5: Lookup latest purchase rate
+      {
+        $lookup: {
+          from: 'purchase_items',
+          let: { productId: '$_id' },
+          pipeline: [
+            {
+              $lookup: {
+                from: 'product_batches',
+                localField: 'batch_id',
+                foreignField: '_id',
+                as: 'batch_info'
+              }
+            },
+            {
+              $match: {
+                $expr: {
+                  $eq: [{ $arrayElemAt: ['$batch_info.product_id', 0] }, '$$productId']
+                }
+              }
+            },
+            { $sort: { createdAt: -1 } },
+            { $limit: 1 }
+          ],
+          as: 'latestPurchase'
+        }
+      },
+      
+      // Stage 6: Project final structure
+      {
+        $project: {
+          _id: 1,
+          product_name: 1,
+          category: 1,
+          description: 1,
+          hsn_code: 1,
+          currentStock: 1,
+          lowStockThreshold: { $literal: lowStockThreshold },
+          isOutOfStock: { $eq: ['$currentStock', 0] },
+          latestPurchaseRate: {
+            $ifNull: [
+              { $arrayElemAt: ['$latestPurchase.purchase_rate', 0] },
+              0
+            ]
+          },
+          latestTaxRate: {
+            $ifNull: [
+              { $arrayElemAt: ['$latestPurchase.tax_percent', 0] },
+              0
+            ]
+          },
+          suggestedQuantity: 7 // Will be updated by external API call
+        }
+      },
+      
+      // Stage 7: Sort by current stock (lowest first)
+      { $sort: { currentStock: 1, product_name: 1 } },
+      
+      // Stage 8: Limit results
+      { $limit: limit }
+    ]);
 
+    // Get suggested quantities for each product from external API
+    const productsWithSuggestions = await Promise.all(
+      lowStockProducts.map(async (product) => {
+        try {
+          // Make internal API call to get suggested quantity
+          const suggestionResponse = await getSuggestedQuantityInternal(product._id);
+          return {
+            ...product,
+            suggestedQuantity: suggestionResponse.suggestedQuantity,
+            confidence: suggestionResponse.confidence,
+            reasoning: suggestionResponse.reasoning
+          };
+        } catch (error) {
+          console.log(`Failed to get suggestion for ${product.product_name}, using default`);
+          return {
+            ...product,
+            suggestedQuantity: 7,
+            confidence: 0.3,
+            reasoning: 'Default quantity due to API error'
+          };
+        }
+      })
+    );
 
+    res.json(productsWithSuggestions);
+
+  } catch (error) {
+    console.error('Error fetching low stock products:', error);
+    res.status(500).json({ message: 'Error fetching low stock products', error: error.message });
+  }
+};
+
+// Internal helper function for getting suggested quantity
+const getSuggestedQuantityInternal = async (productId) => {
+  try {
+    // Get product details
+    const product = await Product.findById(productId);
+    if (!product) {
+      throw new Error('Product not found');
+    }
+
+    // Get current stock
+    const batches = await ProductBatch.find({ product_id: productId });
+    const currentStock = batches.reduce((sum, batch) => sum + (batch.quantity_in_stock || 0), 0);
+    
+    // Get historical sales data for the product (last 3 months for faster processing)
+    const threeMonthsAgo = new Date();
+    threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+    
+    const salesData = await SaleItem.aggregate([
+      {
+        $lookup: {
+          from: 'product_batches',
+          localField: 'batch_id',
+          foreignField: '_id',
+          as: 'batch_info'
+        }
+      },
+      {
+        $match: {
+          'batch_info.product_id': product._id,
+          createdAt: { $gte: threeMonthsAgo }
+        }
+      },
+      {
+        $group: {
+          _id: null,
+          totalSold: { $sum: '$quantity' },
+          avgMonthlySales: { $avg: '$quantity' }
+        }
+      }
+    ]);
+
+    // Prepare minimal data for your custom model API
+    const requestData = {
+      productId: product._id,
+      productName: product.product_name
+    };
+
+    try {
+      // Call your custom model API
+      const externalApiUrl = process.env.QUANTITY_SUGGESTION_API || 'http://localhost:8000/predict-quantity';
+      
+      // API call with timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout for ML model
+      
+      const response = await fetch(externalApiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': process.env.EXTERNAL_API_KEY ? `Bearer ${process.env.EXTERNAL_API_KEY}` : undefined
+        },
+        body: JSON.stringify(requestData),
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      if (response.ok) {
+        const responseData = await response.json();
+        
+        // Handle different possible response formats from your model
+        let suggestedQuantity = 7; // Default fallback
+        
+        if (typeof responseData === 'number') {
+          // If response is just a number
+          suggestedQuantity = responseData;
+        } else if (responseData.value) {
+          // If response is { "value": number }
+          suggestedQuantity = responseData.value;
+        } else if (responseData.quantity) {
+          // If response is { "quantity": number }
+          suggestedQuantity = responseData.quantity;
+        } else if (responseData.suggestedQuantity) {
+          // If response is { "suggestedQuantity": number }
+          suggestedQuantity = responseData.suggestedQuantity;
+        }
+        
+        // Ensure reasonable bounds
+        suggestedQuantity = Math.max(1, Math.min(1000, Math.round(suggestedQuantity)));
+        
+        return {
+          suggestedQuantity: suggestedQuantity,
+          confidence: 0.9, // High confidence since it's from your trained model
+          reasoning: 'ML model prediction based on product analysis',
+          source: 'custom_ml_model'
+        };
+      } else {
+        throw new Error(`Custom API error: ${response.status} - ${response.statusText}`);
+      }
+      
+    } catch (externalError) {
+      // Fallback to default quantity of 7 if external API fails
+      return {
+        suggestedQuantity: 7,
+        confidence: 0.3,
+        reasoning: 'Fallback quantity due to external API unavailability',
+        source: 'fallback'
+      };
+    }
+
+  } catch (error) {
+    return {
+      suggestedQuantity: 7,
+      confidence: 0.3,
+      reasoning: 'Error occurred, using default quantity',
+      source: 'error_fallback'
+    };
+  }
+};
+
+// Get suggested quantity from external API
+const getSuggestedQuantity = async (req, res) => {
+  try {
+    const { productId } = req.params;
+    
+    // Get product details
+    const product = await Product.findById(productId);
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    // Get current stock
+    const batches = await ProductBatch.find({ product_id: productId });
+    const currentStock = batches.reduce((sum, batch) => sum + (batch.quantity_in_stock || 0), 0);
+    
+    // Get historical sales data for the product (last 6 months)
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+    
+    const salesData = await SaleItem.aggregate([
+      {
+        $lookup: {
+          from: 'product_batches',
+          localField: 'batch_id',
+          foreignField: '_id',
+          as: 'batch_info'
+        }
+      },
+      {
+        $match: {
+          'batch_info.product_id': product._id,
+          createdAt: { $gte: sixMonthsAgo }
+        }
+      },
+      {
+        $group: {
+          _id: null,
+          totalSold: { $sum: '$quantity' },
+          avgMonthlySales: { $avg: '$quantity' },
+          salesCount: { $sum: 1 }
+        }
+      }
+    ]);
+
+    // Prepare minimal data for your custom model API
+    const requestData = {
+      productId: product._id,
+      productName: product.product_name
+    };
+
+    try {
+      // Call your custom model API
+      const externalApiUrl = process.env.QUANTITY_SUGGESTION_API || 'http://localhost:8000/predict-quantity';
+      
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000);
+      
+      const response = await fetch(externalApiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': process.env.EXTERNAL_API_KEY ? `Bearer ${process.env.EXTERNAL_API_KEY}` : undefined
+        },
+        body: JSON.stringify(requestData),
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      if (response.ok) {
+        const responseData = await response.json();
+        
+        // Handle different possible response formats from your model
+        let suggestedQuantity = 7;
+        
+        if (typeof responseData === 'number') {
+          suggestedQuantity = responseData;
+        } else if (responseData.value) {
+          suggestedQuantity = responseData.value;
+        } else if (responseData.quantity) {
+          suggestedQuantity = responseData.quantity;
+        } else if (responseData.suggestedQuantity) {
+          suggestedQuantity = responseData.suggestedQuantity;
+        }
+        
+        suggestedQuantity = Math.max(1, Math.min(1000, Math.round(suggestedQuantity)));
+        
+        res.json({ 
+          suggestedQuantity: suggestedQuantity,
+          confidence: 0.9,
+          reasoning: 'ML model prediction based on product analysis',
+          source: 'custom_ml_model'
+        });
+      } else {
+        throw new Error(`Custom API error: ${response.status}`);
+      }
+      
+    } catch (externalError) {
+      console.log('External API unavailable, using fallback quantity:', externalError.message);
+      
+      // Fallback to default quantity of 7 if external API fails
+      res.json({
+        suggestedQuantity: 7,
+        confidence: 0.3,
+        reasoning: 'Fallback quantity due to external API unavailability',
+        source: 'fallback'
+      });
+    }
+
+  } catch (error) {
+    console.error('Error getting suggested quantity:', error);
+    res.status(500).json({ 
+      suggestedQuantity: 7,
+      confidence: 0.3,
+      reasoning: 'Error occurred, using default quantity',
+      source: 'error_fallback',
+      error: error.message 
+    });
+  }
+};
 
 module.exports = {
   searchProducts,
@@ -372,5 +747,7 @@ module.exports = {
   getProductBatches,
   getProductsWithPricing,
   getInventoryPaginated,
-  getCategories
+  getCategories,
+  getLowStockProducts,
+  getSuggestedQuantity
 };
