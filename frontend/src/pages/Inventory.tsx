@@ -36,7 +36,6 @@ const ITEMS_PER_PAGE = 12;
 
 const Inventory = () => {
   const [inventoryItems, setInventoryItems] = useState<InventoryItem[]>([]);
-  const [filteredItems, setFilteredItems] = useState<InventoryItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -44,6 +43,13 @@ const Inventory = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [categories, setCategories] = useState<string[]>([]);
+  const [pagination, setPagination] = useState({
+    currentPage: 1,
+    totalPages: 1,
+    totalItems: 0,
+    hasNext: false,
+    hasPrev: false
+  });
 
   // Statistics
   const [stats, setStats] = useState({
@@ -56,58 +62,61 @@ const Inventory = () => {
   });
 
   useEffect(() => {
-    fetchInventoryData();
+    fetchCategories();
   }, []);
 
   useEffect(() => {
-    filterItems();
-  }, [inventoryItems, searchTerm, selectedCategory, stockFilter]);
+    fetchInventoryData();
+  }, [currentPage, searchTerm, selectedCategory, stockFilter]);
+
+  const fetchCategories = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/products/categories');
+      if (response.ok) {
+        const categories = await response.json();
+        setCategories(categories);
+      }
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+    }
+  };
 
   const fetchInventoryData = async () => {
     try {
       setIsLoading(true);
       console.log('Fetching inventory data...');
       
-      // Fetch all products
-      const productsResponse = await fetch('http://localhost:5000/api/products');
-      if (!productsResponse.ok) {
-        throw new Error(`Failed to fetch products: ${productsResponse.status}`);
-      }
-      const products: Product[] = await productsResponse.json();
-      console.log('Fetched products:', products.length);
-
-      if (!Array.isArray(products)) {
-        throw new Error('Products response is not an array');
-      }
-
-      // Create simplified inventory data - just show products for now
-      const inventoryData: InventoryItem[] = products.map(product => ({
-        ...product,
-        batches: [],
-        totalStock: 0,
-        totalValue: 0,
-        lowStock: false,
-        expiringSoon: false
-      }));
-
-      // Extract categories
-      const categorySet = new Set<string>();
-      products.forEach(product => {
-        if (product.category && product.category.trim()) {
-          categorySet.add(product.category.trim());
-        }
+      // Build query parameters
+      const params = new URLSearchParams({
+        page: currentPage.toString(),
+        limit: ITEMS_PER_PAGE.toString(),
+        search: searchTerm,
+        category: selectedCategory,
+        stockFilter: stockFilter
       });
 
-      setInventoryItems(inventoryData);
-      setCategories(Array.from(categorySet).sort());
+      const response = await fetch(`http://localhost:5000/api/products/inventory-paginated?${params}`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch inventory: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      console.log('Fetched paginated inventory:', data);
 
-      // Set basic statistics
-      setStats({
-        totalProducts: products.length,
+      setInventoryItems(data.items || []);
+      setPagination(data.pagination || {
+        currentPage: 1,
+        totalPages: 1,
+        totalItems: 0,
+        hasNext: false,
+        hasPrev: false
+      });
+      setStats(data.stats || {
+        totalProducts: 0,
         totalStock: 0,
         totalValue: 0,
         lowStockItems: 0,
-        outOfStockItems: products.length, // All are out of stock since we're not fetching batches yet
+        outOfStockItems: 0,
         expiringSoonItems: 0
       });
 
@@ -121,44 +130,12 @@ const Inventory = () => {
     }
   };
 
-  const filterItems = () => {
-    let filtered = inventoryItems;
-
-    // Filter by search term
-    if (searchTerm.trim()) {
-      filtered = filtered.filter(item =>
-        item.product_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.hsn_code.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+  // Reset to page 1 when filters change
+  useEffect(() => {
+    if (currentPage !== 1) {
+      setCurrentPage(1);
     }
-
-    // Filter by category
-    if (selectedCategory !== 'all') {
-      filtered = filtered.filter(item => item.category === selectedCategory);
-    }
-
-    // Filter by stock status
-    if (stockFilter !== 'all') {
-      switch (stockFilter) {
-        case 'low':
-          filtered = filtered.filter(item => item.lowStock);
-          break;
-        case 'out-of-stock':
-          filtered = filtered.filter(item => item.totalStock === 0);
-          break;
-        case 'expiring':
-          filtered = filtered.filter(item => item.expiringSoon);
-          break;
-        case 'in-stock':
-          filtered = filtered.filter(item => item.totalStock > 0);
-          break;
-      }
-    }
-
-    setFilteredItems(filtered);
-    setCurrentPage(1); // Reset to first page when filters change
-  };
+  }, [searchTerm, selectedCategory, stockFilter]);
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-IN', {
@@ -169,14 +146,11 @@ const Inventory = () => {
 
 
 
-  // Pagination
-  const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
-  const currentItems = filteredItems.slice(startIndex, endIndex);
+  // Current items are already filtered and paginated from the API
+  const currentItems = inventoryItems;
 
   const goToPage = (page: number) => {
-    setCurrentPage(Math.max(1, Math.min(page, totalPages)));
+    setCurrentPage(page);
   };
 
   if (isLoading) {
@@ -318,7 +292,11 @@ const Inventory = () => {
                   onChange={(e) => setStockFilter(e.target.value)}
                   className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                 >
-                  <option value="all">All Products</option>
+                  <option value="all">All Stock Status</option>
+                  <option value="in-stock">In Stock</option>
+                  <option value="low">Low Stock</option>
+                  <option value="out-of-stock">Out of Stock</option>
+                  <option value="expiring">Expiring Soon</option>
                 </select>
               </div>
 
@@ -344,20 +322,20 @@ const Inventory = () => {
               </div>
 
               <div className="text-sm text-gray-600 flex items-center">
-                Showing {startIndex + 1}-{Math.min(endIndex, filteredItems.length)} of {filteredItems.length} items
+                Showing {((currentPage - 1) * ITEMS_PER_PAGE) + 1}-{Math.min(currentPage * ITEMS_PER_PAGE, pagination.totalItems)} of {pagination.totalItems} items
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Inventory Items */}
-        {filteredItems.length === 0 ? (
+        {inventoryItems.length === 0 ? (
           <Card>
             <CardContent className="text-center py-12">
               <FiPackage className="text-4xl text-gray-400 mx-auto mb-4" />
               <h3 className="text-lg font-medium text-gray-900 mb-2">No inventory items found</h3>
               <p className="text-gray-500">
-                {inventoryItems.length === 0 
+                {pagination.totalItems === 0 
                   ? "No products have been added to inventory yet." 
                   : "Try adjusting your search or filter criteria."
                 }
@@ -382,27 +360,38 @@ const Inventory = () => {
                           )}
                         </div>
 
-                        <div className="flex items-center">
-                          <span className="px-2 py-1 rounded-full text-xs font-medium text-gray-600 bg-gray-100">
-                            Product Listed
+                        <div className="flex items-center justify-between">
+                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                            item.totalStock === 0 
+                              ? 'text-red-600 bg-red-50' 
+                              : item.lowStock 
+                                ? 'text-yellow-600 bg-yellow-50' 
+                                : 'text-green-600 bg-green-50'
+                          }`}>
+                            {item.totalStock === 0 ? 'Out of Stock' : item.lowStock ? 'Low Stock' : 'In Stock'}
                           </span>
+                          {item.expiringSoon && (
+                            <span className="px-2 py-1 rounded-full text-xs font-medium text-orange-600 bg-orange-50">
+                              Expiring Soon
+                            </span>
+                          )}
                         </div>
 
                         <div className="space-y-2">
                           <div className="flex justify-between items-center">
                             <span className="text-sm text-gray-600">Stock:</span>
-                            <span className="text-sm text-gray-500">Not tracked</span>
+                            <span className={`font-medium text-sm ${item.totalStock === 0 ? 'text-red-600' : item.lowStock ? 'text-yellow-600' : 'text-green-600'}`}>
+                              {item.totalStock} units
+                            </span>
                           </div>
                           <div className="flex justify-between items-center">
-                            <span className="text-sm text-gray-600">Category:</span>
-                            <span className="font-medium text-sm">{item.category || 'None'}</span>
+                            <span className="text-sm text-gray-600">Batches:</span>
+                            <span className="font-medium text-sm">{item.batches.length}</span>
                           </div>
-                          {item.hsn_code && (
-                            <div className="flex justify-between items-center">
-                              <span className="text-sm text-gray-600">HSN:</span>
-                              <span className="font-medium text-sm">{item.hsn_code}</span>
-                            </div>
-                          )}
+                          <div className="flex justify-between items-center">
+                            <span className="text-sm text-gray-600">Value:</span>
+                            <span className="font-medium text-sm">{formatCurrency(item.totalValue)}</span>
+                          </div>
                         </div>
 
                         {item.description && (
@@ -427,10 +416,13 @@ const Inventory = () => {
                             Category
                           </th>
                           <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            HSN Code
+                            Stock
                           </th>
                           <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Description
+                            Value
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Status
                           </th>
                         </tr>
                       </thead>
@@ -438,17 +430,44 @@ const Inventory = () => {
                         {currentItems.map((item) => (
                           <tr key={item._id} className="hover:bg-gray-50">
                             <td className="px-6 py-4">
-                              <div className="text-sm font-medium text-gray-900">{item.product_name}</div>
+                              <div>
+                                <div className="text-sm font-medium text-gray-900">{item.product_name}</div>
+                                {item.hsn_code && (
+                                  <div className="text-sm text-gray-500">HSN: {item.hsn_code}</div>
+                                )}
+                              </div>
                             </td>
                             <td className="px-6 py-4">
                               <div className="text-sm text-gray-900">{item.category || 'Uncategorized'}</div>
                             </td>
                             <td className="px-6 py-4">
-                              <div className="text-sm text-gray-900">{item.hsn_code || '-'}</div>
+                              <div className={`text-sm font-medium ${
+                                item.totalStock === 0 ? 'text-red-600' : 
+                                item.lowStock ? 'text-yellow-600' : 'text-green-600'
+                              }`}>
+                                {item.totalStock} units
+                              </div>
+                              <div className="text-xs text-gray-500">{item.batches.length} batches</div>
                             </td>
                             <td className="px-6 py-4">
-                              <div className="text-sm text-gray-900 max-w-xs truncate" title={item.description}>
-                                {item.description || '-'}
+                              <div className="text-sm font-medium text-gray-900">{formatCurrency(item.totalValue)}</div>
+                            </td>
+                            <td className="px-6 py-4">
+                              <div className="flex flex-col space-y-1">
+                                <span className={`inline-flex px-2 py-1 rounded-full text-xs font-medium ${
+                                  item.totalStock === 0 
+                                    ? 'text-red-600 bg-red-50' 
+                                    : item.lowStock 
+                                      ? 'text-yellow-600 bg-yellow-50' 
+                                      : 'text-green-600 bg-green-50'
+                                }`}>
+                                  {item.totalStock === 0 ? 'Out of Stock' : item.lowStock ? 'Low Stock' : 'In Stock'}
+                                </span>
+                                {item.expiringSoon && (
+                                  <span className="inline-flex px-2 py-1 rounded-full text-xs font-medium text-orange-600 bg-orange-50">
+                                    Expiring Soon
+                                  </span>
+                                )}
                               </div>
                             </td>
                           </tr>
@@ -461,19 +480,19 @@ const Inventory = () => {
             )}
 
             {/* Pagination */}
-            {totalPages > 1 && (
+            {pagination.totalPages > 1 && (
               <Card>
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div className="text-sm text-gray-600">
-                      Page {currentPage} of {totalPages}
+                      Page {pagination.currentPage} of {pagination.totalPages}
                     </div>
                     <div className="flex items-center space-x-2">
                       <Button
                         variant="outline"
                         size="sm"
                         onClick={() => goToPage(currentPage - 1)}
-                        disabled={currentPage === 1}
+                        disabled={!pagination.hasPrev}
                         className="flex items-center space-x-1"
                       >
                         <FiChevronLeft className="w-4 h-4" />
@@ -481,8 +500,8 @@ const Inventory = () => {
                       </Button>
                       
                       <div className="flex items-center space-x-1">
-                        {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-                          const page = Math.max(1, Math.min(totalPages - 4, currentPage - 2)) + i;
+                        {Array.from({ length: Math.min(5, pagination.totalPages) }, (_, i) => {
+                          const page = Math.max(1, Math.min(pagination.totalPages - 4, currentPage - 2)) + i;
                           return (
                             <Button
                               key={page}
@@ -501,7 +520,7 @@ const Inventory = () => {
                         variant="outline"
                         size="sm"
                         onClick={() => goToPage(currentPage + 1)}
-                        disabled={currentPage === totalPages}
+                        disabled={!pagination.hasNext}
                         className="flex items-center space-x-1"
                       >
                         <span>Next</span>
