@@ -382,8 +382,8 @@ const Dashboard = () => {
           <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
             <h3 className="text-lg font-semibold text-gray-900 mb-6">Recent Purchases</h3>
             <div className="space-y-3">
-              {dashboardStats?.recentPurchases?.length > 0 ? (
-                dashboardStats.recentPurchases.slice(0, 5).map((purchase: Purchase, index) => (
+              {(dashboardStats?.recentPurchases?.length || 0) > 0 ? (
+                dashboardStats?.recentPurchases.slice(0, 5).map((purchase: Purchase, index) => (
                   <div key={purchase._id} className="flex justify-between items-center py-2 border-b border-gray-100">
                     <div className="flex-1">
                       <div className="text-sm font-medium text-gray-900">#{purchase.purchaseNumber}</div>
@@ -411,8 +411,8 @@ const Dashboard = () => {
           <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
             <h3 className="text-lg font-semibold text-gray-900 mb-6">Recent Sales</h3>
             <div className="space-y-3">
-              {dashboardStats?.recentSales?.length > 0 ? (
-                dashboardStats.recentSales.slice(0, 5).map((sale: Sale, index) => (
+              {(dashboardStats?.recentSales?.length || 0) > 0 ? (
+                dashboardStats?.recentSales.slice(0, 5).map((sale: Sale, index) => (
                   <div key={sale._id} className="flex justify-between items-center py-2 border-b border-gray-100">
                     <div className="flex-1">
                       <div className="text-sm font-medium text-gray-900">#{sale.billNumber}</div>
