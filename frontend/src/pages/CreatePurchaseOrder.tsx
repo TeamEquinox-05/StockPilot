@@ -4,6 +4,16 @@ import DashboardLayout from '../components/DashboardLayout';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { 
+  FiArrowLeft, 
+  FiPlus, 
+  FiTrash2, 
+  FiMessageSquare, 
+  FiMail, 
+  FiAlertTriangle, 
+  FiInfo,
+  FiPhone
+} from 'react-icons/fi';
 
 interface PurchaseOrderItem {
   id: string;
