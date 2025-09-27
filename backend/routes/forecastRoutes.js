@@ -15,7 +15,9 @@ router.get('/forecast', async (req, res) => {
         'Content-Type': 'application/json',
         // Add ngrok-skip-browser-warning header if needed
         'ngrok-skip-browser-warning': 'true'
-      }
+      },
+      timeout: 10000, // 10 second timeout
+      maxRedirects: 5
     });
 
     console.log('Forecast API response:', response.data);
@@ -26,9 +28,18 @@ router.get('/forecast', async (req, res) => {
     });
   } catch (error) {
     console.error('Error fetching forecast:', error.message);
-    res.status(500).json({
+    
+    // Provide fallback data when external API fails
+    const fallbackData = {
+      message: 'External forecast API unavailable',
+      forecast: 'Unable to generate forecast at this time. Please check if the external API is running.',
+      timestamp: new Date().toISOString()
+    };
+    
+    res.json({
       success: false,
-      message: 'Failed to fetch forecast data',
+      message: 'External forecast API unavailable',
+      data: fallbackData,
       error: error.message
     });
   }
@@ -44,7 +55,9 @@ router.get('/forecast/:id', async (req, res) => {
       headers: {
         'Content-Type': 'application/json',
         'ngrok-skip-browser-warning': 'true'
-      }
+      },
+      timeout: 10000, // 10 second timeout
+      maxRedirects: 5
     });
 
     console.log('Forecast API response:', response.data);
@@ -55,9 +68,19 @@ router.get('/forecast/:id', async (req, res) => {
     });
   } catch (error) {
     console.error('Error fetching forecast for ID:', error.message);
-    res.status(500).json({
+    
+    // Provide fallback data when external API fails
+    const fallbackData = {
+      id: id,
+      message: 'External forecast API unavailable',
+      forecast: `Unable to generate forecast for ID ${id} at this time. Please check if the external API is running.`,
+      timestamp: new Date().toISOString()
+    };
+    
+    res.json({
       success: false,
-      message: `Failed to fetch forecast data for ID: ${req.params.id}`,
+      message: `External forecast API unavailable for ID: ${id}`,
+      data: fallbackData,
       error: error.message
     });
   }

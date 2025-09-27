@@ -374,15 +374,15 @@ const CreatePurchaseOrder = () => {
             onClick={() => navigate('/purchases')}
             className="mb-4 flex items-center space-x-2"
           >
-            <span>←</span>
+            <FiArrowLeft className="h-4 w-4" />
             <span>Back to Purchase Management</span>
           </Button>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-2">Create Purchase Order</h1>
-              <p className="text-lg text-gray-600">Generate purchase orders to send to vendors</p>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Create Purchase Order</h1>
+              <p className="text-base sm:text-lg text-gray-600">Generate purchase orders to send to vendors</p>
             </div>
-            <div className="text-right">
+            <div className="text-left sm:text-right">
               <div className="text-sm text-gray-500">Order #</div>
               <div className="text-lg font-semibold text-gray-900">{orderNumber}</div>
             </div>
@@ -396,7 +396,7 @@ const CreatePurchaseOrder = () => {
               <CardTitle>Order Information</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Order Number (Auto-Generated)
@@ -509,11 +509,19 @@ const CreatePurchaseOrder = () => {
 
           {/* Add Items */}
           <Card>
-            <CardHeader>
+            <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle>Add Items</CardTitle>
+              <Button
+                type="button"
+                onClick={addItem}
+                className="bg-gray-900 hover:bg-gray-800 text-white flex items-center space-x-2"
+              >
+                <FiPlus className="h-4 w-4" />
+                <span>Add Item</span>
+              </Button>
             </CardHeader>
             <CardContent id="item-form">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-6">
                 <div className="relative">
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Product Name *
@@ -617,16 +625,6 @@ const CreatePurchaseOrder = () => {
                     className="w-full bg-gray-50"
                   />
                 </div>
-                
-                <div className="flex items-end">
-                  <Button
-                    type="button"
-                    onClick={addItem}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
-                  >
-                    Add Item
-                  </Button>
-                </div>
               </div>
             </CardContent>
           </Card>
@@ -710,8 +708,9 @@ const CreatePurchaseOrder = () => {
                               variant="outline"
                               size="sm"
                               onClick={() => removeItem(item.id)}
-                              className="text-red-600 hover:text-red-800"
+                              className="text-red-600 hover:text-red-800 hover:bg-red-50"
                             >
+                              <FiTrash2 className="w-4 h-4 mr-1" />
                               Remove
                             </Button>
                           </td>
@@ -751,7 +750,7 @@ const CreatePurchaseOrder = () => {
                     placeholder="Enter terms and conditions..."
                     value={terms}
                     onChange={(e) => setTerms(e.target.value)}
-                    className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                   />
                 </div>
                 
@@ -764,7 +763,7 @@ const CreatePurchaseOrder = () => {
                     placeholder="Additional notes or special instructions..."
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                    className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                   />
                 </div>
               </div>
@@ -775,7 +774,7 @@ const CreatePurchaseOrder = () => {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
-                <span>📱</span>
+                <FiMessageSquare className="text-lg" />
                 <span>Send Notifications</span>
               </CardTitle>
               <p className="text-sm text-gray-600">
@@ -791,17 +790,19 @@ const CreatePurchaseOrder = () => {
                       id="whatsapp-notification"
                       checked={sendWhatsApp}
                       onChange={(e) => setSendWhatsApp(e.target.checked)}
-                      className="w-5 h-5 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2"
+                      className="w-5 h-5 text-gray-600 bg-gray-100 border-gray-300 rounded focus:ring-gray-500 focus:ring-2"
                     />
                     <div className="flex-1">
                       <label htmlFor="whatsapp-notification" className="flex items-center cursor-pointer">
-                        <span className="text-2xl mr-3">💬</span>
+                        <FiMessageSquare className="text-2xl mr-3 text-green-600" />
                         <div>
                           <div className="text-sm font-medium text-gray-900">WhatsApp Message</div>
                           <div className="text-xs text-gray-500">
                             Send purchase order details via WhatsApp
                             {selectedVendor?.phone && (
-                              <span className="block text-green-600">📞 {selectedVendor.phone}</span>
+                              <span className="flex items-center text-green-600 mt-1">
+                                <FiPhone className="mr-1" /> {selectedVendor.phone}
+                              </span>
                             )}
                           </div>
                         </div>
@@ -817,17 +818,19 @@ const CreatePurchaseOrder = () => {
                       id="email-notification"
                       checked={sendEmail}
                       onChange={(e) => setSendEmail(e.target.checked)}
-                      className="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+                      className="w-5 h-5 text-gray-600 bg-gray-100 border-gray-300 rounded focus:ring-gray-500 focus:ring-2"
                     />
                     <div className="flex-1">
                       <label htmlFor="email-notification" className="flex items-center cursor-pointer">
-                        <span className="text-2xl mr-3">📧</span>
+                        <FiMail className="text-2xl mr-3 text-blue-600" />
                         <div>
                           <div className="text-sm font-medium text-gray-900">Email Notification</div>
                           <div className="text-xs text-gray-500">
                             Send detailed purchase order via email with PDF attachment
                             {selectedVendor?.email && (
-                              <span className="block text-blue-600">✉️ {selectedVendor.email}</span>
+                              <span className="flex items-center text-blue-600 mt-1">
+                                <FiMail className="mr-1" /> {selectedVendor.email}
+                              </span>
                             )}
                           </div>
                         </div>
@@ -839,26 +842,31 @@ const CreatePurchaseOrder = () => {
 
               {!selectedVendor && (
                 <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-md">
-                  <p className="text-sm text-yellow-800">
-                    ⚠️ Please select a vendor first to see their contact information for notifications.
+                  <p className="text-sm text-yellow-800 flex items-center">
+                    <FiAlertTriangle className="mr-2" />
+                    Please select a vendor first to see their contact information for notifications.
                   </p>
                 </div>
               )}
 
               {selectedVendor && (!selectedVendor.phone || !selectedVendor.email) && (
                 <div className="mt-4 p-3 bg-orange-50 border border-orange-200 rounded-md">
-                  <p className="text-sm text-orange-800">
-                    ⚠️ Some contact information is missing for the selected vendor:
-                    {!selectedVendor.phone && <span className="block">• WhatsApp requires phone number</span>}
-                    {!selectedVendor.email && <span className="block">• Email requires email address</span>}
+                  <p className="text-sm text-orange-800 flex items-start">
+                    <FiAlertTriangle className="mr-2 mt-0.5 flex-shrink-0" />
+                    <span>
+                      Some contact information is missing for the selected vendor:
+                      {!selectedVendor.phone && <span className="block">• WhatsApp requires phone number</span>}
+                      {!selectedVendor.email && <span className="block">• Email requires email address</span>}
+                    </span>
                   </p>
                 </div>
               )}
 
               {sendWhatsApp && (
                 <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-md">
-                  <p className="text-sm text-yellow-800">
-                    📱 <strong>WhatsApp Setup Required:</strong>
+                  <p className="text-sm text-yellow-800 flex items-center mb-2">
+                    <FiPhone className="mr-2" />
+                    <strong>WhatsApp Setup Required:</strong>
                   </p>
                   <ul className="text-xs text-yellow-700 mt-2 ml-4 list-disc">
                     <li>Vendor must first send "join &lt;code&gt;" to +1 415 523 8886</li>
@@ -870,8 +878,9 @@ const CreatePurchaseOrder = () => {
 
               {(sendWhatsApp || sendEmail) && selectedVendor && (
                 <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-md">
-                  <p className="text-sm text-blue-800">
-                    ℹ️ Selected notifications will be sent automatically after the purchase order is created successfully.
+                  <p className="text-sm text-blue-800 flex items-center">
+                    <FiInfo className="mr-2" />
+                    Selected notifications will be sent automatically after the purchase order is created successfully.
                   </p>
                 </div>
               )}
@@ -906,7 +915,7 @@ const CreatePurchaseOrder = () => {
                   <Button
                     type="submit"
                     disabled={isLoading || !selectedVendor || orderItems.length === 0}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg"
+                    className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 text-lg"
                   >
                     {isLoading ? 'Creating Purchase Order...' : 'Create Purchase Order'}
                   </Button>

@@ -15,7 +15,7 @@ if (accountSid && authToken) {
 
 // Initialize Nodemailer transporter
 const createEmailTransporter = () => {
-  return nodemailer.createTransporter({
+  return nodemailer.createTransport({
     service: process.env.EMAIL_SERVICE || 'gmail', // You can use gmail, outlook, etc.
     auth: {
       user: process.env.EMAIL_USER,
