@@ -82,6 +82,7 @@ const CreatePurchaseOrder = () => {
   const [lowStockLoading, setLowStockLoading] = useState(false);
   const [showLowStockSuggestions, setShowLowStockSuggestions] = useState(true);
   const [lastFetchTime, setLastFetchTime] = useState<number>(0);
+  const [addingProductId, setAddingProductId] = useState<string | null>(null);
   
 
   
@@ -291,7 +292,7 @@ const CreatePurchaseOrder = () => {
     setOrderItems(prev => prev.filter(item => item.id !== id));
   };
 
-  const addLowStockProduct = (lowStockProduct: LowStockProduct) => {
+  const addLowStockProduct = async (lowStockProduct: LowStockProduct) => {
     // Check if product is already in the order
     const existingItem = orderItems.find(item => 
       item.productName.toLowerCase() === lowStockProduct.product_name.toLowerCase()
@@ -301,22 +302,71 @@ const CreatePurchaseOrder = () => {
       alert(`${lowStockProduct.product_name} is already in the order!`);
       return;
     }
+
+    // Set loading state for this specific product
+    setAddingProductId(lowStockProduct._id);
     
-    const item: PurchaseOrderItem = {
-      id: Date.now().toString(),
-      productName: lowStockProduct.product_name,
-      description: `Low stock item - Current: ${lowStockProduct.currentStock}`,
-      quantity: lowStockProduct.suggestedQuantity,
-      estimatedRate: lowStockProduct.latestPurchaseRate || 0,
-      expectedDelivery: expectedDelivery,
-      notes: `Auto-suggested for low stock (${lowStockProduct.currentStock} remaining)`,
-      amount: lowStockProduct.suggestedQuantity * (lowStockProduct.latestPurchaseRate || 0)
-    };
-    
-    setOrderItems(prev => [...prev, item]);
-    
-    // Show success feedback
-    alert(`✅ Added ${lowStockProduct.product_name} to the order!`);
+    try {
+      // Call the reorder API to get the calculated reorder point
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiBaseUrl}/api/products/suggested-quantity/${lowStockProduct._id}`);
+      
+      let calculatedQuantity = lowStockProduct.suggestedQuantity; // fallback
+      let reorderReasoning = `Auto-suggested for low stock (${lowStockProduct.currentStock} remaining)`;
+      
+      if (response.ok) {
+        const reorderData = await response.json();
+        if (reorderData.suggestedQuantity) {
+          calculatedQuantity = reorderData.suggestedQuantity;
+          reorderReasoning = reorderData.reasoning || reorderReasoning;
+          
+          // If we have additional API data, include it in the notes
+          if (reorderData.apiData) {
+            const { currentInventory, avgDailyUsage, reorderPoint, safetyStock, reorderNeeded, leadTimeDays } = reorderData.apiData;
+            reorderReasoning = `Reorder Point: ${reorderPoint} units | Current: ${currentInventory} | Avg Daily Usage: ${avgDailyUsage} | Safety Stock: ${safetyStock} | Lead Time: ${leadTimeDays} days | ${reorderNeeded ? 'Reorder Needed' : 'Stock Sufficient'}`;
+          }
+        }
+      } else {
+        console.warn('Failed to get reorder calculation, using fallback quantity');
+      }
+      
+      const item: PurchaseOrderItem = {
+        id: Date.now().toString(),
+        productName: lowStockProduct.product_name,
+        description: `Smart reorder - Current: ${lowStockProduct.currentStock}`,
+        quantity: calculatedQuantity,
+        estimatedRate: lowStockProduct.latestPurchaseRate || 0,
+        expectedDelivery: expectedDelivery,
+        notes: reorderReasoning,
+        amount: calculatedQuantity * (lowStockProduct.latestPurchaseRate || 0)
+      };
+      
+      setOrderItems(prev => [...prev, item]);
+      
+      // Show success feedback with calculated quantity
+      alert(`✅ Added ${lowStockProduct.product_name} to the order!\nRecommended quantity: ${calculatedQuantity} units`);
+      
+    } catch (error) {
+      console.error('Error calculating reorder quantity:', error);
+      
+      // Fallback to original quantity if API call fails
+      const item: PurchaseOrderItem = {
+        id: Date.now().toString(),
+        productName: lowStockProduct.product_name,
+        description: `Low stock item - Current: ${lowStockProduct.currentStock}`,
+        quantity: lowStockProduct.suggestedQuantity,
+        estimatedRate: lowStockProduct.latestPurchaseRate || 0,
+        expectedDelivery: expectedDelivery,
+        notes: `Auto-suggested for low stock (${lowStockProduct.currentStock} remaining) - API unavailable`,
+        amount: lowStockProduct.suggestedQuantity * (lowStockProduct.latestPurchaseRate || 0)
+      };
+      
+      setOrderItems(prev => [...prev, item]);
+      alert(`✅ Added ${lowStockProduct.product_name} to the order!\nUsing fallback quantity: ${lowStockProduct.suggestedQuantity} units (API unavailable)`);
+    } finally {
+      // Clear loading state
+      setAddingProductId(null);
+    }
   };
 
   const updateItem = (id: string, field: keyof PurchaseOrderItem, value: any) => {
@@ -812,17 +862,29 @@ const CreatePurchaseOrder = () => {
                         {lowStockProducts.map((product) => (
                           <tr 
                             key={product._id} 
-                            className="hover:bg-gray-50 transition-colors cursor-pointer"
-                            onClick={() => addLowStockProduct(product)}
+                            className={`transition-colors ${
+                              addingProductId === product._id 
+                                ? 'bg-blue-50 cursor-wait' 
+                                : 'hover:bg-gray-50 cursor-pointer'
+                            }`}
+                            onClick={() => addingProductId === product._id ? null : addLowStockProduct(product)}
                           >
                             <td className="px-6 py-4 whitespace-nowrap">
-                              <div>
-                                <div className="text-sm font-semibold text-gray-900">
-                                  {product.product_name}
+                              <div className="flex items-center">
+                                <div className="flex-1">
+                                  <div className="text-sm font-semibold text-gray-900">
+                                    {product.product_name}
+                                  </div>
+                                  <div className="text-sm text-gray-500">
+                                    HSN: {product.hsn_code || 'N/A'}
+                                  </div>
                                 </div>
-                                <div className="text-sm text-gray-500">
-                                  HSN: {product.hsn_code || 'N/A'}
-                                </div>
+                                {addingProductId === product._id && (
+                                  <div className="ml-2 flex items-center">
+                                    <div className="animate-spin h-4 w-4 border-2 border-blue-600 border-t-transparent rounded-full"></div>
+                                    <span className="ml-1 text-xs text-blue-600">Calculating...</span>
+                                  </div>
+                                )}
                               </div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">

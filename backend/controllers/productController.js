@@ -456,7 +456,7 @@ const getLowStockProducts = async (req, res) => {
               0
             ]
           },
-          suggestedQuantity: 7 // Will be updated by external API call
+          suggestedQuantity: 7 // Will be updated by external API call or randomized in code
         }
       },
       
@@ -480,12 +480,15 @@ const getLowStockProducts = async (req, res) => {
             reasoning: suggestionResponse.reasoning
           };
         } catch (error) {
-          console.log(`Failed to get suggestion for ${product.product_name}, using default`);
+          console.log(`Failed to get suggestion for ${product.product_name}, using fallback`);
+          // Generate consistent random value based on product name hash
+          const hash = product.product_name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+          const randomQuantity = 4 + (hash % 12); // Range 4-15
           return {
             ...product,
-            suggestedQuantity: 7,
+            suggestedQuantity: randomQuantity,
             confidence: 0.3,
-            reasoning: 'Default quantity due to API error'
+            reasoning: `Fallback quantity (${randomQuantity}) due to API error`
           };
         }
       })
@@ -540,27 +543,21 @@ const getSuggestedQuantityInternal = async (productId) => {
       }
     ]);
 
-    // Prepare minimal data for your custom model API
-    const requestData = {
-      productId: product._id,
-      productName: product.product_name
-    };
-
     try {
-      // Call your custom model API
-      const externalApiUrl = process.env.QUANTITY_SUGGESTION_API || 'http://localhost:8000/predict-quantity';
+      // Call your custom reorder API with product ID in the URL
+      const baseApiUrl = process.env.QUANTITY_SUGGESTION_API || 'https://42aa5c50b0e1.ngrok-free.app/reorder';
+      const externalApiUrl = `${baseApiUrl}/${product._id}`;
       
       // API call with timeout
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout for ML model
       
       const response = await fetch(externalApiUrl, {
-        method: 'POST',
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': process.env.EXTERNAL_API_KEY ? `Bearer ${process.env.EXTERNAL_API_KEY}` : undefined
         },
-        body: JSON.stringify(requestData),
         signal: controller.signal
       });
 
@@ -569,21 +566,12 @@ const getSuggestedQuantityInternal = async (productId) => {
       if (response.ok) {
         const responseData = await response.json();
         
-        // Handle different possible response formats from your model
-        let suggestedQuantity = 7; // Default fallback
+        // Extract reorder_point from the API response
+        const hash = product.product_name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        let suggestedQuantity = 4 + (hash % 12); // Deterministic fallback between 4-15
         
-        if (typeof responseData === 'number') {
-          // If response is just a number
-          suggestedQuantity = responseData;
-        } else if (responseData.value) {
-          // If response is { "value": number }
-          suggestedQuantity = responseData.value;
-        } else if (responseData.quantity) {
-          // If response is { "quantity": number }
-          suggestedQuantity = responseData.quantity;
-        } else if (responseData.suggestedQuantity) {
-          // If response is { "suggestedQuantity": number }
-          suggestedQuantity = responseData.suggestedQuantity;
+        if (responseData.reorder_point && typeof responseData.reorder_point === 'number') {
+          suggestedQuantity = responseData.reorder_point;
         }
         
         // Ensure reasonable bounds
@@ -592,28 +580,54 @@ const getSuggestedQuantityInternal = async (productId) => {
         return {
           suggestedQuantity: suggestedQuantity,
           confidence: 0.9, // High confidence since it's from your trained model
-          reasoning: 'ML model prediction based on product analysis',
-          source: 'custom_ml_model'
+          reasoning: `Reorder point calculation: ${responseData.reorder_needed ? 'Reorder needed' : 'Stock sufficient'}`,
+          source: 'reorder_api',
+          apiData: {
+            currentInventory: responseData.current_inventory,
+            avgDailyUsage: responseData.avg_daily_usage,
+            reorderPoint: responseData.reorder_point,
+            safetyStock: responseData.safety_stock,
+            reorderNeeded: responseData.reorder_needed,
+            daysUntilReorder: responseData.days_until_reorder,
+            leadTimeDays: responseData.lead_time_days,
+            calculatedOn: responseData.calculated_on
+          }
         };
       } else {
-        throw new Error(`Custom API error: ${response.status} - ${response.statusText}`);
+        throw new Error(`Reorder API error: ${response.status} - ${response.statusText}`);
       }
       
     } catch (externalError) {
-      // Fallback to default quantity of 7 if external API fails
+      // Log the error for debugging
+      console.error('Reorder API call failed:', {
+        productId: product._id,
+        url: `${baseApiUrl}/${product._id}`,
+        error: externalError.message
+      });
+      
+      // Fallback to deterministic quantity between 4-15 if external API fails
+      const hash = product.product_name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+      const fallbackQuantity = 4 + (hash % 12); // Range 4-15
       return {
-        suggestedQuantity: 7,
+        suggestedQuantity: fallbackQuantity,
         confidence: 0.3,
-        reasoning: 'Fallback quantity due to external API unavailability',
+        reasoning: `Fallback quantity (${fallbackQuantity}) due to API error: ${externalError.message}`,
         source: 'fallback'
       };
     }
 
   } catch (error) {
+    console.error('getSuggestedQuantityInternal failed:', {
+      productId: product._id,
+      error: error.message
+    });
+    
+    const hash = product.product_name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    const fallbackQuantity = 4 + (hash % 12); // Range 4-15
     return {
-      suggestedQuantity: 7,
+      suggestedQuantity: fallbackQuantity,
       confidence: 0.3,
-      reasoning: 'Error occurred, using default quantity',
+      reasoning: `Error occurred: ${error.message} (using fallback: ${fallbackQuantity})`,
       source: 'error_fallback'
     };
   }
@@ -663,26 +677,20 @@ const getSuggestedQuantity = async (req, res) => {
       }
     ]);
 
-    // Prepare minimal data for your custom model API
-    const requestData = {
-      productId: product._id,
-      productName: product.product_name
-    };
-
     try {
-      // Call your custom model API
-      const externalApiUrl = process.env.QUANTITY_SUGGESTION_API || 'http://localhost:8000/predict-quantity';
+      // Call your custom reorder API with product ID in the URL
+      const baseApiUrl = process.env.QUANTITY_SUGGESTION_API || 'https://42aa5c50b0e1.ngrok-free.app/reorder';
+      const externalApiUrl = `${baseApiUrl}/${product._id}`;
       
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 5000);
       
       const response = await fetch(externalApiUrl, {
-        method: 'POST',
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': process.env.EXTERNAL_API_KEY ? `Bearer ${process.env.EXTERNAL_API_KEY}` : undefined
         },
-        body: JSON.stringify(requestData),
         signal: controller.signal
       });
 
@@ -691,17 +699,12 @@ const getSuggestedQuantity = async (req, res) => {
       if (response.ok) {
         const responseData = await response.json();
         
-        // Handle different possible response formats from your model
-        let suggestedQuantity = 7;
+        // Extract reorder_point from the API response
+        const hash = product.product_name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        let suggestedQuantity = 4 + (hash % 12); // Deterministic fallback between 4-15
         
-        if (typeof responseData === 'number') {
-          suggestedQuantity = responseData;
-        } else if (responseData.value) {
-          suggestedQuantity = responseData.value;
-        } else if (responseData.quantity) {
-          suggestedQuantity = responseData.quantity;
-        } else if (responseData.suggestedQuantity) {
-          suggestedQuantity = responseData.suggestedQuantity;
+        if (responseData.reorder_point && typeof responseData.reorder_point === 'number') {
+          suggestedQuantity = responseData.reorder_point;
         }
         
         suggestedQuantity = Math.max(1, Math.min(1000, Math.round(suggestedQuantity)));
@@ -709,21 +712,37 @@ const getSuggestedQuantity = async (req, res) => {
         res.json({ 
           suggestedQuantity: suggestedQuantity,
           confidence: 0.9,
-          reasoning: 'ML model prediction based on product analysis',
-          source: 'custom_ml_model'
+          reasoning: `Reorder point calculation: ${responseData.reorder_needed ? 'Reorder needed' : 'Stock sufficient'}`,
+          source: 'reorder_api',
+          apiData: {
+            currentInventory: responseData.current_inventory,
+            avgDailyUsage: responseData.avg_daily_usage,
+            reorderPoint: responseData.reorder_point,
+            safetyStock: responseData.safety_stock,
+            reorderNeeded: responseData.reorder_needed,
+            daysUntilReorder: responseData.days_until_reorder,
+            leadTimeDays: responseData.lead_time_days,
+            calculatedOn: responseData.calculated_on
+          }
         });
       } else {
-        throw new Error(`Custom API error: ${response.status}`);
+        throw new Error(`Reorder API error: ${response.status}`);
       }
       
     } catch (externalError) {
-      console.log('External API unavailable, using fallback quantity:', externalError.message);
+      console.error('Reorder API call failed in getSuggestedQuantity:', {
+        productId: product._id,
+        url: `${baseApiUrl}/${product._id}`,
+        error: externalError.message
+      });
       
-      // Fallback to default quantity of 7 if external API fails
+      // Fallback to deterministic quantity between 4-15 if external API fails
+      const hash = product.product_name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+      const fallbackQuantity = 4 + (hash % 12); // Range 4-15
       res.json({
-        suggestedQuantity: 7,
+        suggestedQuantity: fallbackQuantity,
         confidence: 0.3,
-        reasoning: 'Fallback quantity due to external API unavailability',
+        reasoning: `Fallback quantity (${fallbackQuantity}) due to API error: ${externalError.message}`,
         source: 'fallback'
       });
     }
