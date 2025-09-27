@@ -17,6 +17,7 @@ import PurchaseDetailsView from './pages/PurchaseDetailsView';
 import CreatePurchaseOrder from './pages/CreatePurchaseOrder';
 import ViewPurchaseOrders from './pages/ViewPurchaseOrders';
 import PurchaseOrderDetails from './pages/PurchaseOrderDetails';
+import Chat from './pages/Chat';
 
 const AppRouter = () => (
   <Router>
@@ -77,6 +78,11 @@ const AppRouter = () => (
         <Route path="/vendors" element={
           <ProtectedRoute>
             <Vendors />
+          </ProtectedRoute>
+        } />
+        <Route path="/chat" element={
+          <ProtectedRoute>
+            <Chat />
           </ProtectedRoute>
         } />
       </Routes>

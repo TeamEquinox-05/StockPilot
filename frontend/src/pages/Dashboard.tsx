@@ -383,7 +383,7 @@ const Dashboard = () => {
             <h3 className="text-lg font-semibold text-gray-900 mb-6">Recent Purchases</h3>
             <div className="space-y-3">
               {(dashboardStats?.recentPurchases?.length || 0) > 0 ? (
-                dashboardStats?.recentPurchases.slice(0, 5).map((purchase: Purchase, index) => (
+                dashboardStats?.recentPurchases?.slice(0, 5).map((purchase: Purchase) => (
                   <div key={purchase._id} className="flex justify-between items-center py-2 border-b border-gray-100">
                     <div className="flex-1">
                       <div className="text-sm font-medium text-gray-900">#{purchase.purchaseNumber}</div>
@@ -412,7 +412,7 @@ const Dashboard = () => {
             <h3 className="text-lg font-semibold text-gray-900 mb-6">Recent Sales</h3>
             <div className="space-y-3">
               {(dashboardStats?.recentSales?.length || 0) > 0 ? (
-                dashboardStats?.recentSales.slice(0, 5).map((sale: Sale, index) => (
+                dashboardStats?.recentSales?.slice(0, 5).map((sale: Sale) => (
                   <div key={sale._id} className="flex justify-between items-center py-2 border-b border-gray-100">
                     <div className="flex-1">
                       <div className="text-sm font-medium text-gray-900">#{sale.billNumber}</div>

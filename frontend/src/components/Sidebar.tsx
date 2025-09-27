@@ -19,6 +19,7 @@ const Sidebar = () => {
     { id: 'sales', label: 'Sales', icon: '', path: '/sales' },
     { id: 'purchases', label: 'Purchases', icon: '', path: '/purchases' },
     { id: 'vendors', label: 'Vendors', icon: '', path: '/vendors' },
+    { id: 'chat', label: 'Chat Assistant', icon: '', path: '/chat' },
     { id: 'integrations', label: 'Integrations', icon: '', path: '/integrations' },
     { id: 'channels', label: 'Active Channels', icon: '', path: '/channels' },
     { id: 'reports', label: 'Reports', icon: '', path: '/reports' },
@@ -47,6 +48,9 @@ const Sidebar = () => {
     }
     if (currentPath.startsWith('/vendors')) {
       return 'vendors';
+    }
+    if (currentPath.startsWith('/chat')) {
+      return 'chat';
     }
     if (currentPath.startsWith('/integrations')) {
       return 'integrations';
