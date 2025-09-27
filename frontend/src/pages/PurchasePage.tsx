@@ -3,6 +3,20 @@ import { useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { 
+  FiShoppingCart, 
+  FiClipboard, 
+  FiFileText, 
+  FiPackage, 
+  FiCheckCircle, 
+  FiClock, 
+  FiBarChart, 
+  FiEye, 
+  FiHome, 
+  FiCreditCard,
+  FiTrendingUp,
+  FiDollarSign 
+} from 'react-icons/fi';
 
 interface RecentActivity {
   id: string;
@@ -46,26 +60,26 @@ const PurchasePage = () => {
     {
       title: "Add Purchase",
       description: "Record a new purchase from vendors and update inventory",
-      icon: "🛒",
+      icon: FiShoppingCart,
       path: "/purchases/add",
-      color: "bg-blue-50 border-blue-200 hover:bg-blue-100",
-      buttonColor: "bg-blue-600 hover:bg-blue-700"
+      color: "bg-gray-50 border-gray-200 hover:bg-gray-100",
+      buttonColor: "bg-gray-900 hover:bg-gray-800"
     },
     {
       title: "Create Purchase Order", 
       description: "Generate purchase orders to send to vendors",
-      icon: "📋",
+      icon: FiClipboard,
       path: "/purchases/create-order",
-      color: "bg-green-50 border-green-200 hover:bg-green-100",
-      buttonColor: "bg-green-600 hover:bg-green-700"
+      color: "bg-gray-50 border-gray-200 hover:bg-gray-100",
+      buttonColor: "bg-gray-900 hover:bg-gray-800"
     },
     {
       title: "View Purchase Orders",
       description: "View, manage and download all purchase orders",
-      icon: "📄",
+      icon: FiFileText,
       path: "/purchases/orders",
-      color: "bg-purple-50 border-purple-200 hover:bg-purple-100", 
-      buttonColor: "bg-purple-600 hover:bg-purple-700"
+      color: "bg-gray-50 border-gray-200 hover:bg-gray-100", 
+      buttonColor: "bg-gray-900 hover:bg-gray-800"
     }
   ];
 
@@ -133,8 +147,8 @@ const PurchasePage = () => {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <div className="p-3 bg-blue-100 rounded-lg">
-                    <span className="text-2xl">📦</span>
+                  <div className="p-3 bg-gray-100 rounded-lg">
+                    <FiPackage className="text-2xl text-gray-600" />
                   </div>
                   <div className="ml-4">
                     <p className="text-sm font-medium text-gray-600">This Month</p>
@@ -160,8 +174,8 @@ const PurchasePage = () => {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <div className="p-3 bg-green-100 rounded-lg">
-                    <span className="text-2xl">✅</span>
+                  <div className="p-3 bg-gray-100 rounded-lg">
+                    <FiCheckCircle className="text-2xl text-gray-600" />
                   </div>
                   <div className="ml-4">
                     <p className="text-sm font-medium text-gray-600">Completed Orders</p>
@@ -170,7 +184,7 @@ const PurchasePage = () => {
                     ) : (
                       <>
                         <p className="text-2xl font-bold text-gray-900">{purchaseStats.completedOrders}</p>
-                        <p className="text-xs text-green-600 mt-1">Payments received</p>
+                        <p className="text-xs text-gray-600 mt-1">Payments received</p>
                       </>
                     )}
                   </div>
@@ -183,8 +197,8 @@ const PurchasePage = () => {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <div className="p-3 bg-orange-100 rounded-lg">
-                    <span className="text-2xl">⏳</span>
+                  <div className="p-3 bg-gray-100 rounded-lg">
+                    <FiClock className="text-2xl text-gray-600" />
                   </div>
                   <div className="ml-4">
                     <p className="text-sm font-medium text-gray-600">Pending Orders</p>
@@ -193,7 +207,7 @@ const PurchasePage = () => {
                     ) : (
                       <>
                         <p className="text-2xl font-bold text-gray-900">{purchaseStats.pendingOrders}</p>
-                        <p className="text-xs text-orange-600 mt-1">Awaiting payment</p>
+                        <p className="text-xs text-gray-600 mt-1">Awaiting payment</p>
                       </>
                     )}
                   </div>
@@ -206,8 +220,8 @@ const PurchasePage = () => {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <div className="p-3 bg-purple-100 rounded-lg">
-                    <span className="text-2xl">📊</span>
+                  <div className="p-3 bg-gray-100 rounded-lg">
+                    <FiBarChart className="text-2xl text-gray-600" />
                   </div>
                   <div className="ml-4">
                     <p className="text-sm font-medium text-gray-600">Total Orders</p>
@@ -218,7 +232,7 @@ const PurchasePage = () => {
                         <p className="text-2xl font-bold text-gray-900">
                           {purchaseStats.totalOrders}
                         </p>
-                        <p className="text-xs text-purple-600 mt-1">All time</p>
+                        <p className="text-xs text-gray-600 mt-1">All time</p>
                       </>
                     )}
                   </div>
@@ -232,20 +246,20 @@ const PurchasePage = () => {
         {!isStatsLoading && (purchaseStats.pendingAmount > 0 || purchaseStats.avgPurchaseAmount > 0) && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {purchaseStats.pendingAmount > 0 && (
-              <Card className="bg-gradient-to-r from-orange-50 to-red-50 border-orange-200">
+              <Card className="bg-gray-50 border-gray-200">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">Outstanding Amount</h3>
-                      <p className="text-3xl font-bold text-orange-600 mb-1">
+                      <p className="text-3xl font-bold text-gray-900 mb-1">
                         ₹{purchaseStats.pendingAmount.toLocaleString()}
                       </p>
                       <p className="text-sm text-gray-600">
                         From {purchaseStats.pendingOrders} pending order{purchaseStats.pendingOrders !== 1 ? 's' : ''}
                       </p>
                     </div>
-                    <div className="p-4 bg-orange-100 rounded-full">
-                      <span className="text-3xl">💰</span>
+                    <div className="p-4 bg-gray-100 rounded-full">
+                      <FiDollarSign className="text-3xl text-gray-600" />
                     </div>
                   </div>
                 </CardContent>
@@ -253,20 +267,20 @@ const PurchasePage = () => {
             )}
             
             {purchaseStats.avgPurchaseAmount > 0 && (
-              <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
+              <Card className="bg-gray-50 border-gray-200">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">Average Order Value</h3>
-                      <p className="text-3xl font-bold text-blue-600 mb-1">
+                      <p className="text-3xl font-bold text-gray-900 mb-1">
                         ₹{Math.round(purchaseStats.avgPurchaseAmount).toLocaleString()}
                       </p>
                       <p className="text-sm text-gray-600">
                         This month's average
                       </p>
                     </div>
-                    <div className="p-4 bg-blue-100 rounded-full">
-                      <span className="text-3xl">📈</span>
+                    <div className="p-4 bg-gray-100 rounded-full">
+                      <FiTrendingUp className="text-3xl text-gray-600" />
                     </div>
                   </div>
                 </CardContent>
@@ -286,7 +300,7 @@ const PurchasePage = () => {
               <CardHeader className="pb-4">
                 <div className="flex items-center space-x-4">
                   <div className="p-4 bg-white rounded-full shadow-md">
-                    <span className="text-6xl">{option.icon}</span>
+                    <option.icon className="text-4xl text-gray-700" />
                   </div>
                   <div>
                     <CardTitle className="text-2xl font-bold text-gray-900 mb-2">
@@ -315,16 +329,16 @@ const PurchasePage = () => {
 
         {/* Additional Actions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="bg-purple-50 border-purple-200 hover:bg-purple-100 transition-all duration-200 cursor-pointer">
+          <Card className="bg-gray-50 border-gray-200 hover:bg-gray-100 transition-all duration-200 cursor-pointer">
             <CardContent className="p-6 text-center">
-              <div className="p-3 bg-purple-100 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-2xl">📊</span>
+              <div className="p-3 bg-gray-100 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <FiEye className="text-2xl text-gray-600" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">View Purchases</h3>
               <p className="text-sm text-gray-600 mb-4">Browse purchase history and reports</p>
               <Button 
                 variant="outline" 
-                className="w-full border-purple-300 text-purple-700 hover:bg-purple-100"
+                className="w-full border-gray-300 text-gray-700 hover:bg-gray-100"
                 onClick={() => navigate('/purchases/list')}
               >
                 View All
@@ -332,16 +346,16 @@ const PurchasePage = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-yellow-50 border-yellow-200 hover:bg-yellow-100 transition-all duration-200 cursor-pointer">
+          <Card className="bg-gray-50 border-gray-200 hover:bg-gray-100 transition-all duration-200 cursor-pointer">
             <CardContent className="p-6 text-center">
-              <div className="p-3 bg-yellow-100 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-2xl">🏢</span>
+              <div className="p-3 bg-gray-100 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <FiHome className="text-2xl text-gray-600" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Vendors</h3>
               <p className="text-sm text-gray-600 mb-4">Manage vendor relationships</p>
               <Button 
                 variant="outline" 
-                className="w-full border-yellow-300 text-yellow-700 hover:bg-yellow-100"
+                className="w-full border-gray-300 text-gray-700 hover:bg-gray-100"
                 onClick={() => navigate('/vendors')}
               >
                 Manage
@@ -349,16 +363,16 @@ const PurchasePage = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-indigo-50 border-indigo-200 hover:bg-indigo-100 transition-all duration-200 cursor-pointer">
+          <Card className="bg-gray-50 border-gray-200 hover:bg-gray-100 transition-all duration-200 cursor-pointer">
             <CardContent className="p-6 text-center">
-              <div className="p-3 bg-indigo-100 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-2xl">💳</span>
+              <div className="p-3 bg-gray-100 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <FiCreditCard className="text-2xl text-gray-600" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Payments</h3>
               <p className="text-sm text-gray-600 mb-4">Track pending payments</p>
               <Button 
                 variant="outline" 
-                className="w-full border-indigo-300 text-indigo-700 hover:bg-indigo-100"
+                className="w-full border-gray-300 text-gray-700 hover:bg-gray-100"
                 onClick={() => navigate('/purchases/payments')}
               >
                 View Pending
@@ -383,18 +397,8 @@ const PurchasePage = () => {
                   {recentActivities.map((activity) => (
                     <div key={activity.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                       <div className="flex items-center space-x-3">
-                        <div className={`p-2 ${
-                          activity.iconColor === 'green' ? 'bg-green-100' :
-                          activity.iconColor === 'blue' ? 'bg-blue-100' :
-                          activity.iconColor === 'orange' ? 'bg-orange-100' : 'bg-gray-100'
-                        } rounded-full`}>
-                          <span className={`${
-                            activity.iconColor === 'green' ? 'text-green-600' :
-                            activity.iconColor === 'blue' ? 'text-blue-600' :
-                            activity.iconColor === 'orange' ? 'text-orange-600' : 'text-gray-600'
-                          }`}>
-                            {activity.icon}
-                          </span>
+                        <div className="p-2 bg-gray-100 rounded-full">
+                          <FiPackage className="text-gray-600" />
                         </div>
                         <div>
                           <p className="font-medium text-gray-900">{activity.title}</p>
@@ -408,12 +412,12 @@ const PurchasePage = () => {
               ) : (
                 <div className="flex items-center justify-center py-8">
                   <div className="text-center">
-                    <div className="text-4xl mb-2">📦</div>
+                    <FiPackage className="text-4xl mb-2 text-gray-400 mx-auto" />
                     <p className="text-gray-500 mb-2">No recent purchase activity</p>
                     <p className="text-sm text-gray-400 mb-4">Purchase activity will appear here once you start making purchases</p>
                     <Button
                       onClick={() => navigate('/purchases')}
-                      className="bg-blue-600 hover:bg-blue-700 text-white"
+                      className="bg-gray-900 hover:bg-gray-800 text-white"
                     >
                       Create First Purchase
                     </Button>

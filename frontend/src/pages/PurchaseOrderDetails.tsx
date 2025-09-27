@@ -3,7 +3,10 @@ import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
-import jsPDF from 'jspdf';
+impo            <div className="text-center py-12">
+            <FiX className="text-6xl mb-4 text-gray-400 mx-auto" />
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Purchase Order Not Found</h2>jsPDF from 'jspdf';
+import { FiArrowLeft, FiDownload, FiX } from 'react-icons/fi';
 
 interface PurchaseOrderItem {
   productName: string;
