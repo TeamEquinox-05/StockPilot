@@ -59,7 +59,7 @@ const PurchasePage = () => {
   const purchaseOptions = [
     {
       title: "Add Purchase",
-      description: "Record a new purchase from vendors and update inventory",
+      description: "Record new purchases from vendors and update your inventory automatically",
       icon: FiShoppingCart,
       path: "/purchases/add",
       color: "bg-gray-50 border-gray-200 hover:bg-gray-100",
@@ -67,7 +67,7 @@ const PurchasePage = () => {
     },
     {
       title: "Create Purchase Order", 
-      description: "Generate purchase orders to send to vendors",
+      description: "Generate professional purchase orders to send to your vendors",
       icon: FiClipboard,
       path: "/purchases/create-order",
       color: "bg-gray-50 border-gray-200 hover:bg-gray-100",
@@ -75,7 +75,7 @@ const PurchasePage = () => {
     },
     {
       title: "View Purchase Orders",
-      description: "View, manage and download all purchase orders",
+      description: "View, manage and download all your purchase orders in one place",
       icon: FiFileText,
       path: "/purchases/orders",
       color: "bg-gray-50 border-gray-200 hover:bg-gray-100", 
@@ -294,25 +294,27 @@ const PurchasePage = () => {
           {purchaseOptions.map((option, index) => (
             <Card 
               key={index} 
-              className={`${option.color} transition-all duration-200 cursor-pointer transform hover:scale-105 shadow-lg`}
+              className={`${option.color} transition-all duration-200 cursor-pointer transform hover:scale-105 shadow-lg h-full flex flex-col`}
               onClick={() => handleOptionClick(option.path)}
             >
-              <CardHeader className="pb-4">
-                <div className="flex items-center space-x-4">
-                  <div className="p-4 bg-white rounded-full shadow-md">
+              <CardHeader className="pb-4 flex-1">
+                <div className="flex items-start space-x-4 h-full">
+                  <div className="p-4 bg-white rounded-full shadow-md flex-shrink-0">
                     <option.icon className="text-4xl text-gray-700" />
                   </div>
-                  <div>
-                    <CardTitle className="text-2xl font-bold text-gray-900 mb-2">
-                      {option.title}
-                    </CardTitle>
-                    <p className="text-gray-600 text-base leading-relaxed">
-                      {option.description}
-                    </p>
+                  <div className="flex-1 min-h-[120px] flex flex-col justify-between">
+                    <div>
+                      <CardTitle className="text-2xl font-bold text-gray-900 mb-2">
+                        {option.title}
+                      </CardTitle>
+                      <p className="text-gray-600 text-base leading-relaxed">
+                        {option.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="pt-0">
+              <CardContent className="pt-0 mt-auto">
                 <Button 
                   className={`w-full ${option.buttonColor} text-white font-semibold py-3 px-6 text-lg rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg`}
                   onClick={(e) => {

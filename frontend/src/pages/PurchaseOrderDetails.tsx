@@ -3,9 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
-impo            <div className="text-center py-12">
-            <FiX className="text-6xl mb-4 text-gray-400 mx-auto" />
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Purchase Order Not Found</h2>jsPDF from 'jspdf';
+import jsPDF from 'jspdf';
 import { FiArrowLeft, FiDownload, FiX } from 'react-icons/fi';
 
 interface PurchaseOrderItem {
@@ -307,10 +305,10 @@ const PurchaseOrderDetails = () => {
       <DashboardLayout>
         <div className="max-w-7xl mx-auto p-6">
           <div className="text-center py-12">
-            <div className="text-6xl mb-4">❌</div>
+            <FiX className="text-6xl mb-4 text-gray-400 mx-auto" />
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Purchase Order Not Found</h2>
             <p className="text-gray-600 mb-6">{error || 'The purchase order you are looking for does not exist.'}</p>
-            <Button onClick={() => navigate('/purchases/orders')} className="bg-blue-600 hover:bg-blue-700">
+            <Button onClick={() => navigate('/purchases/orders')} className="bg-gray-900 hover:bg-gray-800">
               Back to Purchase Orders
             </Button>
           </div>
@@ -329,7 +327,7 @@ const PurchaseOrderDetails = () => {
             onClick={() => navigate('/purchases/orders')}
             className="mb-4 flex items-center space-x-2"
           >
-            <span>←</span>
+            <FiArrowLeft className="h-4 w-4" />
             <span>Back to Purchase Orders</span>
           </Button>
           
@@ -341,9 +339,10 @@ const PurchaseOrderDetails = () => {
             <div className="flex space-x-3">
               <Button
                 onClick={downloadPurchaseOrder}
-                className="bg-green-600 hover:bg-green-700 text-white"
+                className="bg-gray-900 hover:bg-gray-800 text-white flex items-center space-x-2"
               >
-                📄 Download PDF
+                <FiDownload className="h-4 w-4" />
+                <span>Download PDF</span>
               </Button>
               {purchaseOrder.status !== 'Received' && purchaseOrder.status !== 'Cancelled' && (
                 <select

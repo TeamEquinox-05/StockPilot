@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { FiArrowLeft, FiX } from 'react-icons/fi';
 
 interface PurchaseItem {
   _id: string;
@@ -170,12 +171,12 @@ const PurchaseDetailsView = () => {
       <DashboardLayout>
         <div className="max-w-6xl mx-auto p-6">
           <div className="text-center py-12">
-            <div className="text-4xl mb-4">❌</div>
+            <FiX className="text-6xl mb-4 text-gray-400 mx-auto" />
             <h3 className="text-lg font-medium text-gray-900 mb-2">Purchase Not Found</h3>
             <p className="text-gray-500 mb-6">{error || 'The requested purchase could not be found.'}</p>
             <Button
               onClick={() => navigate('/purchases')}
-              className="bg-blue-600 hover:bg-blue-700 text-white"
+              className="bg-gray-900 hover:bg-gray-800 text-white"
             >
               Back to Purchase Management
             </Button>
@@ -199,7 +200,7 @@ const PurchaseDetailsView = () => {
                 onClick={() => navigate('/purchases')}
                 className="mb-4 flex items-center space-x-2"
               >
-                <span>←</span>
+                <FiArrowLeft className="h-4 w-4" />
                 <span>Back to Purchase Management</span>
               </Button>
               <h1 className="text-4xl font-bold text-gray-900 mb-2">
