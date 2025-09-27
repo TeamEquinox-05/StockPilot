@@ -4,6 +4,7 @@ import DashboardLayout from '../components/DashboardLayout';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Input } from '../components/ui/input';
+import { FiArrowLeft, FiPlus, FiDownload, FiEye, FiClipboard } from 'react-icons/fi';
 import jsPDF from 'jspdf';
 
 interface PurchaseOrderItem {
@@ -319,7 +320,7 @@ const ViewPurchaseOrders = () => {
         <div className="max-w-7xl mx-auto p-6">
           <div className="flex items-center justify-center py-12">
             <div className="text-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
               <p className="text-gray-600">Loading purchase orders...</p>
             </div>
           </div>
@@ -338,19 +339,20 @@ const ViewPurchaseOrders = () => {
             onClick={() => navigate('/purchases')}
             className="mb-4 flex items-center space-x-2"
           >
-            <span>←</span>
+            <FiArrowLeft className="w-4 h-4" />
             <span>Back to Purchase Management</span>
           </Button>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <h1 className="text-4xl font-bold text-gray-900 mb-2">Purchase Orders</h1>
               <p className="text-lg text-gray-600">View and manage all purchase orders</p>
             </div>
             <Button
               onClick={() => navigate('/purchases/create-order')}
-              className="bg-blue-600 hover:bg-blue-700 text-white"
+              className="bg-gray-900 hover:bg-gray-800 text-white flex items-center space-x-2"
             >
-              + New Purchase Order
+              <FiPlus className="w-4 h-4" />
+              <span>New Purchase Order</span>
             </Button>
           </div>
         </div>
@@ -378,7 +380,7 @@ const ViewPurchaseOrders = () => {
                 <select
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value)}
-                  className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                 >
                   <option value="all">All Status</option>
                   <option value="Draft">Draft</option>
@@ -395,7 +397,7 @@ const ViewPurchaseOrders = () => {
                 <select
                   value={priorityFilter}
                   onChange={(e) => setPriorityFilter(e.target.value)}
-                  className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                 >
                   <option value="all">All Priority</option>
                   <option value="Low">Low</option>
@@ -416,7 +418,7 @@ const ViewPurchaseOrders = () => {
           <CardContent>
             {filteredOrders.length === 0 ? (
               <div className="text-center py-12">
-                <div className="text-4xl mb-4">📋</div>
+                <FiClipboard className="text-4xl text-gray-400 mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-gray-900 mb-2">No purchase orders found</h3>
                 <p className="text-gray-500 mb-6">
                   {purchaseOrders.length === 0 
@@ -426,9 +428,10 @@ const ViewPurchaseOrders = () => {
                 </p>
                 <Button
                   onClick={() => navigate('/purchases/create-order')}
-                  className="bg-blue-600 hover:bg-blue-700 text-white"
+                  className="bg-gray-900 hover:bg-gray-800 text-white flex items-center space-x-2 mx-auto"
                 >
-                  Create First Purchase Order
+                  <FiPlus className="w-4 h-4" />
+                  <span>Create First Purchase Order</span>
                 </Button>
               </div>
             ) : (
@@ -501,7 +504,7 @@ const ViewPurchaseOrders = () => {
                               <select
                                 value={order.status}
                                 onChange={(e) => updateStatus(order._id, e.target.value)}
-                                className="block w-full text-xs border border-gray-300 rounded px-2 py-1 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                className="block w-full text-xs border border-gray-300 rounded px-2 py-1 focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                               >
                                 <option value="Draft">Draft</option>
                                 <option value="Sent">Sent</option>
@@ -514,22 +517,24 @@ const ViewPurchaseOrders = () => {
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                          <div className="flex space-x-2">
+                          <div className="flex flex-col sm:flex-row gap-2">
                             <Button
                               variant="outline"
                               size="sm"
                               onClick={() => downloadPurchaseOrder(order)}
-                              className="text-green-600 hover:text-green-800"
+                              className="text-gray-600 hover:text-gray-800 hover:bg-gray-50 flex items-center space-x-1"
                             >
-                              📄 PDF
+                              <FiDownload className="w-3 h-3" />
+                              <span>PDF</span>
                             </Button>
                             <Button
                               variant="outline"
                               size="sm"
                               onClick={() => navigate(`/purchase-orders/${order._id}`)}
-                              className="text-blue-600 hover:text-blue-800"
+                              className="text-gray-600 hover:text-gray-800 hover:bg-gray-50 flex items-center space-x-1"
                             >
-                              View
+                              <FiEye className="w-3 h-3" />
+                              <span>View</span>
                             </Button>
                           </div>
                         </td>
