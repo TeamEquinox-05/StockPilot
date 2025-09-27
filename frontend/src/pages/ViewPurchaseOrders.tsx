@@ -39,6 +39,8 @@ interface PurchaseOrder {
   updatedAt: string;
 }
 
+
+
 const ViewPurchaseOrders = () => {
   const navigate = useNavigate();
   const [purchaseOrders, setPurchaseOrders] = useState<PurchaseOrder[]>([]);
@@ -73,6 +75,8 @@ const ViewPurchaseOrders = () => {
       setIsLoading(false);
     }
   };
+
+
 
   const filterOrders = () => {
     let filtered = purchaseOrders.filter(order => {
@@ -147,14 +151,7 @@ const ViewPurchaseOrders = () => {
       yPosition += lineHeight;
     };
     
-    // Helper function to add right-aligned text
-    const addRightLine = (text: string, fontSize = 10, style = 'normal') => {
-      doc.setFontSize(fontSize);
-      doc.setFont('helvetica', style);
-      const textWidth = doc.getTextWidth(text);
-      doc.text(text, rightMargin - textWidth, yPosition);
-      yPosition += lineHeight;
-    };
+
     
     // Header
     addCenteredLine('PURCHASE ORDER', 20, 'bold');
@@ -409,6 +406,8 @@ const ViewPurchaseOrders = () => {
             </div>
           </CardContent>
         </Card>
+
+
 
         {/* Purchase Orders List */}
         <Card>

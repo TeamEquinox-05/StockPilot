@@ -47,6 +47,22 @@ interface Product {
   avgPurchaseRate?: number;
 }
 
+interface LowStockProduct {
+  _id: string;
+  product_name: string;
+  category: string;
+  description: string;
+  hsn_code: string;
+  currentStock: number;
+  lowStockThreshold: number;
+  isOutOfStock: boolean;
+  latestPurchaseRate: number;
+  latestTaxRate: number;
+  suggestedQuantity: number;
+  confidence?: number;
+  reasoning?: string;
+}
+
 
 
 const CreatePurchaseOrder = () => {
@@ -60,6 +76,13 @@ const CreatePurchaseOrder = () => {
   const [productSearchTerm, setProductSearchTerm] = useState('');
   const [showProductSuggestions, setShowProductSuggestions] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  
+  // Low stock products states
+  const [lowStockProducts, setLowStockProducts] = useState<LowStockProduct[]>([]);
+  const [lowStockLoading, setLowStockLoading] = useState(false);
+  const [showLowStockSuggestions, setShowLowStockSuggestions] = useState(true);
+  const [lastFetchTime, setLastFetchTime] = useState<number>(0);
+  const [addingProductId, setAddingProductId] = useState<string | null>(null);
   
 
   
@@ -95,6 +118,7 @@ const CreatePurchaseOrder = () => {
   useEffect(() => {
     fetchVendors();
     fetchProducts();
+    fetchLowStockProducts();
     generateOrderNumber();
     setOrderDate(new Date().toISOString().split('T')[0]);
     setExpectedDelivery(new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]);
@@ -156,7 +180,40 @@ const CreatePurchaseOrder = () => {
     }
   };
 
-
+  const fetchLowStockProducts = async (forceRefresh = false) => {
+    const now = Date.now();
+    const CACHE_DURATION = 2 * 60 * 1000; // 2 minutes cache
+    
+    // Skip if data is still fresh and not forcing refresh
+    if (!forceRefresh && lowStockProducts.length > 0 && (now - lastFetchTime) < CACHE_DURATION) {
+      return;
+    }
+    
+    setLowStockLoading(true);
+    try {
+      const token = localStorage.getItem('token');
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+      
+      const response = await fetch(`${apiBaseUrl}/api/products/low-stock?limit=15`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        setLowStockProducts(data);
+        setLastFetchTime(now);
+      } else {
+        console.error('Failed to fetch low stock products:', response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error('Error fetching low stock products:', error);
+    } finally {
+      setLowStockLoading(false);
+    }
+  };
 
   // Filter products based on search term
   useEffect(() => {
@@ -233,6 +290,83 @@ const CreatePurchaseOrder = () => {
 
   const removeItem = (id: string) => {
     setOrderItems(prev => prev.filter(item => item.id !== id));
+  };
+
+  const addLowStockProduct = async (lowStockProduct: LowStockProduct) => {
+    // Check if product is already in the order
+    const existingItem = orderItems.find(item => 
+      item.productName.toLowerCase() === lowStockProduct.product_name.toLowerCase()
+    );
+    
+    if (existingItem) {
+      alert(`${lowStockProduct.product_name} is already in the order!`);
+      return;
+    }
+
+    // Set loading state for this specific product
+    setAddingProductId(lowStockProduct._id);
+    
+    try {
+      // Call the reorder API to get the calculated reorder point
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiBaseUrl}/api/products/suggested-quantity/${lowStockProduct._id}`);
+      
+      let calculatedQuantity = lowStockProduct.suggestedQuantity; // fallback
+      let reorderReasoning = `Auto-suggested for low stock (${lowStockProduct.currentStock} remaining)`;
+      
+      if (response.ok) {
+        const reorderData = await response.json();
+        if (reorderData.suggestedQuantity) {
+          calculatedQuantity = reorderData.suggestedQuantity;
+          reorderReasoning = reorderData.reasoning || reorderReasoning;
+          
+          // If we have additional API data, include it in the notes
+          if (reorderData.apiData) {
+            const { currentInventory, avgDailyUsage, reorderPoint, safetyStock, reorderNeeded, leadTimeDays } = reorderData.apiData;
+            reorderReasoning = `Reorder Point: ${reorderPoint} units | Current: ${currentInventory} | Avg Daily Usage: ${avgDailyUsage} | Safety Stock: ${safetyStock} | Lead Time: ${leadTimeDays} days | ${reorderNeeded ? 'Reorder Needed' : 'Stock Sufficient'}`;
+          }
+        }
+      } else {
+        console.warn('Failed to get reorder calculation, using fallback quantity');
+      }
+      
+      const item: PurchaseOrderItem = {
+        id: Date.now().toString(),
+        productName: lowStockProduct.product_name,
+        description: `Smart reorder - Current: ${lowStockProduct.currentStock}`,
+        quantity: calculatedQuantity,
+        estimatedRate: lowStockProduct.latestPurchaseRate || 0,
+        expectedDelivery: expectedDelivery,
+        notes: reorderReasoning,
+        amount: calculatedQuantity * (lowStockProduct.latestPurchaseRate || 0)
+      };
+      
+      setOrderItems(prev => [...prev, item]);
+      
+      // Show success feedback with calculated quantity
+      alert(`✅ Added ${lowStockProduct.product_name} to the order!\nRecommended quantity: ${calculatedQuantity} units`);
+      
+    } catch (error) {
+      console.error('Error calculating reorder quantity:', error);
+      
+      // Fallback to original quantity if API call fails
+      const item: PurchaseOrderItem = {
+        id: Date.now().toString(),
+        productName: lowStockProduct.product_name,
+        description: `Low stock item - Current: ${lowStockProduct.currentStock}`,
+        quantity: lowStockProduct.suggestedQuantity,
+        estimatedRate: lowStockProduct.latestPurchaseRate || 0,
+        expectedDelivery: expectedDelivery,
+        notes: `Auto-suggested for low stock (${lowStockProduct.currentStock} remaining) - API unavailable`,
+        amount: lowStockProduct.suggestedQuantity * (lowStockProduct.latestPurchaseRate || 0)
+      };
+      
+      setOrderItems(prev => [...prev, item]);
+      alert(`✅ Added ${lowStockProduct.product_name} to the order!\nUsing fallback quantity: ${lowStockProduct.suggestedQuantity} units (API unavailable)`);
+    } finally {
+      // Clear loading state
+      setAddingProductId(null);
+    }
   };
 
   const updateItem = (id: string, field: keyof PurchaseOrderItem, value: any) => {
@@ -396,7 +530,7 @@ const CreatePurchaseOrder = () => {
               <CardTitle>Order Information</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6 mb-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Order Number (Auto-Generated)
@@ -451,23 +585,13 @@ const CreatePurchaseOrder = () => {
                     <option value="Urgent">Urgent</option>
                   </select>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
 
-          {/* Vendor Selection */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Vendor Information</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Select Vendor *
                   </label>
                   {vendorsLoading ? (
-                    <div className="p-3 text-gray-500">Loading vendors...</div>
+                    <div className="p-3 text-gray-500 text-sm">Loading vendors...</div>
                   ) : (
                     <select
                       value={selectedVendor?._id || ''}
@@ -475,7 +599,7 @@ const CreatePurchaseOrder = () => {
                         const vendor = vendors.find(v => v._id === e.target.value);
                         setSelectedVendor(vendor || null);
                       }}
-                      className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       required
                     >
                       <option value="">Choose a vendor...</option>
@@ -487,25 +611,38 @@ const CreatePurchaseOrder = () => {
                     </select>
                   )}
                 </div>
-                
-                {selectedVendor && (
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <h4 className="font-medium text-gray-900 mb-2">Vendor Details</h4>
-                    <div className="space-y-1 text-sm text-gray-600">
-                      <p><span className="font-medium">Email:</span> {selectedVendor.email}</p>
-                      <p><span className="font-medium">Phone:</span> {selectedVendor.phone}</p>
-                      <p><span className="font-medium">Payment Terms:</span> {selectedVendor.payment_terms}</p>
-                      {selectedVendor.address && (
-                        <p><span className="font-medium">Address:</span> {selectedVendor.address}</p>
-                      )}
-                    </div>
-                  </div>
-                )}
               </div>
+              
+              {selectedVendor && (
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                  <h4 className="font-medium text-gray-900 mb-3 flex items-center">
+                    <span className="mr-2">📋</span>
+                    Vendor Details
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+                    <div>
+                      <span className="font-medium text-gray-600">Email:</span>
+                      <p className="text-gray-800 mt-1">{selectedVendor.email}</p>
+                    </div>
+                    <div>
+                      <span className="font-medium text-gray-600">Phone:</span>
+                      <p className="text-gray-800 mt-1">{selectedVendor.phone}</p>
+                    </div>
+                    <div>
+                      <span className="font-medium text-gray-600">Payment Terms:</span>
+                      <p className="text-gray-800 mt-1">{selectedVendor.payment_terms}</p>
+                    </div>
+                    {selectedVendor.address && (
+                      <div>
+                        <span className="font-medium text-gray-600">Address:</span>
+                        <p className="text-gray-800 mt-1">{selectedVendor.address}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
             </CardContent>
           </Card>
-
-
 
           {/* Add Items */}
           <Card>
@@ -628,6 +765,175 @@ const CreatePurchaseOrder = () => {
               </div>
             </CardContent>
           </Card>
+
+          {/* Low Stock Suggestions Toggle */}
+          {!showLowStockSuggestions && lowStockProducts.length > 0 && (
+            <Card className="bg-yellow-50 border-yellow-200">
+              <CardContent className="py-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <span>⚠️</span>
+                    <span className="text-sm font-medium text-yellow-800">
+                      {lowStockProducts.length} products need restocking
+                    </span>
+                  </div>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setShowLowStockSuggestions(true)}
+                    className="text-yellow-700 border-yellow-300 hover:bg-yellow-100"
+                  >
+                    Show Suggestions
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Low Stock Suggestions */}
+          {showLowStockSuggestions && lowStockProducts.length > 0 && (
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between">
+                <div>
+                  <CardTitle className="flex items-center space-x-2">
+                    <span>⚠️ Low Stock Products</span>
+                    {lowStockLoading && <div className="animate-spin h-4 w-4 border-2 border-gray-900 border-t-transparent rounded-full"></div>}
+                  </CardTitle>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Click on any product below to add it to your order with suggested quantity
+                  </p>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => fetchLowStockProducts(true)}
+                    disabled={lowStockLoading}
+                    className="text-blue-600 hover:text-blue-800 border-blue-300"
+                  >
+                    {lowStockLoading ? '⟳' : '🔄'} Refresh
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setShowLowStockSuggestions(false)}
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    Hide
+                  </Button>
+                </div>
+              </CardHeader>
+              <CardContent className="h-96 overflow-hidden flex flex-col">
+                {lowStockLoading ? (
+                  <div className="flex items-center justify-center py-8">
+                    <div className="animate-spin h-8 w-8 border-4 border-gray-900 border-t-transparent rounded-full"></div>
+                    <span className="ml-3 text-gray-600">Loading low stock products...</span>
+                  </div>
+                ) : lowStockProducts.length === 0 ? (
+                  <div className="text-center py-8 text-gray-500">
+                    <p>No low stock products found.</p>
+                  </div>
+                ) : (
+                  <div className="overflow-auto h-full">
+                    <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+                      <thead className="bg-gray-50 border-b border-gray-200 sticky top-0">
+                        <tr>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Product Name
+                          </th>
+                          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Category
+                          </th>
+                          <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Stock
+                          </th>
+                          <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Value
+                          </th>
+                          <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Status
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-200">
+                        {lowStockProducts.map((product) => (
+                          <tr 
+                            key={product._id} 
+                            className={`transition-colors ${
+                              addingProductId === product._id 
+                                ? 'bg-blue-50 cursor-wait' 
+                                : 'hover:bg-gray-50 cursor-pointer'
+                            }`}
+                            onClick={() => addingProductId === product._id ? null : addLowStockProduct(product)}
+                          >
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="flex items-center">
+                                <div className="flex-1">
+                                  <div className="text-sm font-semibold text-gray-900">
+                                    {product.product_name}
+                                  </div>
+                                  <div className="text-sm text-gray-500">
+                                    HSN: {product.hsn_code || 'N/A'}
+                                  </div>
+                                </div>
+                                {addingProductId === product._id && (
+                                  <div className="ml-2 flex items-center">
+                                    <div className="animate-spin h-4 w-4 border-2 border-blue-600 border-t-transparent rounded-full"></div>
+                                    <span className="ml-1 text-xs text-blue-600">Calculating...</span>
+                                  </div>
+                                )}
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap">
+                              <div className="text-sm text-blue-600">
+                                {product.category}
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-center">
+                              <div>
+                                <div className={`text-sm font-semibold ${
+                                  product.currentStock === 0 ? 'text-red-600' : 'text-green-600'
+                                }`}>
+                                  {product.currentStock} units
+                                </div>
+                                <div className="text-xs text-gray-500">
+                                  1 batches
+                                </div>
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-center">
+                              <div className="text-sm font-semibold text-gray-900">
+                                ₹{(product.latestPurchaseRate * product.currentStock).toLocaleString()}
+                              </div>
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-center">
+                              <div className="flex flex-col items-center space-y-1">
+                                <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                                  product.isOutOfStock 
+                                    ? 'bg-red-100 text-red-800' 
+                                    : 'bg-green-100 text-green-800'
+                                }`}>
+                                  {product.isOutOfStock ? 'Out of Stock' : 'In Stock'}
+                                </span>
+                                {product.currentStock <= 10 && (
+                                  <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-orange-100 text-orange-800">
+                                    Low Stock
+                                  </span>
+                                )}
+                              </div>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          )}
 
           {/* Items List */}
           {orderItems.length > 0 && (
@@ -859,20 +1165,6 @@ const CreatePurchaseOrder = () => {
                       {!selectedVendor.email && <span className="block">• Email requires email address</span>}
                     </span>
                   </p>
-                </div>
-              )}
-
-              {sendWhatsApp && (
-                <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-md">
-                  <p className="text-sm text-yellow-800 flex items-center mb-2">
-                    <FiPhone className="mr-2" />
-                    <strong>WhatsApp Setup Required:</strong>
-                  </p>
-                  <ul className="text-xs text-yellow-700 mt-2 ml-4 list-disc">
-                    <li>Vendor must first send "join &lt;code&gt;" to +1 415 523 8886</li>
-                    <li>Check WHATSAPP_QUICKFIX.md for complete setup instructions</li>
-                    <li>If setup is incomplete, WhatsApp notification may fail</li>
-                  </ul>
                 </div>
               )}
 

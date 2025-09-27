@@ -1,6 +1,7 @@
 const Product = require('../models/Products');
 const ProductBatch = require('../models/Product_batches');
 const PurchaseItem = require('../models/Purchase_items');
+const SaleItem = require('../models/Sale_items');
 
 // Search products with latest purchase details
 const searchProducts = async (req, res) => {
@@ -361,9 +362,402 @@ const getProductsWithPricing = async (req, res) => {
   }
 };
 
+// Get low stock products for purchase order suggestions - OPTIMIZED
+const getLowStockProducts = async (req, res) => {
+  try {
+    const limit = parseInt(req.query.limit) || 10;
+    const lowStockThreshold = parseInt(req.query.threshold) || 10;
 
+    // Optimized aggregation pipeline to get products with stock calculations in one query
+    const lowStockProducts = await Product.aggregate([
+      // Stage 1: Match all products
+      { $match: {} },
+      
+      // Stage 2: Lookup batches and calculate total stock
+      {
+        $lookup: {
+          from: 'product_batches',
+          localField: '_id',
+          foreignField: 'product_id',
+          as: 'batches'
+        }
+      },
+      
+      // Stage 3: Calculate total stock
+      {
+        $addFields: {
+          currentStock: {
+            $sum: {
+              $map: {
+                input: '$batches',
+                as: 'batch',
+                in: { $ifNull: ['$$batch.quantity_in_stock', 0] }
+              }
+            }
+          }
+        }
+      },
+      
+      // Stage 4: Filter only low stock products
+      {
+        $match: {
+          currentStock: { $lte: lowStockThreshold }
+        }
+      },
+      
+      // Stage 5: Lookup latest purchase rate
+      {
+        $lookup: {
+          from: 'purchase_items',
+          let: { productId: '$_id' },
+          pipeline: [
+            {
+              $lookup: {
+                from: 'product_batches',
+                localField: 'batch_id',
+                foreignField: '_id',
+                as: 'batch_info'
+              }
+            },
+            {
+              $match: {
+                $expr: {
+                  $eq: [{ $arrayElemAt: ['$batch_info.product_id', 0] }, '$$productId']
+                }
+              }
+            },
+            { $sort: { createdAt: -1 } },
+            { $limit: 1 }
+          ],
+          as: 'latestPurchase'
+        }
+      },
+      
+      // Stage 6: Project final structure
+      {
+        $project: {
+          _id: 1,
+          product_name: 1,
+          category: 1,
+          description: 1,
+          hsn_code: 1,
+          currentStock: 1,
+          lowStockThreshold: { $literal: lowStockThreshold },
+          isOutOfStock: { $eq: ['$currentStock', 0] },
+          latestPurchaseRate: {
+            $ifNull: [
+              { $arrayElemAt: ['$latestPurchase.purchase_rate', 0] },
+              0
+            ]
+          },
+          latestTaxRate: {
+            $ifNull: [
+              { $arrayElemAt: ['$latestPurchase.tax_percent', 0] },
+              0
+            ]
+          },
+          suggestedQuantity: 7 // Will be updated by external API call or randomized in code
+        }
+      },
+      
+      // Stage 7: Sort by current stock (lowest first)
+      { $sort: { currentStock: 1, product_name: 1 } },
+      
+      // Stage 8: Limit results
+      { $limit: limit }
+    ]);
 
+    // Get suggested quantities for each product from external API
+    const productsWithSuggestions = await Promise.all(
+      lowStockProducts.map(async (product) => {
+        try {
+          // Make internal API call to get suggested quantity
+          const suggestionResponse = await getSuggestedQuantityInternal(product._id);
+          return {
+            ...product,
+            suggestedQuantity: suggestionResponse.suggestedQuantity,
+            confidence: suggestionResponse.confidence,
+            reasoning: suggestionResponse.reasoning
+          };
+        } catch (error) {
+          console.log(`Failed to get suggestion for ${product.product_name}, using fallback`);
+          // Generate consistent random value based on product name hash
+          const hash = product.product_name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+          const randomQuantity = 4 + (hash % 12); // Range 4-15
+          return {
+            ...product,
+            suggestedQuantity: randomQuantity,
+            confidence: 0.3,
+            reasoning: `Fallback quantity (${randomQuantity}) due to API error`
+          };
+        }
+      })
+    );
 
+    res.json(productsWithSuggestions);
+
+  } catch (error) {
+    console.error('Error fetching low stock products:', error);
+    res.status(500).json({ message: 'Error fetching low stock products', error: error.message });
+  }
+};
+
+// Internal helper function for getting suggested quantity
+const getSuggestedQuantityInternal = async (productId) => {
+  try {
+    // Get product details
+    const product = await Product.findById(productId);
+    if (!product) {
+      throw new Error('Product not found');
+    }
+
+    // Get current stock
+    const batches = await ProductBatch.find({ product_id: productId });
+    const currentStock = batches.reduce((sum, batch) => sum + (batch.quantity_in_stock || 0), 0);
+    
+    // Get historical sales data for the product (last 3 months for faster processing)
+    const threeMonthsAgo = new Date();
+    threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+    
+    const salesData = await SaleItem.aggregate([
+      {
+        $lookup: {
+          from: 'product_batches',
+          localField: 'batch_id',
+          foreignField: '_id',
+          as: 'batch_info'
+        }
+      },
+      {
+        $match: {
+          'batch_info.product_id': product._id,
+          createdAt: { $gte: threeMonthsAgo }
+        }
+      },
+      {
+        $group: {
+          _id: null,
+          totalSold: { $sum: '$quantity' },
+          avgMonthlySales: { $avg: '$quantity' }
+        }
+      }
+    ]);
+
+    try {
+      // Call your custom reorder API with product ID in the URL
+      const baseApiUrl = process.env.QUANTITY_SUGGESTION_API || 'https://42aa5c50b0e1.ngrok-free.app/reorder';
+      const externalApiUrl = `${baseApiUrl}/${product._id}`;
+      
+      // API call with timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout for ML model
+      
+      const response = await fetch(externalApiUrl, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': process.env.EXTERNAL_API_KEY ? `Bearer ${process.env.EXTERNAL_API_KEY}` : undefined
+        },
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      if (response.ok) {
+        const responseData = await response.json();
+        
+        // Extract reorder_point from the API response
+        const hash = product.product_name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        let suggestedQuantity = 4 + (hash % 12); // Deterministic fallback between 4-15
+        
+        if (responseData.reorder_point && typeof responseData.reorder_point === 'number') {
+          suggestedQuantity = responseData.reorder_point;
+        }
+        
+        // Ensure reasonable bounds
+        suggestedQuantity = Math.max(1, Math.min(1000, Math.round(suggestedQuantity)));
+        
+        return {
+          suggestedQuantity: suggestedQuantity,
+          confidence: 0.9, // High confidence since it's from your trained model
+          reasoning: `Reorder point calculation: ${responseData.reorder_needed ? 'Reorder needed' : 'Stock sufficient'}`,
+          source: 'reorder_api',
+          apiData: {
+            currentInventory: responseData.current_inventory,
+            avgDailyUsage: responseData.avg_daily_usage,
+            reorderPoint: responseData.reorder_point,
+            safetyStock: responseData.safety_stock,
+            reorderNeeded: responseData.reorder_needed,
+            daysUntilReorder: responseData.days_until_reorder,
+            leadTimeDays: responseData.lead_time_days,
+            calculatedOn: responseData.calculated_on
+          }
+        };
+      } else {
+        throw new Error(`Reorder API error: ${response.status} - ${response.statusText}`);
+      }
+      
+    } catch (externalError) {
+      // Log the error for debugging
+      console.error('Reorder API call failed:', {
+        productId: product._id,
+        url: `${baseApiUrl}/${product._id}`,
+        error: externalError.message
+      });
+      
+      // Fallback to deterministic quantity between 4-15 if external API fails
+      const hash = product.product_name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+      const fallbackQuantity = 4 + (hash % 12); // Range 4-15
+      return {
+        suggestedQuantity: fallbackQuantity,
+        confidence: 0.3,
+        reasoning: `Fallback quantity (${fallbackQuantity}) due to API error: ${externalError.message}`,
+        source: 'fallback'
+      };
+    }
+
+  } catch (error) {
+    console.error('getSuggestedQuantityInternal failed:', {
+      productId: product._id,
+      error: error.message
+    });
+    
+    const hash = product.product_name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    const fallbackQuantity = 4 + (hash % 12); // Range 4-15
+    return {
+      suggestedQuantity: fallbackQuantity,
+      confidence: 0.3,
+      reasoning: `Error occurred: ${error.message} (using fallback: ${fallbackQuantity})`,
+      source: 'error_fallback'
+    };
+  }
+};
+
+// Get suggested quantity from external API
+const getSuggestedQuantity = async (req, res) => {
+  try {
+    const { productId } = req.params;
+    
+    // Get product details
+    const product = await Product.findById(productId);
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    // Get current stock
+    const batches = await ProductBatch.find({ product_id: productId });
+    const currentStock = batches.reduce((sum, batch) => sum + (batch.quantity_in_stock || 0), 0);
+    
+    // Get historical sales data for the product (last 6 months)
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+    
+    const salesData = await SaleItem.aggregate([
+      {
+        $lookup: {
+          from: 'product_batches',
+          localField: 'batch_id',
+          foreignField: '_id',
+          as: 'batch_info'
+        }
+      },
+      {
+        $match: {
+          'batch_info.product_id': product._id,
+          createdAt: { $gte: sixMonthsAgo }
+        }
+      },
+      {
+        $group: {
+          _id: null,
+          totalSold: { $sum: '$quantity' },
+          avgMonthlySales: { $avg: '$quantity' },
+          salesCount: { $sum: 1 }
+        }
+      }
+    ]);
+
+    try {
+      // Call your custom reorder API with product ID in the URL
+      const baseApiUrl = process.env.QUANTITY_SUGGESTION_API || 'https://42aa5c50b0e1.ngrok-free.app/reorder';
+      const externalApiUrl = `${baseApiUrl}/${product._id}`;
+      
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000);
+      
+      const response = await fetch(externalApiUrl, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': process.env.EXTERNAL_API_KEY ? `Bearer ${process.env.EXTERNAL_API_KEY}` : undefined
+        },
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      if (response.ok) {
+        const responseData = await response.json();
+        
+        // Extract reorder_point from the API response
+        const hash = product.product_name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        let suggestedQuantity = 4 + (hash % 12); // Deterministic fallback between 4-15
+        
+        if (responseData.reorder_point && typeof responseData.reorder_point === 'number') {
+          suggestedQuantity = responseData.reorder_point;
+        }
+        
+        suggestedQuantity = Math.max(1, Math.min(1000, Math.round(suggestedQuantity)));
+        
+        res.json({ 
+          suggestedQuantity: suggestedQuantity,
+          confidence: 0.9,
+          reasoning: `Reorder point calculation: ${responseData.reorder_needed ? 'Reorder needed' : 'Stock sufficient'}`,
+          source: 'reorder_api',
+          apiData: {
+            currentInventory: responseData.current_inventory,
+            avgDailyUsage: responseData.avg_daily_usage,
+            reorderPoint: responseData.reorder_point,
+            safetyStock: responseData.safety_stock,
+            reorderNeeded: responseData.reorder_needed,
+            daysUntilReorder: responseData.days_until_reorder,
+            leadTimeDays: responseData.lead_time_days,
+            calculatedOn: responseData.calculated_on
+          }
+        });
+      } else {
+        throw new Error(`Reorder API error: ${response.status}`);
+      }
+      
+    } catch (externalError) {
+      console.error('Reorder API call failed in getSuggestedQuantity:', {
+        productId: product._id,
+        url: `${baseApiUrl}/${product._id}`,
+        error: externalError.message
+      });
+      
+      // Fallback to deterministic quantity between 4-15 if external API fails
+      const hash = product.product_name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+      const fallbackQuantity = 4 + (hash % 12); // Range 4-15
+      res.json({
+        suggestedQuantity: fallbackQuantity,
+        confidence: 0.3,
+        reasoning: `Fallback quantity (${fallbackQuantity}) due to API error: ${externalError.message}`,
+        source: 'fallback'
+      });
+    }
+
+  } catch (error) {
+    console.error('Error getting suggested quantity:', error);
+    res.status(500).json({ 
+      suggestedQuantity: 7,
+      confidence: 0.3,
+      reasoning: 'Error occurred, using default quantity',
+      source: 'error_fallback',
+      error: error.message 
+    });
+  }
+};
 
 module.exports = {
   searchProducts,
@@ -372,5 +766,7 @@ module.exports = {
   getProductBatches,
   getProductsWithPricing,
   getInventoryPaginated,
-  getCategories
+  getCategories,
+  getLowStockProducts,
+  getSuggestedQuantity
 };
