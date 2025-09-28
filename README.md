@@ -396,3 +396,93 @@ npm run dev       # Start development server
 npm run build     # Build for production
 npm run preview   # Preview production build
 ```
+
+
+
+Perfect ✅ — since your frontend and backend sections are already clearly structured in the README, the **AI Services section** should follow the same format for clarity.
+Here’s the **new section** you can copy–paste and append to your existing `README.md` 👇
+
+---
+
+## 🧠 AI Services Setup
+
+The AI module powers intelligent features like **sales forecasting** and the **inventory chatbot** within StockPilot.
+
+### 📂 Project Structure
+
+```
+StockPilot/
+├── ai-services/
+│   └── ChatBot/
+│       ├── api.py            # FastAPI server entry point
+│       ├── requirements.txt  # Python dependencies
+│       └── ...               # Other AI-related files
+```
+
+### 🛠️ Prerequisites
+
+* Python 3.9+ installed
+* [Uvicorn](https://www.uvicorn.org/) for serving the API
+* [Ngrok](https://ngrok.com/) for exposing the local server to the frontend
+
+---
+
+### 🚀 How to Run the AI Service
+
+1. **Navigate to the AI ChatBot service folder**
+
+   ```bash
+   cd ai-services/ChatBot
+   ```
+
+2. **Install dependencies**
+   (If you haven’t already)
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Start the FastAPI server**
+
+   ```bash
+   uvicorn api:app --reload
+   ```
+
+   * This will start the AI service on [http://localhost:8000](http://localhost:8000) by default.
+
+4. **Expose the local server using Ngrok**
+
+   ```bash
+   ngrok http 8000
+   ```
+
+   * Copy the generated HTTPS URL (e.g., `https://abcd-1234.ngrok-free.app`).
+
+5. **Update your frontend `.env` file**
+   Open the `.env` file in the `frontend/` folder and **paste the Ngrok URL** in the appropriate variable.
+
+6. **Restart the frontend server** (if it’s already running) so the new environment variable takes effect:
+
+   ```bash
+   npm run dev
+   ```
+
+---
+
+### 🤖 AI Features in StockPilot
+
+Once the AI service is running and the `.env` file is configured correctly, the following features will be available inside the StockPilot platform:
+
+* 📈 **Sales Forecasting Dashboard** – Predict future demand using time series models
+* 💬 **AI Chatbot** – Intelligent inventory assistant for quick queries (e.g., “Show me items low in stock”)
+* 🧠 **Vendor & Product Insights** – AI-driven analysis of performance trends
+
+---
+
+### 📝 Development Notes
+
+* Make sure your **Ngrok tunnel stays active** while the frontend is running.
+* If you restart Ngrok, don’t forget to **update the `.env` file** with the new URL.
+* You can customize the AI service logic inside `ai-services/ChatBot/api.py` and related files.
+
+---
