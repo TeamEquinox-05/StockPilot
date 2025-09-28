@@ -1,0 +1,250 @@
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Loading product and batch data...
+INFO:reorder_calculator:Data loaded successfully
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.231:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Loading product and batch data...
+INFO:reorder_calculator:Data loaded successfully
+INFO:reorder_calculator:Calculated reorder point for PROD_041: {'product_id': 'PROD_041', 'product_name': 'Pedigree', 'current_inventory': np.int64(5261), 'avg_daily_usage': np.float64(4.93), 'reorder_point': 54, 'safety_stock': 20, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1055.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_057: {'product_id': 'PROD_057', 'product_name': 'Whiskas', 'current_inventory': np.int64(11338), 'avg_daily_usage': np.float64(6.7), 'reorder_point': 73, 'safety_stock': 27, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1681.3), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_025: {'product_id': 'PROD_025', 'product_name': 'KiteKat', 'current_inventory': np.int64(172), 'avg_daily_usage': np.float64(1.6), 'reorder_point': 18, 'safety_stock': 6, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(96.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_050: {'product_id': 'PROD_050', 'product_name': 'Sheba', 'current_inventory': np.int64(2257), 'avg_daily_usage': np.float64(2.17), 'reorder_point': 24, 'safety_stock': 9, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1030.7), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_054: {'product_id': 'PROD_054', 'product_name': 'Temptations', 'current_inventory': np.int64(294), 'avg_daily_usage': np.float64(1.03), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(273.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_008: {'product_id': 'PROD_008', 'product_name': 'Chappi', 'current_inventory': np.int64(14), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(3.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_005: {'product_id': 'PROD_005', 'product_name': 'Bowlers', 'current_inventory': np.int64(1436), 'avg_daily_usage': np.float64(1.47), 'reorder_point': 16, 'safety_stock': 6, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(968.1), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_046: {'product_id': 'PROD_046', 'product_name': 'Purrfeto', 'current_inventory': np.int64(3599), 'avg_daily_usage': np.float64(2.0), 'reorder_point': 22, 'safety_stock': 8, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1788.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_031: {'product_id': 'PROD_031', 'product_name': 'Me-O', 'current_inventory': np.int64(2588), 'avg_daily_usage': np.float64(5.23), 'reorder_point': 57, 'safety_stock': 21, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(483.6), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_030: {'product_id': 'PROD_030', 'product_name': 'Me-0', 'current_inventory': np.int64(2097), 'avg_daily_usage': np.float64(1.73), 'reorder_point': 19, 'safety_stock': 7, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1198.8), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_009: {'product_id': 'PROD_009', 'product_name': 'Cuties', 'current_inventory': np.int64(70), 'avg_daily_usage': np.float64(1.13), 'reorder_point': 12, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(50.8), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_002: {'product_id': 'PROD_002', 'product_name': 'Aquarium', 'current_inventory': np.int64(11), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(0.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Loading product and batch data...
+INFO:reorder_calculator:Data loaded successfully
+INFO:reorder_calculator:Calculated reorder point for PROD_041: {'product_id': 'PROD_041', 'product_name': 'Pedigree', 'current_inventory': np.int64(5261), 'avg_daily_usage': np.float64(4.93), 'reorder_point': 54, 'safety_stock': 20, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1055.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_057: {'product_id': 'PROD_057', 'product_name': 'Whiskas', 'current_inventory': np.int64(11338), 'avg_daily_usage': np.float64(6.7), 'reorder_point': 73, 'safety_stock': 27, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1681.3), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_025: {'product_id': 'PROD_025', 'product_name': 'KiteKat', 'current_inventory': np.int64(172), 'avg_daily_usage': np.float64(1.6), 'reorder_point': 18, 'safety_stock': 6, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(96.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_050: {'product_id': 'PROD_050', 'product_name': 'Sheba', 'current_inventory': np.int64(2257), 'avg_daily_usage': np.float64(2.17), 'reorder_point': 24, 'safety_stock': 9, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1030.7), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_054: {'product_id': 'PROD_054', 'product_name': 'Temptations', 'current_inventory': np.int64(294), 'avg_daily_usage': np.float64(1.03), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(273.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_008: {'product_id': 'PROD_008', 'product_name': 'Chappi', 'current_inventory': np.int64(14), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(3.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_005: {'product_id': 'PROD_005', 'product_name': 'Bowlers', 'current_inventory': np.int64(1436), 'avg_daily_usage': np.float64(1.47), 'reorder_point': 16, 'safety_stock': 6, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(968.1), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_046: {'product_id': 'PROD_046', 'product_name': 'Purrfeto', 'current_inventory': np.int64(3599), 'avg_daily_usage': np.float64(2.0), 'reorder_point': 22, 'safety_stock': 8, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1788.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_031: {'product_id': 'PROD_031', 'product_name': 'Me-O', 'current_inventory': np.int64(2588), 'avg_daily_usage': np.float64(5.23), 'reorder_point': 57, 'safety_stock': 21, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(483.6), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_030: {'product_id': 'PROD_030', 'product_name': 'Me-0', 'current_inventory': np.int64(2097), 'avg_daily_usage': np.float64(1.73), 'reorder_point': 19, 'safety_stock': 7, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1198.8), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_009: {'product_id': 'PROD_009', 'product_name': 'Cuties', 'current_inventory': np.int64(70), 'avg_daily_usage': np.float64(1.13), 'reorder_point': 12, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(50.8), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_002: {'product_id': 'PROD_002', 'product_name': 'Aquarium', 'current_inventory': np.int64(11), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(0.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_048: {'product_id': 'PROD_048', 'product_name': 'Royal', 'current_inventory': np.int64(0), 'avg_daily_usage': np.float64(1.13), 'reorder_point': 12, 'safety_stock': 4, 'reorder_needed': np.True_, 'days_until_reorder': 0, 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Calculated reorder point for PROD_045: {'product_id': 'PROD_045', 'product_name': 'Purepet', 'current_inventory': np.int64(12431), 'avg_daily_usage': np.float64(6.0), 'reorder_point': 66, 'safety_stock': 24, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(2060.9), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Loading product and batch data...
+INFO:reorder_calculator:Data loaded successfully
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.231:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:reorder_calculator:Calculated reorder point for PROD_003: {'product_id': 'PROD_003', 'product_name': 'Baked', 'current_inventory': np.int64(144), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(133.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_014: {'product_id': 'PROD_014', 'product_name': 'Drools', 'current_inventory': np.int64(5129), 'avg_daily_usage': np.float64(7.1), 'reorder_point': 78, 'safety_stock': 28, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(711.4), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_026: {'product_id': 'PROD_026', 'product_name': 'Kitty', 'current_inventory': np.int64(913), 'avg_daily_usage': np.float64(2.13), 'reorder_point': 23, 'safety_stock': 8, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(417.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_021: {'product_id': 'PROD_021', 'product_name': 'Grain', 'current_inventory': np.int64(1211), 'avg_daily_usage': np.float64(2.13), 'reorder_point': 23, 'safety_stock': 8, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(556.7), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_019: {'product_id': 'PROD_019', 'product_name': 'Freedom', 'current_inventory': np.int64(677), 'avg_daily_usage': np.float64(0.97), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(689.4), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_028: {'product_id': 'PROD_028', 'product_name': 'Lets', 'current_inventory': np.int64(389), 'avg_daily_usage': np.float64(1.17), 'reorder_point': 13, 'safety_stock': 5, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(322.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_041: {'product_id': 'PROD_041', 'product_name': 'Pedigree', 'current_inventory': np.int64(5261), 'avg_daily_usage': np.float64(4.93), 'reorder_point': 54, 'safety_stock': 20, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1055.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_056: {'product_id': 'PROD_056', 'product_name': 'Vet', 'current_inventory': np.int64(49), 'avg_daily_usage': np.float64(-1.17), 'reorder_point': -13, 'safety_stock': -5, 'reorder_needed': np.False_, 'days_until_reorder': 0, 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_057: {'product_id': 'PROD_057', 'product_name': 'Whiskas', 'current_inventory': np.int64(11338), 'avg_daily_usage': np.float64(6.7), 'reorder_point': 73, 'safety_stock': 27, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1681.3), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_013: {'product_id': 'PROD_013', 'product_name': 'Drool', 'current_inventory': np.int64(359), 'avg_daily_usage': np.float64(1.43), 'reorder_point': 16, 'safety_stock': 6, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(239.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_025: {'product_id': 'PROD_025', 'product_name': 'KiteKat', 'current_inventory': np.int64(172), 'avg_daily_usage': np.float64(1.6), 'reorder_point': 18, 'safety_stock': 6, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(96.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_004: {'product_id': 'PROD_004', 'product_name': 'Bluepet', 'current_inventory': np.int64(19), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(8.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_050: {'product_id': 'PROD_050', 'product_name': 'Sheba', 'current_inventory': np.int64(2257), 'avg_daily_usage': np.float64(2.17), 'reorder_point': 24, 'safety_stock': 9, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1030.7), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_024: {'product_id': 'PROD_024', 'product_name': 'InHeart', 'current_inventory': np.int64(171), 'avg_daily_usage': np.float64(1.93), 'reorder_point': 21, 'safety_stock': 8, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(77.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_054: {'product_id': 'PROD_054', 'product_name': 'Temptations', 'current_inventory': np.int64(294), 'avg_daily_usage': np.float64(1.03), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(273.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_007: {'product_id': 'PROD_007', 'product_name': 'Cat', 'current_inventory': np.int64(41), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(30.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_008: {'product_id': 'PROD_008', 'product_name': 'Chappi', 'current_inventory': np.int64(14), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(3.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_052: {'product_id': 'PROD_052', 'product_name': 'Soft', 'current_inventory': np.int64(161), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(150.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_005: {'product_id': 'PROD_005', 'product_name': 'Bowlers', 'current_inventory': np.int64(1436), 'avg_daily_usage': np.float64(1.47), 'reorder_point': 16, 'safety_stock': 6, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(968.1), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_037: {'product_id': 'PROD_037', 'product_name': 'PPA', 'current_inventory': np.int64(70), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(59.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_046: {'product_id': 'PROD_046', 'product_name': 'Purrfeto', 'current_inventory': np.int64(3599), 'avg_daily_usage': np.float64(2.0), 'reorder_point': 22, 'safety_stock': 8, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1788.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_031: {'product_id': 'PROD_031', 'product_name': 'Me-O', 'current_inventory': np.int64(2588), 'avg_daily_usage': np.float64(5.23), 'reorder_point': 57, 'safety_stock': 21, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(483.6), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_035: {'product_id': 'PROD_035', 'product_name': 'Nylon', 'current_inventory': np.int64(121), 'avg_daily_usage': np.float64(1.47), 'reorder_point': 16, 'safety_stock': 6, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(71.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_030: {'product_id': 'PROD_030', 'product_name': 'Me-0', 'current_inventory': np.int64(2097), 'avg_daily_usage': np.float64(1.73), 'reorder_point': 19, 'safety_stock': 7, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1198.8), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_036: {'product_id': 'PROD_036', 'product_name': 'PP', 'current_inventory': np.int64(619), 'avg_daily_usage': np.float64(1.73), 'reorder_point': 19, 'safety_stock': 7, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(346.1), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_009: {'product_id': 'PROD_009', 'product_name': 'Cuties', 'current_inventory': np.int64(70), 'avg_daily_usage': np.float64(1.13), 'reorder_point': 12, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(50.8), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_011: {'product_id': 'PROD_011', 'product_name': 'Diamond', 'current_inventory': np.int64(198), 'avg_daily_usage': np.float64(1.17), 'reorder_point': 13, 'safety_stock': 5, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(158.7), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_002: {'product_id': 'PROD_002', 'product_name': 'Aquarium', 'current_inventory': np.int64(11), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(0.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_020: {'product_id': 'PROD_020', 'product_name': 'Fur', 'current_inventory': np.int64(34), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(23.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_048: {'product_id': 'PROD_048', 'product_name': 'Royal', 'current_inventory': np.int64(0), 'avg_daily_usage': np.float64(1.13), 'reorder_point': 12, 'safety_stock': 4, 'reorder_needed': np.True_, 'days_until_reorder': 0, 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_055: {'product_id': 'PROD_055', 'product_name': 'Tick', 'current_inventory': np.int64(0), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.True_, 'days_until_reorder': 0, 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_045: {'product_id': 'PROD_045', 'product_name': 'Purepet', 'current_inventory': np.int64(12431), 'avg_daily_usage': np.float64(6.0), 'reorder_point': 66, 'safety_stock': 24, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(2060.9), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_012: {'product_id': 'PROD_012', 'product_name': 'Double', 'current_inventory': np.int64(48), 'avg_daily_usage': np.float64(1.17), 'reorder_point': 13, 'safety_stock': 5, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(30.2), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_003: {'product_id': 'PROD_003', 'product_name': 'Baked', 'current_inventory': np.int64(144), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(133.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_038: {'product_id': 'PROD_038', 'product_name': 'PU', 'current_inventory': np.int64(17), 'avg_daily_usage': np.float64(1.2), 'reorder_point': 13, 'safety_stock': 5, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(3.2), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_014: {'product_id': 'PROD_014', 'product_name': 'Drools', 'current_inventory': np.int64(5129), 'avg_daily_usage': np.float64(7.1), 'reorder_point': 78, 'safety_stock': 28, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(711.4), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_039: {'product_id': 'PROD_039', 'product_name': 'Padded', 'current_inventory': np.int64(9), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.True_, 'days_until_reorder': 0, 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_026: {'product_id': 'PROD_026', 'product_name': 'Kitty', 'current_inventory': np.int64(913), 'avg_daily_usage': np.float64(2.13), 'reorder_point': 23, 'safety_stock': 8, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(417.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_044: {'product_id': 'PROD_044', 'product_name': 'Pp', 'current_inventory': np.int64(28), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(17.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_021: {'product_id': 'PROD_021', 'product_name': 'Grain', 'current_inventory': np.int64(1211), 'avg_daily_usage': np.float64(2.13), 'reorder_point': 23, 'safety_stock': 8, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(556.7), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_001: {'product_id': 'PROD_001', 'product_name': 'A', 'current_inventory': np.int64(11), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(0.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_019: {'product_id': 'PROD_019', 'product_name': 'Freedom', 'current_inventory': np.int64(677), 'avg_daily_usage': np.float64(0.97), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(689.4), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_016: {'product_id': 'PROD_016', 'product_name': 'Feeding', 'current_inventory': np.int64(122), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(111.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_033: {'product_id': 'PROD_033', 'product_name': 'Mushroom', 'current_inventory': np.int64(105), 'avg_daily_usage': np.float64(1.43), 'reorder_point': 16, 'safety_stock': 6, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(62.3), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_017: {'product_id': 'PROD_017', 'product_name': 'Fish', 'current_inventory': np.int64(290), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(279.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_022: {'product_id': 'PROD_022', 'product_name': 'Harness', 'current_inventory': np.int64(140), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(129.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_058: {'product_id': 'PROD_058', 'product_name': 'Zinc', 'current_inventory': np.int64(292), 'avg_daily_usage': np.float64(1.6), 'reorder_point': 18, 'safety_stock': 6, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(171.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_027: {'product_id': 'PROD_027', 'product_name': 'Knotted', 'current_inventory': np.int64(103), 'avg_daily_usage': np.float64(0.67), 'reorder_point': 7, 'safety_stock': 3, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(143.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_042: {'product_id': 'PROD_042', 'product_name': 'Plastic', 'current_inventory': np.int64(152), 'avg_daily_usage': np.float64(2.0), 'reorder_point': 22, 'safety_stock': 8, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(65.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_040: {'product_id': 'PROD_040', 'product_name': 'Painted', 'current_inventory': np.int64(6), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.True_, 'days_until_reorder': 0, 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_051: {'product_id': 'PROD_051', 'product_name': 'Slow', 'current_inventory': np.int64(74), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(63.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_010: {'product_id': 'PROD_010', 'product_name': 'Design', 'current_inventory': np.int64(79), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(68.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_043: {'product_id': 'PROD_043', 'product_name': 'Poop', 'current_inventory': np.int64(70), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(59.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Loading product and batch data...
+INFO:reorder_calculator:Data loaded successfully
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.231:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:reorder_calculator:Calculated reorder point for PROD_006: {'product_id': 'PROD_006', 'product_name': 'Calt', 'current_inventory': np.int64(118), 'avg_daily_usage': np.float64(-1.67), 'reorder_point': -18, 'safety_stock': -7, 'reorder_needed': np.False_, 'days_until_reorder': 0, 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_015: {'product_id': 'PROD_015', 'product_name': 'Elizabeth', 'current_inventory': np.int64(16), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(5.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_049: {'product_id': 'PROD_049', 'product_name': 'SS', 'current_inventory': np.int64(54), 'avg_daily_usage': np.float64(1.0), 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(43.0), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Calculated reorder point for PROD_047: {'product_id': 'PROD_047', 'product_name': 'Roller', 'current_inventory': np.int64(44), 'avg_daily_usage': np.float64(1.13), 'reorder_point': 12, 'safety_stock': 4, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(27.9), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Loading product and batch data...
+INFO:reorder_calculator:Data loaded successfully
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.231:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2025 23:10:33] "GET /forecast/PROD_046 HTTP/1.1" 200 -
+INFO:reorder_calculator:Calculated reorder point for PROD_046: {'product_id': 'PROD_046', 'product_name': 'Purrfeto', 'current_inventory': np.int64(3599), 'avg_daily_usage': np.float64(2.0), 'reorder_point': 22, 'safety_stock': 8, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1788.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2025 23:11:08] "[35m[1mGET /reorder/PROD_046 HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.231:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Loading product and batch data...
+INFO:reorder_calculator:Data loaded successfully
+INFO:reorder_calculator:Calculated reorder point for PROD_046: {'product_id': 'PROD_046', 'product_name': 'Purrfeto', 'current_inventory': np.int64(3599), 'avg_daily_usage': np.float64(2.0), 'reorder_point': 22, 'safety_stock': 8, 'reorder_needed': np.False_, 'days_until_reorder': np.float64(1788.5), 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2025 23:13:41] "[35m[1mGET /reorder/PROD_046 HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2025 23:14:26] "GET /forecast/PROD_046 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2025 23:20:48] "GET /forecast/PROD_046 HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.231:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2025 23:21:39] "GET /forecast/PROD_046 HTTP/1.1" 200 -
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Loading product and batch data...
+INFO:reorder_calculator:Data loaded successfully
+INFO:reorder_calculator:Calculated reorder point for PROD_046: {'product_id': 'PROD_046', 'product_name': 'Purrfeto', 'current_inventory': 3599, 'avg_daily_usage': 2.0, 'reorder_point': 22, 'safety_stock': 8, 'reorder_needed': False, 'days_until_reorder': 1788.5, 'lead_time_days': 7, 'calculated_on': '2025-09-26'}
+INFO:werkzeug:127.0.0.1 - - [26/Sep/2025 23:21:50] "GET /reorder/PROD_046 HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.231:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.231:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.231:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 00:17:13] "GET /health HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 00:18:08] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 00:18:48] "[31m[1mGET /forecast/68d6d627f28fea226c3e0e24 HTTP/1.1[0m" 400 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.231:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Data loaded successfully
+ERROR:reorder_calculator:Error getting forecast: Importing plotly failed. Interactive plots will not work.
+
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 00:20:40] "[31m[1mGET /reorder/68d6d627f28fea226c3e0e24 HTTP/1.1[0m" 400 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.231:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 00:23:00] "[31m[1mGET /forecast/68d6d627f28fea226c3e0e24 HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 00:25:01] "GET /forecast/68d6d627f28fea226c3e0e24 HTTP/1.1" 200 -
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Joined 9986 sale items with product info
+INFO:reorder_calculator:Data loaded successfully
+INFO:reorder_calculator:Calculated reorder point for 68d6d627f28fea226c3e0e24: {'product_id': '68d6d627f28fea226c3e0e24', 'product_name': 'A', 'current_inventory': 53, 'avg_daily_usage': 1.0, 'reorder_point': 11, 'safety_stock': 4, 'reorder_needed': False, 'days_until_reorder': 42.0, 'lead_time_days': 7, 'calculated_on': '2025-09-27'}
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 00:25:25] "GET /reorder/68d6d627f28fea226c3e0e24 HTTP/1.1" 200 -
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Joined 9986 sale items with product info
+INFO:reorder_calculator:Data loaded successfully
+INFO:reorder_calculator:Calculated reorder point for 68d6d627f28fea226c3e0e26: {'product_id': '68d6d627f28fea226c3e0e26', 'product_name': 'Baked', 'current_inventory': 96, 'avg_daily_usage': 1.13, 'reorder_point': 12, 'safety_stock': 4, 'reorder_needed': False, 'days_until_reorder': 73.7, 'lead_time_days': 7, 'calculated_on': '2025-09-27'}
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 00:25:43] "GET /reorder/68d6d627f28fea226c3e0e26 HTTP/1.1" 200 -
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Joined 9986 sale items with product info
+INFO:reorder_calculator:Data loaded successfully
+INFO:reorder_calculator:Calculated reorder point for 68d6d627f28fea226c3e0e30: {'product_id': '68d6d627f28fea226c3e0e30', 'product_name': 'Drool', 'current_inventory': 287, 'avg_daily_usage': 1.73, 'reorder_point': 19, 'safety_stock': 7, 'reorder_needed': False, 'days_until_reorder': 154.6, 'lead_time_days': 7, 'calculated_on': '2025-09-27'}
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 00:25:53] "GET /reorder/68d6d627f28fea226c3e0e30 HTTP/1.1" 200 -
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Joined 9986 sale items with product info
+INFO:reorder_calculator:Data loaded successfully
+INFO:reorder_calculator:Calculated reorder point for 68d6d627f28fea226c3e0e4c: {'product_id': '68d6d627f28fea226c3e0e4c', 'product_name': 'Pedigree', 'current_inventory': 5289, 'avg_daily_usage': 4.07, 'reorder_point': 45, 'safety_stock': 16, 'reorder_needed': False, 'days_until_reorder': 1289.6, 'lead_time_days': 7, 'calculated_on': '2025-09-27'}
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 00:26:50] "GET /reorder/68d6d627f28fea226c3e0e4c HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 00:27:11] "GET /forecast/68d6d627f28fea226c3e0e4c HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.231:5001
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 03:37:38] "[31m[1mGET /forecast/68d6d627f28fea226c3e0e4c HTTP/1.1[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 03:37:49] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 03:38:13] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 03:38:54] "GET /forecast/68d7054578436788b19ea938 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 03:39:19] "[33mGET /forecast/ HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 03:39:27] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 03:41:53] "GET /forecast/68d7054578436788b19ea938 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 03:54:36] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 03:54:37] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 03:55:01] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 03:59:47] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 03:59:58] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 03:59:59] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:00:29] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:00:30] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:00:41] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:01:00] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:01:20] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:01:36] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:02:00] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:02:14] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:02:31] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:02:32] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:04:40] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:04:50] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:05:01] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:05:53] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:10:46] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:10:47] "GET /forecast HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [27/Sep/2025 04:10:48] "GET /forecast HTTP/1.1" 200 -
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Joined 10074 sale items with product info
+INFO:reorder_calculator:Data loaded successfully
+INFO:reorder_calculator:Calculated reorder point for 68d7054578436788b19ea950: {'product_id': '68d7054578436788b19ea950', 'product_name': 'Cuties Catz Mackerel Gravy Adult 400 G', 'current_inventory': 0, 'avg_daily_usage': 1.3, 'reorder_point': 14, 'safety_stock': 5, 'reorder_needed': True, 'days_until_reorder': 0.0, 'lead_time_days': 7, 'calculated_on': '2025-09-27'}
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Joined 10074 sale items with product info
+INFO:reorder_calculator:Data loaded successfully
+INFO:reorder_calculator:Calculated reorder point for 68d7054578436788b19ea950: {'product_id': '68d7054578436788b19ea950', 'product_name': 'Cuties Catz Mackerel Gravy Adult 400 G', 'current_inventory': 0, 'avg_daily_usage': 1.3, 'reorder_point': 14, 'safety_stock': 5, 'reorder_needed': True, 'days_until_reorder': 0.0, 'lead_time_days': 7, 'calculated_on': '2025-09-27'}
+INFO:reorder_calculator:Connecting to MongoDB...
+INFO:reorder_calculator:Joined 10074 sale items with product info
+INFO:reorder_calculator:Data loaded successfully
+INFO:reorder_calculator:Calculated reorder point for 68d7054578436788b19ea950: {'product_id': '68d7054578436788b19ea950', 'product_name': 'Cuties Catz Mackerel Gravy Adult 400 G', 'current_inventory': 0, 'avg_daily_usage': 1.3, 'reorder_point': 14, 'safety_stock': 5, 'reorder_needed': True, 'days_until_reorder': 0.0, 'lead_time_days': 7, 'calculated_on': '2025-09-27'}

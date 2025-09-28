@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reorder Point Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .reorder-needed {
+            background-color: rgba(255, 0, 0, 0.15);
+        }
+        .warning-zone {
+            background-color: rgba(255, 165, 0, 0.15);
+        }
+        .safe-zone {
+            background-color: rgba(0, 128, 0, 0.15);
+        }
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .progress-bar {
+            transition: width 1s ease-in-out;
+        }
+        .inventory-bar {
+            height: 10px;
+        }
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255,255,255,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+        }
+        .product-detail {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading" class="loading">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-5">
+        <h1 class="mb-4">Inventory Reorder Dashboard</h1>
+        
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Products</h5>
+                        <h2 id="total-products">-</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Products Needing Reorder</h5>
+                        <h2 id="products-need-reorder" class="text-danger">-</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Reorder Status</h5>
+                        <div class="progress" style="height: 30px;">
+                            <div id="reorder-progress" class="progress-bar bg-danger" role="progressbar" style="width: 0%">0%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header bg-danger text-white">
+                        <h5 class="mb-0">Products Needing Reorder Immediately</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="reorder-needed-container">
+                            <!-- Products needing reorder will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header bg-warning">
+                        <h5 class="mb-0">Products to Monitor</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="monitor-container">
+                            <!-- Products to monitor will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">Products with Sufficient Inventory</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="sufficient-container">
+                            <!-- Products with sufficient inventory will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal fade" id="productDetailModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-product-title">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h6>Product Information</h6>
+                            <table class="table">
+                                <tr>
+                                    <th>Product ID:</th>
+                                    <td id="modal-product-id"></td>
+                                </tr>
+                                <tr>
+                                    <th>Current Inventory:</th>
+                                    <td id="modal-inventory"></td>
+                                </tr>
+                                <tr>
+                                    <th>Reorder Point:</th>
+                                    <td id="modal-reorder-point"></td>
+                                </tr>
+                                <tr>
+                                    <th>Safety Stock:</th>
+                                    <td id="modal-safety-stock"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Usage Statistics</h6>
+                            <table class="table">
+                                <tr>
+                                    <th>Average Daily Usage:</th>
+                                    <td id="modal-avg-daily"></td>
+                                </tr>
+                                <tr>
+                                    <th>Days Until Reorder:</th>
+                                    <td id="modal-days-until"></td>
+                                </tr>
+                                <tr>
+                                    <th>Lead Time:</th>
+                                    <td id="modal-lead-time"></td>
+                                </tr>
+                                <tr>
+                                    <th>Calculated On:</th>
+                                    <td id="modal-calculated-date"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <h6>Sales Forecast</h6>
+                            <div id="forecast-loading" class="text-center py-3">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading forecast...</span>
+                                </div>
+                            </div>
+                            <div id="forecast-container"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // API URL - Update this with your actual API URL
+        const API_BASE_URL = 'http://localhost:5001';
+
+        // Function to fetch reorder data
+        async function fetchReorderData() {
+            document.getElementById('loading').style.display = 'flex';
+            try {
+                const response = await fetch(`${API_BASE_URL}/reorder`);
+                const data = await response.json();
+                
+                if (data.error) {
+                    alert(`Error fetching reorder data: ${data.error}`);
+                    return;
+                }
+                
+                displayReorderData(data);
+            } catch (error) {
+                console.error('Error fetching reorder data:', error);
+                alert('Failed to load reorder data. Please try again later.');
+            } finally {
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+        
+        // Function to fetch product forecast
+        async function fetchProductForecast(productId) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/forecast/${productId}`);
+                const data = await response.json();
+                return data.forecast || [];
+            } catch (error) {
+                console.error('Error fetching forecast:', error);
+                return [];
+            }
+        }
+        
+        // Function to display product details in modal
+        async function showProductDetails(product) {
+            // Set modal title and product info
+            document.getElementById('modal-product-title').textContent = `${product.product_name} (${product.product_id})`;
+            document.getElementById('modal-product-id').textContent = product.product_id;
+            document.getElementById('modal-inventory').textContent = product.current_inventory;
+            document.getElementById('modal-reorder-point').textContent = product.reorder_point;
+            document.getElementById('modal-safety-stock').textContent = product.safety_stock;
+            document.getElementById('modal-avg-daily').textContent = product.avg_daily_usage;
+            document.getElementById('modal-days-until').textContent = `${product.days_until_reorder} days`;
+            document.getElementById('modal-lead-time').textContent = `${product.lead_time_days} days`;
+            document.getElementById('modal-calculated-date').textContent = product.calculated_on;
+            
+            // Show forecast loading indicator
+            document.getElementById('forecast-loading').style.display = 'block';
+            document.getElementById('forecast-container').innerHTML = '';
+            
+            // Get and display forecast
+            const forecast = await fetchProductForecast(product.product_id);
+            document.getElementById('forecast-loading').style.display = 'none';
+            
+            if (forecast && forecast.length > 0) {
+                // Create forecast table
+                const table = document.createElement('table');
+                table.className = 'table table-striped';
+                
+                // Add header
+                const thead = document.createElement('thead');
+                thead.innerHTML = `<tr><th>Date</th><th>Predicted Sales</th></tr>`;
+                table.appendChild(thead);
+                
+                // Add body
+                const tbody = document.createElement('tbody');
+                forecast.forEach(day => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${day.date}</td><td>${day.predicted_sales}</td>`;
+                    tbody.appendChild(row);
+                });
+                table.appendChild(tbody);
+                
+                document.getElementById('forecast-container').appendChild(table);
+            } else {
+                document.getElementById('forecast-container').innerHTML = 
+                    '<div class="alert alert-warning">No forecast data available.</div>';
+            }
+            
+            // Show the modal
+            const modal = new bootstrap.Modal(document.getElementById('productDetailModal'));
+            modal.show();
+        }
+        
+        // Function to create a product card
+        function createProductCard(product) {
+            const inventoryRatio = product.current_inventory / product.reorder_point;
+            let progressBarClass = 'bg-danger';
+            
+            if (inventoryRatio >= 2) {
+                progressBarClass = 'bg-success';
+            } else if (inventoryRatio >= 1) {
+                progressBarClass = 'bg-warning';
+            }
+            
+            const progressWidth = Math.min(100, inventoryRatio * 50);
+            
+            const card = document.createElement('div');
+            card.className = 'card mb-3 product-detail';
+            card.innerHTML = `
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="card-title">${product.product_name}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">${product.product_id}</h6>
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            <h5>Current Stock: ${product.current_inventory}</h5>
+                            <h6>Reorder Point: ${product.reorder_point}</h6>
+                        </div>
+                    </div>
+                    <div class="progress mt-2 inventory-bar">
+                        <div class="progress-bar ${progressBarClass}" role="progressbar" 
+                            style="width: ${progressWidth}%" 
+                            aria-valuenow="${product.current_inventory}" 
+                            aria-valuemin="0" 
+                            aria-valuemax="${product.reorder_point * 2}">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <small>Average Daily Usage: ${product.avg_daily_usage}/day</small>
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            ${product.reorder_needed ? 
+                                '<span class="badge bg-danger">Reorder Now</span>' : 
+                                `<small>Days until reorder: ${product.days_until_reorder}</small>`
+                            }
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add click event to show product details
+            card.addEventListener('click', () => showProductDetails(product));
+            
+            return card;
+        }
+        
+        // Function to display reorder data on the page
+        function displayReorderData(data) {
+            // Update summary stats
+            document.getElementById('total-products').textContent = data.reorder_summary.total_products;
+            document.getElementById('products-need-reorder').textContent = data.reorder_summary.products_needing_reorder;
+            
+            // Calculate reorder percentage
+            const reorderPercentage = (data.reorder_summary.products_needing_reorder / data.reorder_summary.total_products) * 100;
+            const progressBar = document.getElementById('reorder-progress');
+            progressBar.style.width = `${reorderPercentage}%`;
+            progressBar.textContent = `${reorderPercentage.toFixed(1)}%`;
+            
+            // Sort products into categories
+            const needingReorder = [];
+            const toMonitor = [];
+            const sufficient = [];
+            
+            data.reorder_points.forEach(product => {
+                if (product.reorder_needed) {
+                    needingReorder.push(product);
+                } else if (product.days_until_reorder <= 7) {
+                    toMonitor.push(product);
+                } else {
+                    sufficient.push(product);
+                }
+            });
+            
+            // Display products needing reorder
+            const reorderNeededContainer = document.getElementById('reorder-needed-container');
+            reorderNeededContainer.innerHTML = '';
+            
+            if (needingReorder.length > 0) {
+                needingReorder.forEach(product => {
+                    reorderNeededContainer.appendChild(createProductCard(product));
+                });
+            } else {
+                reorderNeededContainer.innerHTML = 
+                    '<div class="alert alert-success">No products need immediate reordering!</div>';
+            }
+            
+            // Display products to monitor
+            const monitorContainer = document.getElementById('monitor-container');
+            monitorContainer.innerHTML = '';
+            
+            if (toMonitor.length > 0) {
+                toMonitor.forEach(product => {
+                    monitorContainer.appendChild(createProductCard(product));
+                });
+            } else {
+                monitorContainer.innerHTML = 
+                    '<div class="alert alert-info">No products need monitoring in the next 7 days.</div>';
+            }
+            
+            // Display products with sufficient inventory
+            const sufficientContainer = document.getElementById('sufficient-container');
+            sufficientContainer.innerHTML = '';
+            
+            if (sufficient.length > 0) {
+                // Only show the first 5 to avoid clutter
+                const showCount = Math.min(5, sufficient.length);
+                
+                for (let i = 0; i < showCount; i++) {
+                    sufficientContainer.appendChild(createProductCard(sufficient[i]));
+                }
+                
+                if (sufficient.length > showCount) {
+                    const remainingMessage = document.createElement('div');
+                    remainingMessage.className = 'alert alert-info';
+                    remainingMessage.textContent = `And ${sufficient.length - showCount} more products with sufficient inventory...`;
+                    sufficientContainer.appendChild(remainingMessage);
+                }
+            } else {
+                sufficientContainer.innerHTML = 
+                    '<div class="alert alert-warning">No products have sufficient inventory levels!</div>';
+            }
+        }
+        
+        // Load reorder data when page loads
+        document.addEventListener('DOMContentLoaded', fetchReorderData);
+        
+        // Add refresh button functionality
+        if (document.getElementById('refresh-btn')) {
+            document.getElementById('refresh-btn').addEventListener('click', fetchReorderData);
+        }
+    </script>
+</body>
+</html>

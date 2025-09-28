@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockPilot - AI Sales Forecast</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #212529;
+            margin-bottom: 10px;
+        }
+        h1 span {
+            color: #007bff;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+        #loading {
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚀 StockPilot <span>Forecast</span></h1>
+        <p>Your AI-powered sales forecast for the next 30 days. Use this to prevent stockouts and optimize inventory.</p>
+        <div id="chart-container">
+            <canvas id="salesForecastChart"></canvas>
+            <p id="loading">Loading forecast data...</p>
+        </div>
+    </div>
+
+    <script>
+        // This script runs when the page is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // API endpoint from your Flask app
+            const apiUrl = 'http://127.0.0.1:5001/forecast';
+
+            // Fetch data from the API
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Network response was not ok: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Hide the loading message
+                    document.getElementById('loading').style.display = 'none';
+                    
+                    // Prepare data for the chart
+                    const labels = data.map(item => item.ds); // Dates for the X-axis
+                    const forecastData = data.map(item => Math.round(item.yhat)); // Predicted sales for the Y-axis
+
+                    // Get the context of the canvas element
+                    const ctx = document.getElementById('salesForecastChart').getContext('2d');
+
+                    // Create the chart
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Predicted Daily Sales',
+                                data: forecastData,
+                                backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                                borderColor: 'rgba(0, 123, 255, 1)',
+                                borderWidth: 2,
+                                fill: true,
+                                tension: 0.4 // Makes the line smooth
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                y: {
+                                    beginAtZero: false,
+                                    title: {
+                                        display: true,
+                                        text: 'Total Units Sold'
+                                    }
+                                },
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Date'
+                                    }
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    position: 'top'
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            return `Predicted Sales: ${context.raw} units`;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(error => {
+                    // Show an error message if the API call fails
+                    const loadingElement = document.getElementById('loading');
+                    loadingElement.innerText = '❌ Failed to load forecast. Please ensure the forecast API is running.';
+                    loadingElement.style.color = 'red';
+                    console.error('Error fetching forecast:', error);
+                });
+        });
+    </script>
+
+</body>
+</html>

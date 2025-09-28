@@ -1,0 +1,2200 @@
+[
+  {
+    "_id": "68aaa8b538df3c608754e51a",
+    "productName": "Pedigree Chick & Veg Adult 2.8 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 655
+  },
+  {
+    "_id": "68aaa8dc38df3c608754e51b",
+    "productName": "Pedigree Chick & Milk Puppy 2.8 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 685
+  },
+  {
+    "_id": "68aaa90038df3c608754e51c",
+    "productName": "Whiskas Oceanfish Adult 3 kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 1120
+  },
+  {
+    "_id": "68aaa90e38df3c608754e51d",
+    "productName": "Whiskas Mackerel Adult 3 kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 1120
+  },
+  {
+    "_id": "68aaa92338df3c608754e51e",
+    "productName": "Whiskas Oceanfish Kitten 3 kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 1180
+  },
+  {
+    "_id": "68aaa93838df3c608754e51f",
+    "productName": "Whiskas Chicken Adult 3 kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 1120
+  },
+  {
+    "_id": "68aaa9a438df3c608754e520",
+    "productName": "Bowlers Nutrimax Chic & Milk Puppy 3 Kg",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 630
+  },
+  {
+    "_id": "68aaaa0b38df3c608754e522",
+    "productName": "Bowlers Nutrimax Chic & Veg Adult 3 Kg",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 610
+  },
+  {
+    "_id": "68aaaa2238df3c608754e523",
+    "productName": "Bowlers Nutrimax Chic & Veg Adult 1.2 Kg",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 255
+  },
+  {
+    "_id": "68aaaa5b38df3c608754e524",
+    "productName": "Pedigree Pro Mot & Pup 1.2 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 640
+  },
+  {
+    "_id": "68aaaab238df3c608754e526",
+    "productName": "Pedigree Meat & Rice Adult 1 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 249
+  },
+  {
+    "_id": "68aaaad938df3c608754e528",
+    "productName": "Pedigree Chick & Veg Adult 1 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 269
+  },
+  {
+    "_id": "68aaaaf838df3c608754e529",
+    "productName": "Pedigree Chick & Milk Puppy 1 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 259
+  },
+  {
+    "_id": "68aaab2138df3c608754e52a",
+    "productName": "Whiskas Oceanfish Kitten 1.1 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 193,
+    "rate": 425
+  },
+  {
+    "_id": "68aaab3b38df3c608754e52b",
+    "productName": "Whiskas Persian Adult 1.1 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 440
+  },
+  {
+    "_id": "68aaab6c38df3c608754e52c",
+    "productName": "Whiskas Tuna Adult 1.2 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 159,
+    "rate": 450
+  },
+  {
+    "_id": "68aaab8d38df3c608754e52d",
+    "productName": "Whiskas Chicken Adult 1.2 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 450
+  },
+  {
+    "_id": "68aaab9b38df3c608754e52e",
+    "productName": "Whiskas Mackerel Adult 1.2 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 450
+  },
+  {
+    "_id": "68aaabbc38df3c608754e52f",
+    "productName": "Whiskas Oceanfish Adult 1.2 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 159,
+    "rate": 450
+  },
+  {
+    "_id": "68aaac2238df3c608754e530",
+    "productName": "Me-O Tuna Adult 1.2 Kg",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 96,
+    "rate": 450
+  },
+  {
+    "_id": "68aaac6938df3c608754e531",
+    "productName": "Me-O Mackerel Adult 1.2 Kg",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 96,
+    "rate": 450
+  },
+  {
+    "_id": "68aaaca838df3c608754e532",
+    "productName": "Me-O Oceanfish Kitten1.1 Kg",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 28,
+    "rate": 425
+  },
+  {
+    "_id": "68aaacd738df3c608754e533",
+    "productName": "Me-O Salmon Adult 1.1 Kg",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 28,
+    "rate": 440
+  },
+  {
+    "_id": "68aaad0938df3c608754e534",
+    "productName": "Royal Cannin Persian 4 Kg",
+    "companyName": "Royal Cannin Pvt. Ltd",
+    "quantity": 28,
+    "rate": 4570
+  },
+  {
+    "_id": "68aaad4338df3c608754e536",
+    "productName": "Me-O Chic & Veg Adult 1.2 Kg",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 62,
+    "rate": 450
+  },
+  {
+    "_id": "68aaad9138df3c608754e537",
+    "productName": "Me-O Seafood Adult 1.2 Kg",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 125,
+    "rate": 450
+  },
+  {
+    "_id": "68aaaea238df3c608754e538",
+    "productName": "Me-O Persian Adult 1.1 Kg",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 125,
+    "rate": 440
+  },
+  {
+    "_id": "68aaaeb838df3c608754e539",
+    "productName": "Whiskas Persian Kitten 1.1 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 450
+  },
+  {
+    "_id": "68aaaed438df3c608754e53a",
+    "productName": "Whiskas Tuna Adult 480 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 235
+  },
+  {
+    "_id": "68aaaefa38df3c608754e53b",
+    "productName": "Whiskas Oceanfish Adult 480 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 235
+  },
+  {
+    "_id": "68aaaf2638df3c608754e53c",
+    "productName": "Whiskas Oceanfish Kitten 450 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 230
+  },
+  {
+    "_id": "68aaaf3838df3c608754e53d",
+    "productName": "Whiskas Mackerel Adult 480 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 235
+  },
+  {
+    "_id": "68aaaf5338df3c608754e53e",
+    "productName": "Whiskas Persian Adult 400 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 195
+  },
+  {
+    "_id": "68aaaf6338df3c608754e53f",
+    "productName": "Whiskas Persian Kitten 400 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 205
+  },
+  {
+    "_id": "68aaafdc38df3c608754e540",
+    "productName": "Purepet Real Chic Dog Biscuit 455 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 199
+  },
+  {
+    "_id": "68aab01938df3c608754e541",
+    "productName": "Purepet Chic Munchy Sticks 400 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 199
+  },
+  {
+    "_id": "68aab02738df3c608754e542",
+    "productName": "Purepet Mutton Munchy Sticks 400 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 199
+  },
+  {
+    "_id": "68aab04d38df3c608754e543",
+    "productName": "Baked Delights Cookies Dog 800 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 159,
+    "rate": 199
+  },
+  {
+    "_id": "68aab07338df3c608754e544",
+    "productName": "Pedigree Chick & Veg Adult 370 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 256,
+    "rate": 100
+  },
+  {
+    "_id": "68aab08838df3c608754e545",
+    "productName": "Pedigree Chick & Milk Puppy 370 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 256,
+    "rate": 110
+  },
+  {
+    "_id": "68aab0c038df3c608754e546",
+    "productName": "Drools Absolut Vitamin 18 Tab",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 99
+  },
+  {
+    "_id": "68aab0ec38df3c608754e547",
+    "productName": "Drools Absolut Calcium 50 Tab",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 265
+  },
+  {
+    "_id": "68aab10438df3c608754e548",
+    "productName": "Drools Absolut Calcium 18 Tab",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 99
+  },
+  {
+    "_id": "68aab15438df3c608754e549",
+    "productName": "Bluepet Liquid Filter 400F",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 300
+  },
+  {
+    "_id": "68aab1b738df3c608754e54b",
+    "productName": "Himalaya Erina EP Shampoo 200ml",
+    "companyName": "Himalaya Wellness Company",
+    "quantity": 96,
+    "rate": 306
+  },
+  {
+    "_id": "68aab1ca38df3c608754e54c",
+    "productName": "Himalaya Erina EP Powder 150 G",
+    "companyName": "Himalaya Wellness Company",
+    "quantity": 290,
+    "rate": 250
+  },
+  {
+    "_id": "68aab20138df3c608754e54d",
+    "productName": "Himalaya Erina Coat Cleanser 200ml",
+    "companyName": "Himalaya Wellness Company",
+    "quantity": 96,
+    "rate": 260
+  },
+  {
+    "_id": "68aab21b38df3c608754e54e",
+    "productName": "Himalaya Erina Plus Coat Cleanser 200ml",
+    "companyName": "Himalaya Wellness Company",
+    "quantity": 28,
+    "rate": 345
+  },
+  {
+    "_id": "68aab23e38df3c608754e54f",
+    "productName": "Himalaya Scavon 100ml",
+    "companyName": "Himalaya Wellness Company",
+    "quantity": 193,
+    "rate": 160
+  },
+  {
+    "_id": "68aab26938df3c608754e550",
+    "productName": "Himalaya Himpyrin 30ml",
+    "companyName": "Himalaya Wellness Company",
+    "quantity": 96,
+    "rate": 156
+  },
+  {
+    "_id": "68aab2b338df3c608754e551",
+    "productName": "Notix Powder 100 G",
+    "companyName": "Provimi Animal Nutrition India Pvt Ltd",
+    "quantity": 62,
+    "rate": 260
+  },
+  {
+    "_id": "68aab2ef38df3c608754e552",
+    "productName": "Notix Soap 75 G",
+    "companyName": "Provimi Animal Nutrition India Pvt Ltd",
+    "quantity": 387,
+    "rate": 95
+  },
+  {
+    "_id": "68aab34438df3c608754e553",
+    "productName": "Lozalo Strawberry Fruit Shampoo 210ml",
+    "companyName": "Rossari Biotech Ltd.",
+    "quantity": 62,
+    "rate": 199
+  },
+  {
+    "_id": "68aab38938df3c608754e554",
+    "productName": "Lozalo Cantaloupe Fruit Shampoo 210ml",
+    "companyName": "Rossari Biotech Ltd.",
+    "quantity": 62,
+    "rate": 189
+  },
+  {
+    "_id": "68aab3a638df3c608754e555",
+    "productName": "Lozalo Apple Fruit Shampoo 210ml",
+    "companyName": "Rossari Biotech Ltd.",
+    "quantity": 28,
+    "rate": 199
+  },
+  {
+    "_id": "68aab3ef38df3c608754e556",
+    "productName": "Lozalo Easy Foam 150 G",
+    "companyName": "Rossari Biotech Ltd.",
+    "quantity": 62,
+    "rate": 329
+  },
+  {
+    "_id": "68aab41b38df3c608754e557",
+    "productName": "Lozalo Ocean Body Splash 200ml",
+    "companyName": "Rossari Biotech Ltd.",
+    "quantity": 28,
+    "rate": 349
+  },
+  {
+    "_id": "68aab44938df3c608754e558",
+    "productName": "Lozalo Pet Wipes 30pcs",
+    "companyName": "Rossari Biotech Ltd.",
+    "quantity": 62,
+    "rate": 135
+  },
+  {
+    "_id": "68aab48e38df3c608754e559",
+    "productName": "InHeart Forever Chic Munchy Sticks 1 Kg",
+    "companyName": "General",
+    "quantity": 96,
+    "rate": 270
+  },
+  {
+    "_id": "68aab4c038df3c608754e55a",
+    "productName": "InHeart Forever Chic Munchy Sticks 500 G",
+    "companyName": "General",
+    "quantity": 96,
+    "rate": 159
+  },
+  {
+    "_id": "68aab4de38df3c608754e55b",
+    "productName": "InHeart Forever Mutton Munchy Sticks 500 G",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 159
+  },
+  {
+    "_id": "68aab58c38df3c608754e55c",
+    "productName": "Kitty Yums Creamy 80 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 547,
+    "rate": 99
+  },
+  {
+    "_id": "68aab5d938df3c608754e55d",
+    "productName": "Purepet Creamy 80 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 843,
+    "rate": 80
+  },
+  {
+    "_id": "68aab64538df3c608754e55e",
+    "productName": "KiteKat Tuna Adult 370 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 99
+  },
+  {
+    "_id": "68aab65a38df3c608754e55f",
+    "productName": "KiteKat Ocean Adult 370 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 99
+  },
+  {
+    "_id": "68aab66a38df3c608754e560",
+    "productName": "KiteKat Tuna Adult 1 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 199
+  },
+  {
+    "_id": "68aab6ae38df3c608754e561",
+    "productName": "Purepet Seafood Adult 180g",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 99
+  },
+  {
+    "_id": "68aab6cb38df3c608754e562",
+    "productName": "Me-O Mackerel Adult 450 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 96,
+    "rate": 195
+  },
+  {
+    "_id": "68aab6db38df3c608754e563",
+    "productName": "Me-O Persian Adult 400 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 125,
+    "rate": 195
+  },
+  {
+    "_id": "68aab6ed38df3c608754e564",
+    "productName": "Me-O Persian Kitten 400 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 62,
+    "rate": 205
+  },
+  {
+    "_id": "68aab70538df3c608754e565",
+    "productName": "Me-O Seafood Adult 450 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 159,
+    "rate": 195
+  },
+  {
+    "_id": "68aab71438df3c608754e566",
+    "productName": "Me-O Oceanfish Kitten 400 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 28,
+    "rate": 195
+  },
+  {
+    "_id": "68aab72238df3c608754e567",
+    "productName": "Me-O Tuna Adult 450 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 125,
+    "rate": 195
+  },
+  {
+    "_id": "68aab76838df3c608754e568",
+    "productName": "Pedigree Chick & Veg Adult 90 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 1037,
+    "rate": 25
+  },
+  {
+    "_id": "68aab78438df3c608754e569",
+    "productName": "Pedigree Chick & Milk Puppy 90 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 25
+  },
+  {
+    "_id": "68aab7dc38df3c608754e56a",
+    "productName": "Whiskas Tuna Adult 50 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 222,
+    "rate": 25
+  },
+  {
+    "_id": "68aab7f938df3c608754e56b",
+    "productName": "Whiskas Mackerel Adult 50 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 222,
+    "rate": 25
+  },
+  {
+    "_id": "68aab80b38df3c608754e56c",
+    "productName": "Whiskas Oceanfish Kitten 50 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 193,
+    "rate": 25
+  },
+  {
+    "_id": "68aab83938df3c608754e56d",
+    "productName": "Whiskas Mackerel Kitten 50 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 290,
+    "rate": 25
+  },
+  {
+    "_id": "68aab85538df3c608754e56e",
+    "productName": "Whiskas Oceanfish Adult 50 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 25
+  },
+  {
+    "_id": "68aab86c38df3c608754e56f",
+    "productName": "Whiskas Persian Kitten 50 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 193,
+    "rate": 25
+  },
+  {
+    "_id": "68aab89a38df3c608754e571",
+    "productName": "Whiskas Persian Adult 50 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 387,
+    "rate": 25
+  },
+  {
+    "_id": "68aab94a38df3c608754e572",
+    "productName": "Purepet Oceanfish Adult 250 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 1749,
+    "rate": 50
+  },
+  {
+    "_id": "68aab99f38df3c608754e573",
+    "productName": "Purepet Oceanfish Adult 70 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 581,
+    "rate": 20
+  },
+  {
+    "_id": "68aab9cc38df3c608754e574",
+    "productName": "Purepet Tuna & Salmon Adult 70 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 615,
+    "rate": 20
+  },
+  {
+    "_id": "68aab9f138df3c608754e575",
+    "productName": "Purepet Seafood Adult 70 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 615,
+    "rate": 20
+  },
+  {
+    "_id": "68aaba7538df3c608754e576",
+    "productName": "Purepet Oceanfish Adult 2.7 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 193,
+    "rate": 499
+  },
+  {
+    "_id": "68aaba8538df3c608754e577",
+    "productName": "Purepet Seafood Adult 2.8 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 499
+  },
+  {
+    "_id": "68aabac038df3c608754e578",
+    "productName": "Purepet Dog Chic & Veg Adult 1.1 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 199
+  },
+  {
+    "_id": "68aabadc38df3c608754e579",
+    "productName": "Bowlers Nutrimax Club Chic & Veg Adult 1.2 Kg",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 1020
+  },
+  {
+    "_id": "68aabb0a38df3c608754e57a",
+    "productName": "Purepet Teak Mackerel Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 249
+  },
+  {
+    "_id": "68aabb2d38df3c608754e57b",
+    "productName": "Purepet Teak Oceanfish Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 249
+  },
+  {
+    "_id": "68aabb3f38df3c608754e57c",
+    "productName": "Purepet Teak Real Chicken Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 249
+  },
+  {
+    "_id": "68aabb5538df3c608754e57d",
+    "productName": "Purepet Teak Tuna & Salmon Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 249
+  },
+  {
+    "_id": "68aabb7338df3c608754e57e",
+    "productName": "Kitty Yums Oceanfish Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 193,
+    "rate": 410
+  },
+  {
+    "_id": "68aabb9f38df3c608754e57f",
+    "productName": "Kitty Yums Persian Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 430
+  },
+  {
+    "_id": "68aabbec38df3c608754e580",
+    "productName": "Drools Cat Oceanfish Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 350
+  },
+  {
+    "_id": "68aabc0138df3c608754e581",
+    "productName": "Drools Cat Oceanfish Adult 3 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 849
+  },
+  {
+    "_id": "68aabc4b38df3c608754e582",
+    "productName": "Drools Dog Chic & Egg Puppy 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 280
+  },
+  {
+    "_id": "68aabc6d38df3c608754e583",
+    "productName": "Drools Dog Chic & Egg Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 260
+  },
+  {
+    "_id": "68aabca038df3c608754e584",
+    "productName": "Drools Dog Veg ALS 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 299
+  },
+  {
+    "_id": "68aabcc538df3c608754e586",
+    "productName": "Drools Dog Chic & Egg Puppy 3 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 680
+  },
+  {
+    "_id": "68aabd0638df3c608754e588",
+    "productName": "Drools Dog Chic & Egg Adult 3 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 650
+  },
+  {
+    "_id": "68aabd3338df3c608754e589",
+    "productName": "Bowlers Nutrimax Chic & Veg Adult 400  G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 222,
+    "rate": 90
+  },
+  {
+    "_id": "68aabd4838df3c608754e58a",
+    "productName": "Bowlers Nutrimax Chic & Milk Puppy 400 G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 193,
+    "rate": 100
+  },
+  {
+    "_id": "68aabd5538df3c608754e58b",
+    "productName": "Bowlers Nutrimax Chic & Milk Puppy 1.2 Kg",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 270
+  },
+  {
+    "_id": "68aabd6b38df3c608754e58c",
+    "productName": "Kitty Yums Oceanfish Kitten 400 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 193,
+    "rate": 185
+  },
+  {
+    "_id": "68aabdea38df3c608754e58d",
+    "productName": "Grain Zero Cat Mackerel Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 410
+  },
+  {
+    "_id": "68aabe3138df3c608754e58e",
+    "productName": "Grain Zero Cat Chick & Veg Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 410
+  },
+  {
+    "_id": "68aabe4438df3c608754e58f",
+    "productName": "Grain Zero Cat Tuna Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 410
+  },
+  {
+    "_id": "68aabe5138df3c608754e590",
+    "productName": "Grain Zero Cat Salmon Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 410
+  },
+  {
+    "_id": "68aabe8738df3c608754e591",
+    "productName": "Grain Zero Cat Oceanfish & Mackerel Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 410
+  },
+  {
+    "_id": "68aabeee38df3c608754e593",
+    "productName": "Grain Zero Dog Chic & Veg Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 680
+  },
+  {
+    "_id": "68aabf4038df3c608754e594",
+    "productName": "Grain Zero Cat Persian Oceanfish, Sardine & Mackerel Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 430
+  },
+  {
+    "_id": "68aabf8438df3c608754e595",
+    "productName": "Grain Zero Cat Mot & Kit Oceanfish, Sardine & Mackerel Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 445
+  },
+  {
+    "_id": "68aabfce38df3c608754e596",
+    "productName": "Freedom Cat Mot & Kit Fish & Chic 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 399
+  },
+  {
+    "_id": "68aabff538df3c608754e597",
+    "productName": "Freedom Dog Chic & Rice Adult 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 650
+  },
+  {
+    "_id": "68aac21238df3c608754e598",
+    "productName": "Drools Cat Oceanfish Adult 400 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 222,
+    "rate": 125
+  },
+  {
+    "_id": "68aac23238df3c608754e599",
+    "productName": "Drools Cat Oceanfish Kitten 400 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 130
+  },
+  {
+    "_id": "68aac24338df3c608754e59a",
+    "productName": "Drools Dog Chic & Egg Adult 400 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 99
+  },
+  {
+    "_id": "68aac26038df3c608754e59b",
+    "productName": "Drools Dog Chic & Egg Puppy 400 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 222,
+    "rate": 109
+  },
+  {
+    "_id": "68aac2b038df3c608754e59d",
+    "productName": "Lets Byte Cat Persian Oceanfish Adult 400 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 100
+  },
+  {
+    "_id": "68aac2cb38df3c608754e59e",
+    "productName": "Lets Byte Cat Oceanfish Adult 400 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 100
+  },
+  {
+    "_id": "68aac2d738df3c608754e59f",
+    "productName": "Lets Byte Cat Oceanfish Kitten 400 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 100
+  },
+  {
+    "_id": "68aac2fd38df3c608754e5a0",
+    "productName": "Drools Cat Oceanfish Adult 60 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 484,
+    "rate": 20
+  },
+  {
+    "_id": "68aac31a38df3c608754e5a1",
+    "productName": "Grain Zero Cat Mackerel Adult 40 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 324,
+    "rate": 25
+  },
+  {
+    "_id": "68aac35f38df3c608754e5a2",
+    "productName": "Grain Zero Cat Tuna Adult 40 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 256,
+    "rate": 25
+  },
+  {
+    "_id": "68aac37138df3c608754e5a3",
+    "productName": "Grain Zero Cat Chick & Veg Adult 40 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 256,
+    "rate": 25
+  },
+  {
+    "_id": "68aac38f38df3c608754e5a4",
+    "productName": "Freedom Cat Mot & Kit Fish & Chic 50 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 649,
+    "rate": 30
+  },
+  {
+    "_id": "68aac3d938df3c608754e5a5",
+    "productName": "Drools Dog Chic & Egg Puppy 80 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 581,
+    "rate": 20
+  },
+  {
+    "_id": "68aac3fb38df3c608754e5a6",
+    "productName": "Drools Dog Chic & Egg Adult 80 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 775,
+    "rate": 20
+  },
+  {
+    "_id": "68aac4db38df3c608754e5a7",
+    "productName": "Purrfeto Cat Chic & Oceanfish Kitten 100 G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 256,
+    "rate": 40
+  },
+  {
+    "_id": "68aac53738df3c608754e5a9",
+    "productName": "Purrfeto Cat Chic & Salmon Adult 100 G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 256,
+    "rate": 40
+  },
+  {
+    "_id": "68aac55538df3c608754e5aa",
+    "productName": "Purrfeto Cat Chic & Oceanfish Adult 100 G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 324,
+    "rate": 40
+  },
+  {
+    "_id": "68aac57638df3c608754e5ab",
+    "productName": "Purrfeto Cat Chic & Sardine Adult 100 G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 222,
+    "rate": 40
+  },
+  {
+    "_id": "68aac5bd38df3c608754e5ac",
+    "productName": "Purrfeto Cat Chic & Rice Adult 100 G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 324,
+    "rate": 40
+  },
+  {
+    "_id": "68aac5f538df3c608754e5ad",
+    "productName": "Purrfeto Cat Chic & Rice Kitten 100 G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 324,
+    "rate": 40
+  },
+  {
+    "_id": "68aac62938df3c608754e5ae",
+    "productName": "Me-0 Creamy Treats Crab 75 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 775,
+    "rate": 100
+  },
+  {
+    "_id": "68aac64f38df3c608754e5af",
+    "productName": "Me-0 Creamy Treats Salmon 75 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 775,
+    "rate": 100
+  },
+  {
+    "_id": "68aac67638df3c608754e5b0",
+    "productName": "Me-0 Creamy Treats Chic & Liver 75 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 387,
+    "rate": 100
+  },
+  {
+    "_id": "68aac69d38df3c608754e5b1",
+    "productName": "Me-0 Creamy Treats Tuna & Bonito 60 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 387,
+    "rate": 100
+  },
+  {
+    "_id": "68aac79638df3c608754e5b2",
+    "productName": "Me-O Cat Chic Chunk Gravy Kitten 80 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 678,
+    "rate": 45
+  },
+  {
+    "_id": "68aac96aff8826b1a6508dc0",
+    "productName": "Me-O Cat Chic Rice & Tuna Gravy Adult 80 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 256,
+    "rate": 45
+  },
+  {
+    "_id": "68aac9b3ff8826b1a6508dc1",
+    "productName": "Me-O Cat Sardine Gravy In Jelly Adult 80 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 193,
+    "rate": 45
+  },
+  {
+    "_id": "68aac9d2ff8826b1a6508dc2",
+    "productName": "Me-O Cat Mackerel Gravy Adult 80 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 96,
+    "rate": 45
+  },
+  {
+    "_id": "68aaca0fff8826b1a6508dc3",
+    "productName": "Me-O Cat Lamb Chunk Gravy Kitten 80 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 324,
+    "rate": 45
+  },
+  {
+    "_id": "68aaca49ff8826b1a6508dc4",
+    "productName": "Me-O Cat Chic Rice & Sardine Gravy Adult 80 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 387,
+    "rate": 45
+  },
+  {
+    "_id": "68aaca9aff8826b1a6508dc5",
+    "productName": "Me-O Cat Tuna Gravy Adult Combo 80 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 96,
+    "rate": 225
+  },
+  {
+    "_id": "68aacaf6ff8826b1a6508dc6",
+    "productName": "Me-O Cat Seafood Jelly Adult 400 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 62,
+    "rate": 160
+  },
+  {
+    "_id": "68aacb0dff8826b1a6508dc7",
+    "productName": "Me-O Cat Tuna Jelly Adult 400 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 62,
+    "rate": 160
+  },
+  {
+    "_id": "68aacb4bff8826b1a6508dc8",
+    "productName": "Me-O Cat Sardine & Prawn Jelly Adult 400 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 62,
+    "rate": 160
+  },
+  {
+    "_id": "68aacb73ff8826b1a6508dc9",
+    "productName": "Me-O Cat Sardine & Salmon Jelly Adult 400 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 62,
+    "rate": 160
+  },
+  {
+    "_id": "68aacc10ff8826b1a6508dcc",
+    "productName": "Cuties Catz Sardine Gravy Adult 400 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 62,
+    "rate": 140
+  },
+  {
+    "_id": "68aacc37ff8826b1a6508dcd",
+    "productName": "Cuties Catz Chic Gravy Adult 400 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 62,
+    "rate": 140
+  },
+  {
+    "_id": "68aacc48ff8826b1a6508dce",
+    "productName": "Cuties Catz Chic Liver Gravy Adult 400 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 28,
+    "rate": 140
+  },
+  {
+    "_id": "68aacc6eff8826b1a6508dcf",
+    "productName": "Cuties Catz Mackerel Gravy Adult 400 G",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 28,
+    "rate": 140
+  },
+  {
+    "_id": "68aacd19ff8826b1a6508dd2",
+    "productName": "Sheba Tuna Pumpkin & Carrots Adult Gravy 70 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 547,
+    "rate": 70
+  },
+  {
+    "_id": "68aacd2eff8826b1a6508dd3",
+    "productName": "Sheba Chic & Tuna Gravy Adult 70 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 387,
+    "rate": 70
+  },
+  {
+    "_id": "68aacd51ff8826b1a6508dd4",
+    "productName": "Sheba Chic Gravy Adult 70 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 70
+  },
+  {
+    "_id": "68aacd85ff8826b1a6508dd5",
+    "productName": "Sheba Chic Gravy Kitten 70 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 581,
+    "rate": 70
+  },
+  {
+    "_id": "68aacdb6ff8826b1a6508dd6",
+    "productName": "Sheba  Fish Sasame Gravy Adult 35 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 353,
+    "rate": 50
+  },
+  {
+    "_id": "68aacde3ff8826b1a6508dd7",
+    "productName": "Sheba Skipjack & Salmon Gravy Adult 35 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 387,
+    "rate": 50
+  },
+  {
+    "_id": "68aacf32ff8826b1a6508dd8",
+    "productName": "Purepet Chic & Veg Gravy Puppy 70 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 4548,
+    "rate": 30
+  },
+  {
+    "_id": "68aacf91ff8826b1a6508dda",
+    "productName": "Purepet Cat Tuna & Chic Liver Gravy Adult 50 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 159,
+    "rate": 30
+  },
+  {
+    "_id": "68aacffcff8826b1a6508ddb",
+    "productName": "Purepet Cat Chic & Chic Liver Gravy Adult 50 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 2143,
+    "rate": 30
+  },
+  {
+    "_id": "68aad035ff8826b1a6508ddc",
+    "productName": "Purrfeto Oceanfish Gravy Adult 80 G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 353,
+    "rate": 50
+  },
+  {
+    "_id": "68aad057ff8826b1a6508ddd",
+    "productName": "Purrfeto Mackerel Gravy Adult 80 G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 222,
+    "rate": 50
+  },
+  {
+    "_id": "68aad08cff8826b1a6508dde",
+    "productName": "Purrfeto Ocean Platter Jelly Kitten 80 G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 581,
+    "rate": 50
+  },
+  {
+    "_id": "68aad08cff8826b1a6508ddf",
+    "productName": "Purrfeto Ocean Platter Jelly Kitten 80 G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 290,
+    "rate": 50
+  },
+  {
+    "_id": "68aad0afff8826b1a6508de0",
+    "productName": "Purrfeto Tuna Platter Jelly Adult 80 G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 746,
+    "rate": 50
+  },
+  {
+    "_id": "68aad0deff8826b1a6508de1",
+    "productName": "Bowlers Chic Platter Gravy Adult 80 G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 387,
+    "rate": 50
+  },
+  {
+    "_id": "68aad105ff8826b1a6508de2",
+    "productName": "Bowlers Lung Gravy Adult 80 G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 387,
+    "rate": 50
+  },
+  {
+    "_id": "68aad17bff8826b1a6508de3",
+    "productName": "Purepet Dog Chic & Veg Chunk Gravy Adult 70 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 387,
+    "rate": 30
+  },
+  {
+    "_id": "68aad1d5ff8826b1a6508de4",
+    "productName": "Drools Dog Chic Tender Treats 70 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 199
+  },
+  {
+    "_id": "68aad20aff8826b1a6508de5",
+    "productName": "Drools Dog Chic Cod Roll Treats 70 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 199
+  },
+  {
+    "_id": "68aad23bff8826b1a6508de6",
+    "productName": "Drools Dog Chic Diced Treats 70 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 199
+  },
+  {
+    "_id": "68aad257ff8826b1a6508de7",
+    "productName": "Drools Dog Chic Chips Treats 70 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 199
+  },
+  {
+    "_id": "68aad2adff8826b1a6508de9",
+    "productName": "Drools Dog Chic Cod Fish Sandwich Treats 70 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 199
+  },
+  {
+    "_id": "68aad2ebff8826b1a6508dea",
+    "productName": "Drools Dog Chic Sweet Potato Twisted Treats 70 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 199
+  },
+  {
+    "_id": "68aad346ff8826b1a6508deb",
+    "productName": "Whiskas Chic Gravy Combo Kitten 7x80 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 325
+  },
+  {
+    "_id": "68aad362ff8826b1a6508dec",
+    "productName": "Whiskas Chic Gravy Combo Adult 7x80 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 325
+  },
+  {
+    "_id": "68aad3b6ff8826b1a6508ded",
+    "productName": "Drools Dog Chic Chunks Gravy Puppy 150 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 159,
+    "rate": 40
+  },
+  {
+    "_id": "68aad414ff8826b1a6508dee",
+    "productName": "Drools Dog Chic Chunks Gravy Combo Adult 12x60 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 256,
+    "rate": 250
+  },
+  {
+    "_id": "68aad47fff8826b1a6508def",
+    "productName": "Temptations Cat Chic & Tuna Creamy 48 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 120
+  },
+  {
+    "_id": "68aad4d6ff8826b1a6508df0",
+    "productName": "Temptations Cat Salmon & Cheese Creamy 48 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 120
+  },
+  {
+    "_id": "68aad502ff8826b1a6508df1",
+    "productName": "Temptations Cat Maguro & Scallop Creamy 48 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 120
+  },
+  {
+    "_id": "68aad5b8ff8826b1a6508df2",
+    "productName": "Temptations Tuna Treats 85 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 150
+  },
+  {
+    "_id": "68aad5d2ff8826b1a6508df3",
+    "productName": "Temptations Salmon Treats 85 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 150
+  },
+  {
+    "_id": "68aad61dff8826b1a6508df4",
+    "productName": "Pedigree Rodeo 123 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 353,
+    "rate": 200
+  },
+  {
+    "_id": "68aad641ff8826b1a6508df5",
+    "productName": "Pedigree Dentastix 110 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 160
+  },
+  {
+    "_id": "68aad668ff8826b1a6508df6",
+    "productName": "Pedigree Dentastix 270 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 280
+  },
+  {
+    "_id": "68aad6a6ff8826b1a6508df7",
+    "productName": "Pedigree Ranchos Spiral Wrap 60 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 250
+  },
+  {
+    "_id": "68aad6efff8826b1a6508df8",
+    "productName": "Pedigree Ranchos Super Bones 70 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 250
+  },
+  {
+    "_id": "68aad72eff8826b1a6508df9",
+    "productName": "Sheba Sesami Creamy 48 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 120
+  },
+  {
+    "_id": "68aad791ff8826b1a6508dfa",
+    "productName": "Sheba Magauro Creamy 48 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 120
+  },
+  {
+    "_id": "68aad85cff8826b1a6508dfd",
+    "productName": "Pedigree Chic & Liver Gravy Puppy 70 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 974,
+    "rate": 50
+  },
+  {
+    "_id": "68aad951ff8826b1a6508dfe",
+    "productName": "Pedigree Chick Chunks In Gravy Puppy 70 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 256,
+    "rate": 50
+  },
+  {
+    "_id": "68aad9baff8826b1a6508dff",
+    "productName": "Pedigree Lamb Chunks In Gravy Puppy 70 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 50
+  },
+  {
+    "_id": "68aada32ff8826b1a6508e00",
+    "productName": "Pedigree Chic & Liver Chunks In Gravy Puppy 70 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 50
+  },
+  {
+    "_id": "68aadaa3ff8826b1a6508e02",
+    "productName": "Pedigree Roasted Lamb Gravy Adult 70 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 387,
+    "rate": 50
+  },
+  {
+    "_id": "68aadae1ff8826b1a6508e03",
+    "productName": "Pedigree Chic & Liver Gravy Adult 70 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 649,
+    "rate": 50
+  },
+  {
+    "_id": "68aadb31ff8826b1a6508e04",
+    "productName": "Pedigree Chic & Liver Chunk Gravy Adult 130 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 712,
+    "rate": 60
+  },
+  {
+    "_id": "68aadb84ff8826b1a6508e05",
+    "productName": "Pedigree Roasted Lamb Chunk Gravy Adult 130 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 290,
+    "rate": 60
+  },
+  {
+    "_id": "68aadc17ff8826b1a6508e06",
+    "productName": "Whiskas Tuna Jelly Kitten 80 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 1624,
+    "rate": 50
+  },
+  {
+    "_id": "68aadca3ff8826b1a6508e07",
+    "productName": "Whiskas Chic Gravy Kitten 80 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 353,
+    "rate": 50
+  },
+  {
+    "_id": "68aadd94ff8826b1a6508e08",
+    "productName": "Whiskas Chic & Salmon Gravy Kitten 80 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 256,
+    "rate": 50
+  },
+  {
+    "_id": "68aade3bff8826b1a6508e09",
+    "productName": "Whiskas Tuna Jelly Adult 80 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 1653,
+    "rate": 50
+  },
+  {
+    "_id": "68aade68ff8826b1a6508e0a",
+    "productName": "Whiskas Mackerel Gravy Kitten 80 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 222,
+    "rate": 50
+  },
+  {
+    "_id": "68aadee7ff8826b1a6508e0b",
+    "productName": "Whiskas Tasty Mix Gravy 70 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 1003,
+    "rate": 50
+  },
+  {
+    "_id": "68aadf25ff8826b1a6508e0c",
+    "productName": "Whiskas Chic Gravy Adult 80 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 1197,
+    "rate": 50
+  },
+  {
+    "_id": "68aadf7bff8826b1a6508e0d",
+    "productName": "Whiskas Oceanfish Gravy Adult 80 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 746,
+    "rate": 50
+  },
+  {
+    "_id": "68aadfc5ff8826b1a6508e0e",
+    "productName": "Whiskas Salmon Gravy Adult 80 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 1556,
+    "rate": 50
+  },
+  {
+    "_id": "68aae085ae95216aa9033b57",
+    "productName": "Whiskas Tuna & White Fish Gravy Adult 80 G",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 843,
+    "rate": 50
+  },
+  {
+    "_id": "68aae0d1ae95216aa9033b58",
+    "productName": "Drools Dog Chic & Egg Biscuit 400 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 200
+  },
+  {
+    "_id": "68aae117ae95216aa9033b59",
+    "productName": "Purepet Cat Chic Biscuits 400g",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 240
+  },
+  {
+    "_id": "68aae16dae95216aa9033b5a",
+    "productName": "Drools Cat Oceanfish Kitten 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 365
+  },
+  {
+    "_id": "68aae1bdae95216aa9033b5b",
+    "productName": "Drools Cat Chic Kitten 1.2 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 365
+  },
+  {
+    "_id": "68aae35eae95216aa9033b5c",
+    "productName": "Drools Pup Booster 300 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 299
+  },
+  {
+    "_id": "68aae38cae95216aa9033b5d",
+    "productName": "Drools Calcium Milk Bone 55 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 222,
+    "rate": 30
+  },
+  {
+    "_id": "68aae3c9ae95216aa9033b5e",
+    "productName": "Drools Calcium Milk Bone 13 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 974,
+    "rate": 15
+  },
+  {
+    "_id": "68aae409ae95216aa9033b5f",
+    "productName": "Bowlers Meat Sticks 75 G",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 290,
+    "rate": 139
+  },
+  {
+    "_id": "68aae43bae95216aa9033b60",
+    "productName": "Himalaya Cat Oceanfish Kitten 50 G",
+    "companyName": "Himalaya Wellness Company",
+    "quantity": 387,
+    "rate": 21
+  },
+  {
+    "_id": "68aae46dae95216aa9033b61",
+    "productName": "Himalaya Cat Tuna & Chic Adult 50 G",
+    "companyName": "Himalaya Wellness Company",
+    "quantity": 518,
+    "rate": 20
+  },
+  {
+    "_id": "68aae509ae95216aa9033b62",
+    "productName": "Kitty Yums Pouch Treats 80 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 159,
+    "rate": 65
+  },
+  {
+    "_id": "68aae586ae95216aa9033b63",
+    "productName": "Drools Dog Chic Liver Chunk Gravy Adult 60  G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 256,
+    "rate": 25
+  },
+  {
+    "_id": "68aae648ae95216aa9033b64",
+    "productName": "Drools Dog Meat & Rice Adult 10 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 2149
+  },
+  {
+    "_id": "68aae6a7ae95216aa9033b65",
+    "productName": "Drools Dog Chic & Veg Adult 10 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 2149
+  },
+  {
+    "_id": "68aae6c6ae95216aa9033b66",
+    "productName": "Bowlers Nutrimax Chic & Veg Adult 10 Kg",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 1850
+  },
+  {
+    "_id": "68aae747ae95216aa9033b68",
+    "productName": "Purepet Dog Meat & Rice Adult 10 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 1299
+  },
+  {
+    "_id": "68aae7aeae95216aa9033b69",
+    "productName": "Bowlers Nutrimax Chic & Milk Puppy 10 Kg",
+    "companyName": "Allana Consumer Products Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 1950
+  },
+  {
+    "_id": "68aae7dbae95216aa9033b6a",
+    "productName": "Chappi Chic & Rice Adult 7 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 1260
+  },
+  {
+    "_id": "68aae7edae95216aa9033b6b",
+    "productName": "Chappi Chic & Rice Adult 20 Kg",
+    "companyName": "Mars International India Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 3100
+  },
+  {
+    "_id": "68aae824ae95216aa9033b6c",
+    "productName": "Purepet Cat Tuna & Salmon Adult 6 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 999
+  },
+  {
+    "_id": "68aae95cae95216aa9033b6f",
+    "productName": "Purepet Cat Mackerel Adult 6 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 999
+  },
+  {
+    "_id": "68aae96cae95216aa9033b70",
+    "productName": "Purepet Cat Oceanfish Adult 6 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 999
+  },
+  {
+    "_id": "68aae98dae95216aa9033b71",
+    "productName": "Purepet Cat Seafood Adult 6 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 999
+  },
+  {
+    "_id": "68aae9fbae95216aa9033b72",
+    "productName": "Lets Byte Dog Chic & Egg Adult 10 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 1920
+  },
+  {
+    "_id": "68aaea33ae95216aa9033b73",
+    "productName": "Drools Dog Chic & Egg Puppy 10 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 2199
+  },
+  {
+    "_id": "68aaea5eae95216aa9033b74",
+    "productName": "Drools Dog Chic & Egg Adult 10 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 2149
+  },
+  {
+    "_id": "68aaeac6ae95216aa9033b75",
+    "productName": "Drools Dog Optimum Adult 10 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 1599
+  },
+  {
+    "_id": "68aaeb34ae95216aa9033b76",
+    "productName": "Vet Pro Obesity 12 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 5099
+  },
+  {
+    "_id": "68aaeb69ae95216aa9033b77",
+    "productName": "Drools Cat Oceanfish Adult 7 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 1750
+  },
+  {
+    "_id": "68aaec14ae95216aa9033b78",
+    "productName": "Drool Cat Clumping Litter 5 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 222,
+    "rate": 565
+  },
+  {
+    "_id": "68aaec9aae95216aa9033b79",
+    "productName": "Drool Cat Litter 5 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 28,
+    "rate": 565
+  },
+  {
+    "_id": "68aaecdeae95216aa9033b7a",
+    "productName": "Drool Cat Litter 10 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 1130
+  },
+  {
+    "_id": "68aaed47ae95216aa9033b7b",
+    "productName": "Purepet Cat Litter 5 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 320
+  },
+  {
+    "_id": "68aaed79ae95216aa9033b7c",
+    "productName": "Purepet Cat Litter 10 Kg",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 159,
+    "rate": 570
+  },
+  {
+    "_id": "68aaedd7ae95216aa9033b7d",
+    "productName": "Drools Calcium Milk Bone 20 Pcs",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 250
+  },
+  {
+    "_id": "68aaee8bae95216aa9033b7e",
+    "productName": "Cat Buddy Cat Litter 5 Kg",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 380
+  },
+  {
+    "_id": "68aaeed1ae95216aa9033b7f",
+    "productName": "Soft Nylon Collar Large",
+    "companyName": "General",
+    "quantity": 159,
+    "rate": 160
+  },
+  {
+    "_id": "68aaeee4ae95216aa9033b80",
+    "productName": "Soft Nylon Collar Medium",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 139
+  },
+  {
+    "_id": "68aaef0bae95216aa9033b81",
+    "productName": "PPA Reflective Collar Medium",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 149
+  },
+  {
+    "_id": "68aaef2bae95216aa9033b82",
+    "productName": "PPA Reflective Collar Large",
+    "companyName": "General",
+    "quantity": 96,
+    "rate": 179
+  },
+  {
+    "_id": "68aaef63ae95216aa9033b84",
+    "productName": "Nylon Plain Latch Large",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 189
+  },
+  {
+    "_id": "68aaef93ae95216aa9033b85",
+    "productName": "Nylon Plain Latch Medium",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 159
+  },
+  {
+    "_id": "68aaefd8ae95216aa9033b86",
+    "productName": "PP Collar Latch Small",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 120
+  },
+  {
+    "_id": "68aaf052ae95216aa9033b87",
+    "productName": "InHeart Chew Bone 1 X 3 Inch",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 30
+  },
+  {
+    "_id": "68aaf07fae95216aa9033b88",
+    "productName": "Purepet Chew Bones 5 Inch 260 G",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 62,
+    "rate": 215
+  },
+  {
+    "_id": "68aaf0bfae95216aa9033b89",
+    "productName": "Diamond Cut Choke Chain No 4",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 280
+  },
+  {
+    "_id": "68aaf0dbae95216aa9033b8a",
+    "productName": "Fur Collar Soft Medium",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 129
+  },
+  {
+    "_id": "68aaf0faae95216aa9033b8b",
+    "productName": "Tick & Flea Comb",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 180
+  },
+  {
+    "_id": "68aaf13cae95216aa9033b8c",
+    "productName": "Double Side Comb",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 210
+  },
+  {
+    "_id": "68aaf169ae95216aa9033b8d",
+    "productName": "Cat Tumbler",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 159
+  },
+  {
+    "_id": "68aaf179ae95216aa9033b8e",
+    "productName": "PU Muzzle No 4",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 99
+  },
+  {
+    "_id": "68aaf187ae95216aa9033b8f",
+    "productName": "PU Muzzle No 3",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 89
+  },
+  {
+    "_id": "68aaf1beae95216aa9033b90",
+    "productName": "Drools Trio Bolt Ring Gog Toy",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 125,
+    "rate": 299
+  },
+  {
+    "_id": "68aaf1d6ae95216aa9033b91",
+    "productName": "Aquarium Fish Net 5 Inch",
+    "companyName": "Perfect Companion Group Co. Ltd",
+    "quantity": 62,
+    "rate": 120
+  },
+  {
+    "_id": "68aaf1fdae95216aa9033b92",
+    "productName": "Drool Chew Bone Dog Toy Large",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 96,
+    "rate": 299
+  },
+  {
+    "_id": "68aaf213ae95216aa9033b93",
+    "productName": "Padded Body Belt XL",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 299
+  },
+  {
+    "_id": "68aaf222ae95216aa9033b94",
+    "productName": "Pp Body Belt Large",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 230
+  },
+  {
+    "_id": "68aaf246ae95216aa9033b95",
+    "productName": "A Style Body Belt Set",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 399
+  },
+  {
+    "_id": "68aaf267ae95216aa9033b96",
+    "productName": "Feeding Bottle 150ml",
+    "companyName": "General",
+    "quantity": 159,
+    "rate": 199
+  },
+  {
+    "_id": "68aaf297ae95216aa9033b97",
+    "productName": "Mushroom Print Collar",
+    "companyName": "General",
+    "quantity": 159,
+    "rate": 69
+  },
+  {
+    "_id": "68aaf2b6ae95216aa9033b98",
+    "productName": "Fish Print Collar",
+    "companyName": "General",
+    "quantity": 353,
+    "rate": 69
+  },
+  {
+    "_id": "68aaf2f5ae95216aa9033b99",
+    "productName": "PP Reflective Collar Small",
+    "companyName": "General",
+    "quantity": 222,
+    "rate": 89
+  },
+  {
+    "_id": "68aaf322ae95216aa9033b9a",
+    "productName": "Harness Latch Set 10mm",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 160
+  },
+  {
+    "_id": "68aaf361ae95216aa9033b9b",
+    "productName": "Harness Printed Cat Latch 10mm",
+    "companyName": "General",
+    "quantity": 193,
+    "rate": 99
+  },
+  {
+    "_id": "68aaf396ae95216aa9033b9c",
+    "productName": "PP Collar Medium",
+    "companyName": "General",
+    "quantity": 125,
+    "rate": 69
+  },
+  {
+    "_id": "68aaf3beae95216aa9033b9d",
+    "productName": "Nylon Clip Collar Medium",
+    "companyName": "General",
+    "quantity": 96,
+    "rate": 99
+  },
+  {
+    "_id": "68aaf3d7ae95216aa9033b9e",
+    "productName": "PP Collar XS",
+    "companyName": "General",
+    "quantity": 324,
+    "rate": 40
+  },
+  {
+    "_id": "68aaf429ae95216aa9033b9f",
+    "productName": "Diamond Cut Brass Hook Chain No 4",
+    "companyName": "General",
+    "quantity": 96,
+    "rate": 699
+  },
+  {
+    "_id": "68aaf44cae95216aa9033ba0",
+    "productName": "Zinc Chain No 4",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 499
+  },
+  {
+    "_id": "68aaf463ae95216aa9033ba1",
+    "productName": "Zinc Chain No 8",
+    "companyName": "General",
+    "quantity": 96,
+    "rate": 380
+  },
+  {
+    "_id": "68aaf477ae95216aa9033ba2",
+    "productName": "Zinc Chain No 12",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 220
+  },
+  {
+    "_id": "68aaf489ae95216aa9033ba3",
+    "productName": "Diamond Cut Brass Hook Chain No 12",
+    "companyName": "General",
+    "quantity": 96,
+    "rate": 319
+  },
+  {
+    "_id": "68aaf4adae95216aa9033ba4",
+    "productName": "Zinc Chain No 14",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 179
+  },
+  {
+    "_id": "68aaf4dbae95216aa9033ba5",
+    "productName": "Knotted Chain No 6",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 460
+  },
+  {
+    "_id": "68aaf4e8ae95216aa9033ba6",
+    "productName": "Knotted Chain No 12",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 250
+  },
+  {
+    "_id": "68aaf4feae95216aa9033ba7",
+    "productName": "Zinc Hook Rope 18mm",
+    "companyName": "General",
+    "quantity": 193,
+    "rate": 299
+  },
+  {
+    "_id": "68aaf530ae95216aa9033ba8",
+    "productName": "Plastic Muzzle No 3",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 179
+  },
+  {
+    "_id": "68aaf53aae95216aa9033ba9",
+    "productName": "Plastic Muzzle No 4",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 199
+  },
+  {
+    "_id": "68aaf55aae95216aa9033baa",
+    "productName": "Plastic Muzzle No 5",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 209
+  },
+  {
+    "_id": "68aaf570ae95216aa9033bab",
+    "productName": "Plastic Muzzle No 6",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 229
+  },
+  {
+    "_id": "68aaf57cae95216aa9033bac",
+    "productName": "Plastic Muzzle No 7",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 249
+  },
+  {
+    "_id": "68aaf5b0ae95216aa9033bad",
+    "productName": "Painted SS Bowl 650ml",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 249
+  },
+  {
+    "_id": "68aaf5cfae95216aa9033bae",
+    "productName": "Painted SS Bowl 850ml",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 299
+  },
+  {
+    "_id": "68aaf5f8ae95216aa9033baf",
+    "productName": "Slow Feeder ",
+    "companyName": "General",
+    "quantity": 96,
+    "rate": 199
+  },
+  {
+    "_id": "68aaf624ae95216aa9033bb0",
+    "productName": "Plastic Cat Twin Bowl",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 199
+  },
+  {
+    "_id": "68aaf65cae95216aa9033bb1",
+    "productName": "Design Plastic Cat Twin Bowl",
+    "companyName": "General",
+    "quantity": 125,
+    "rate": 199
+  },
+  {
+    "_id": "68aaf66cae95216aa9033bb2",
+    "productName": "Poop Scooper Small",
+    "companyName": "General",
+    "quantity": 96,
+    "rate": 219
+  },
+  {
+    "_id": "68aaf685ae95216aa9033bb3",
+    "productName": "Calt Scooper",
+    "companyName": "General",
+    "quantity": 125,
+    "rate": 79
+  },
+  {
+    "_id": "68aaf6acae95216aa9033bb4",
+    "productName": "Cat Litter Tray XL",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 869
+  },
+  {
+    "_id": "68aaf6daae95216aa9033bb5",
+    "productName": "Elizabeth Collar No 4",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 259
+  },
+  {
+    "_id": "68aaf6eeae95216aa9033bb6",
+    "productName": "Elizabeth Collar No 3",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 279
+  },
+  {
+    "_id": "68aaf702ae95216aa9033bb7",
+    "productName": "Elizabeth Collar No 2",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 299
+  },
+  {
+    "_id": "68aaf720ae95216aa9033bb8",
+    "productName": "Elizabeth Collar No 1",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 319
+  },
+  {
+    "_id": "68aaf7efae95216aa9033bba",
+    "productName": "Drools Absolut Calcium",
+    "companyName": "Drools Pet Food Pvt. Ltd.",
+    "quantity": 222,
+    "rate": 30
+  },
+  {
+    "_id": "68aafb004adcabdf1120bbad",
+    "productName": "SS Bowl 1200ml",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 300
+  },
+  {
+    "_id": "68aafb5f4adcabdf1120bbae",
+    "productName": "SS Bowl 1000ml",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 290
+  },
+  {
+    "_id": "68aafb794adcabdf1120bbaf",
+    "productName": "SS Bowl 225ml",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 99
+  },
+  {
+    "_id": "68aafba84adcabdf1120bbb0",
+    "productName": "Roller Ball",
+    "companyName": "General",
+    "quantity": 96,
+    "rate": 49
+  },
+  {
+    "_id": "68aafbc04adcabdf1120bbb1",
+    "productName": "Flashing Ball Medium",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 120
+  },
+  {
+    "_id": "68aafbd64adcabdf1120bbb2",
+    "productName": "Steel Ring Mouse",
+    "companyName": "General",
+    "quantity": 62,
+    "rate": 90
+  },
+  {
+    "_id": "68aafc2c4adcabdf1120bbb3",
+    "productName": "Multicolour Ball Small",
+    "companyName": "General",
+    "quantity": 28,
+    "rate": 119
+  }
+]

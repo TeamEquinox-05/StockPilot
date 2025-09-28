@@ -1,0 +1,25 @@
+# Web Framework
+fastapi==0.104.0
+uvicorn==0.23.2
+jinja2==3.1.2
+python-multipart==0.0.6
+aiofiles==23.2.1
+
+# For handling cookies
+starlette==0.27.0
+itsdangerous==2.1.2
+
+# AI/LLM
+google-generativeai==0.3.2
+langchain==0.0.335
+langchain_community==0.0.13
+chromadb==0.4.17
+langchain_chroma==0.0.6
+sentence-transformers==2.2.2
+langchain-ollama==0.0.1
+pypdf==3.16.4
+
+# Utilities
+python-dotenv==1.0.0
+gunicorn==21.2.0
+pydantic==2.4.2

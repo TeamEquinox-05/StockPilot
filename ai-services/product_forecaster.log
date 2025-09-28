@@ -1,0 +1,2032 @@
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_041
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp1witygcw\2vzczb11.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp1witygcw\hz017_tx.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=36541', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp1witygcw\\2vzczb11.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp1witygcw\\hz017_tx.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp1witygcw\\prophet_modelbd9o8k7t\\prophet_model-20250926215918.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_041
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp57ude3vi\amw_lod4.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp57ude3vi\wo_c4a_1.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=56637', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp57ude3vi\\amw_lod4.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp57ude3vi\\wo_c4a_1.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp57ude3vi\\prophet_modelq0ibqqwi\\prophet_model-20250926220023.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_0005
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_041
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpcowoyqzz\f8rb6i41.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpcowoyqzz\g41pysvj.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=64375', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpcowoyqzz\\f8rb6i41.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpcowoyqzz\\g41pysvj.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpcowoyqzz\\prophet_modeluksq6o_v\\prophet_model-20250926220149.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_043
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp5d3tzbx2\lrx6480_.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp5d3tzbx2\kyhnd2xl.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=78536', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp5d3tzbx2\\lrx6480_.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp5d3tzbx2\\kyhnd2xl.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp5d3tzbx2\\prophet_model_0sr3zj8\\prophet_model-20250926220211.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_043
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpnvg3ihvd\ftwrowbk.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpnvg3ihvd\iww039wa.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=12283', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpnvg3ihvd\\ftwrowbk.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpnvg3ihvd\\iww039wa.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpnvg3ihvd\\prophet_modelgshjj_yn\\prophet_model-20250926220243.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_046
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpqvnnsk5i\ec4hlgf5.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpqvnnsk5i\v1mpau97.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=2196', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpqvnnsk5i\\ec4hlgf5.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpqvnnsk5i\\v1mpau97.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpqvnnsk5i\\prophet_modelr6lria5i\\prophet_model-20250926220445.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_041
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpbwxcmezf\cjx58bor.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpbwxcmezf\6o58cxhp.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=68874', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbwxcmezf\\cjx58bor.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbwxcmezf\\6o58cxhp.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbwxcmezf\\prophet_modelt7rkofx_\\prophet_model-20250926230150.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_057
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp4gt2lz1l\wpmqqsy_.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp4gt2lz1l\nb9sehfu.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=6387', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp4gt2lz1l\\wpmqqsy_.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp4gt2lz1l\\nb9sehfu.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp4gt2lz1l\\prophet_modelgsgjfef3\\prophet_model-20250926230153.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_025
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpwxm12p56\8vkij7eg.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpwxm12p56\jbddmkur.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=3867', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpwxm12p56\\8vkij7eg.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpwxm12p56\\jbddmkur.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpwxm12p56\\prophet_model44c1970j\\prophet_model-20250926230157.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_050
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpn1t7h7gj\x2zliib1.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpn1t7h7gj\a6v2ztqw.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=16015', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpn1t7h7gj\\x2zliib1.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpn1t7h7gj\\a6v2ztqw.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpn1t7h7gj\\prophet_modelyj6l6zbh\\prophet_model-20250926230200.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_054
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpt1nhs__u\i31t9d1f.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpt1nhs__u\9h1qh1n1.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=2826', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpt1nhs__u\\i31t9d1f.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpt1nhs__u\\9h1qh1n1.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpt1nhs__u\\prophet_modelxiz72kpv\\prophet_model-20250926230203.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_008
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp8azenoz5\x3nolz_3.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp8azenoz5\qf0tr1sp.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=33749', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp8azenoz5\\x3nolz_3.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp8azenoz5\\qf0tr1sp.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp8azenoz5\\prophet_model4r55fg9o\\prophet_model-20250926230207.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_005
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpnfuonfv4\nsg3kjby.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpnfuonfv4\iv8aq11m.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=33889', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpnfuonfv4\\nsg3kjby.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpnfuonfv4\\iv8aq11m.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpnfuonfv4\\prophet_model8sp6bph7\\prophet_model-20250926230211.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_046
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpzwysx0vi\xp8bjer5.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpzwysx0vi\05w0efpl.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=52109', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpzwysx0vi\\xp8bjer5.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpzwysx0vi\\05w0efpl.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpzwysx0vi\\prophet_modelrh_1zvde\\prophet_model-20250926230215.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_031
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfrn54c79\m57u8qro.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfrn54c79\h1sy711n.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=78417', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfrn54c79\\m57u8qro.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfrn54c79\\h1sy711n.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfrn54c79\\prophet_modelzy7fvh4q\\prophet_model-20250926230218.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_030
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmppuwj_f2k\cmq3rfah.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmppuwj_f2k\su4njvj2.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=39833', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmppuwj_f2k\\cmq3rfah.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmppuwj_f2k\\su4njvj2.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmppuwj_f2k\\prophet_modelj8c4mvk0\\prophet_model-20250926230222.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_009
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmptoago50u\rej3h7r0.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmptoago50u\ztlwl1_e.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=39861', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmptoago50u\\rej3h7r0.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmptoago50u\\ztlwl1_e.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmptoago50u\\prophet_model_zviuaia\\prophet_model-20250926230227.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_002
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmptsxonpxd\a7ehvb8y.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmptsxonpxd\5wnkydnu.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=71593', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmptsxonpxd\\a7ehvb8y.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmptsxonpxd\\5wnkydnu.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmptsxonpxd\\prophet_model3lhve7c6\\prophet_model-20250926230231.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_048
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_041
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpd2bihlr_\q5fq08zh.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpd2bihlr_\26bqlkmk.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=90926', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpd2bihlr_\\q5fq08zh.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpd2bihlr_\\26bqlkmk.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpd2bihlr_\\prophet_modelier6fohx\\prophet_model-20250926230308.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_057
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpp3pzmxi4\xffv_q1w.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpp3pzmxi4\t0m44od7.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=73407', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpp3pzmxi4\\xffv_q1w.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpp3pzmxi4\\t0m44od7.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpp3pzmxi4\\prophet_modeli_2my7rn\\prophet_model-20250926230312.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_025
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpse8i9i5d\9iknxcnj.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpse8i9i5d\30vpt9rb.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=51124', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpse8i9i5d\\9iknxcnj.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpse8i9i5d\\30vpt9rb.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpse8i9i5d\\prophet_modelwq0wvosu\\prophet_model-20250926230316.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_050
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmph2gh3bfd\upuntxy8.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmph2gh3bfd\986uy_ee.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=91793', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmph2gh3bfd\\upuntxy8.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmph2gh3bfd\\986uy_ee.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmph2gh3bfd\\prophet_modeluew_ha15\\prophet_model-20250926230319.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_054
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp8mbxac6k\02un4qmz.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp8mbxac6k\0i4ct_vp.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=23799', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp8mbxac6k\\02un4qmz.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp8mbxac6k\\0i4ct_vp.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp8mbxac6k\\prophet_model7quccl9b\\prophet_model-20250926230322.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_008
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpld2s4oi4\tiifcoq5.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpld2s4oi4\kpb9w_5d.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=75247', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpld2s4oi4\\tiifcoq5.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpld2s4oi4\\kpb9w_5d.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpld2s4oi4\\prophet_modelwh493w5m\\prophet_model-20250926230326.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_005
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpw4v8eglb\1r1f0r8a.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpw4v8eglb\ugv6a7nf.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=51685', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpw4v8eglb\\1r1f0r8a.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpw4v8eglb\\ugv6a7nf.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpw4v8eglb\\prophet_modelznqxux5h\\prophet_model-20250926230331.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_046
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp6fxeclqp\_ykgnrzz.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp6fxeclqp\nxu_4tdd.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=11037', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp6fxeclqp\\_ykgnrzz.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp6fxeclqp\\nxu_4tdd.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp6fxeclqp\\prophet_modeli70zcufc\\prophet_model-20250926230335.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_031
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp0n353tfi\piwdvhye.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp0n353tfi\t7j4tv7h.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=48235', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp0n353tfi\\piwdvhye.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp0n353tfi\\t7j4tv7h.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp0n353tfi\\prophet_modelz28hs9p2\\prophet_model-20250926230339.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_030
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpgavlz85v\5wevlftf.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpgavlz85v\ai23jjk9.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=51287', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpgavlz85v\\5wevlftf.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpgavlz85v\\ai23jjk9.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpgavlz85v\\prophet_modelenrfalj3\\prophet_model-20250926230344.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_009
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpr8tynpzf\ecaols1h.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpr8tynpzf\a7daqvel.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=929', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpr8tynpzf\\ecaols1h.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpr8tynpzf\\a7daqvel.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpr8tynpzf\\prophet_modelcqljly0m\\prophet_model-20250926230348.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_002
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpbh5ubfrt\8jmmla7h.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpbh5ubfrt\j8ani8v8.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=77164', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbh5ubfrt\\8jmmla7h.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbh5ubfrt\\j8ani8v8.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbh5ubfrt\\prophet_model74kz1dbc\\prophet_model-20250926230352.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_048
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpdg6sxilj\jpsjty9z.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpdg6sxilj\_uxsflri.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=80043', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpdg6sxilj\\jpsjty9z.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpdg6sxilj\\_uxsflri.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpdg6sxilj\\prophet_modelvjifxygz\\prophet_model-20250926230356.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_045
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpass7rmyh\51sbghck.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpass7rmyh\8ql1kjdk.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=58389', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpass7rmyh\\51sbghck.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpass7rmyh\\8ql1kjdk.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpass7rmyh\\prophet_modeluac8inf3\\prophet_model-20250926230359.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_003
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 11.
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_014
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp3xsf1aos\43_mz7sm.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp3xsf1aos\74wi0spi.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=65696', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp3xsf1aos\\43_mz7sm.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp3xsf1aos\\74wi0spi.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp3xsf1aos\\prophet_model7tin1vok\\prophet_model-20250926230407.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_026
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp5peg5idh\ak5b9dsv.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp5peg5idh\xa1_skpi.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=4698', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp5peg5idh\\ak5b9dsv.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp5peg5idh\\xa1_skpi.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp5peg5idh\\prophet_modelc1qz2ekr\\prophet_model-20250926230411.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_021
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp_zzbybi7\d1c3t_re.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp_zzbybi7\pkhg1efu.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=15676', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp_zzbybi7\\d1c3t_re.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp_zzbybi7\\pkhg1efu.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp_zzbybi7\\prophet_model6l09yhjd\\prophet_model-20250926230414.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_019
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpse2nt4dy\n2rcu1wo.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpse2nt4dy\3nz9b874.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=22560', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpse2nt4dy\\n2rcu1wo.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpse2nt4dy\\3nz9b874.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpse2nt4dy\\prophet_modelqg42oa0z\\prophet_model-20250926230418.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_028
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_041
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpibpyps1x\7fcq970_.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpibpyps1x\it656nig.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=52192', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpibpyps1x\\7fcq970_.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpibpyps1x\\it656nig.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpibpyps1x\\prophet_modelltul1tjg\\prophet_model-20250926230421.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp62f_b71d\onmazqch.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp62f_b71d\4tcawhpj.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=75470', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp62f_b71d\\onmazqch.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp62f_b71d\\4tcawhpj.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp62f_b71d\\prophet_modelnulk28ez\\prophet_model-20250926230422.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_056
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_057
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 8.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpk8z9eo6z\nhsngor2.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpk8z9eo6z\l5c6kxpj.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=99647', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpk8z9eo6z\\nhsngor2.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpk8z9eo6z\\l5c6kxpj.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpk8z9eo6z\\prophet_modelp0jkdhby\\prophet_model-20250926230426.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpqg7w7fed\ehzwj9ok.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpqg7w7fed\64lmuhbp.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=76995', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpqg7w7fed\\ehzwj9ok.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpqg7w7fed\\64lmuhbp.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpqg7w7fed\\prophet_modelx_ctxjnb\\prophet_model-20250926230427.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_013
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_025
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpdqm_vtkq\t82h1gmo.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpdqm_vtkq\s65o898q.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=30048', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpdqm_vtkq\\t82h1gmo.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpdqm_vtkq\\s65o898q.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpdqm_vtkq\\prophet_modelw4jqr_xw\\prophet_model-20250926230429.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpyakwdck6\hv0r7uff.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpyakwdck6\q4w831pe.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=18523', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpyakwdck6\\hv0r7uff.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpyakwdck6\\q4w831pe.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpyakwdck6\\prophet_modelj4v1zve4\\prophet_model-20250926230430.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_004
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_050
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpv1v6in3o\b2vxdlmc.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpv1v6in3o\tloy0oli.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=15028', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpv1v6in3o\\b2vxdlmc.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpv1v6in3o\\tloy0oli.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpv1v6in3o\\prophet_model45lsz2_4\\prophet_model-20250926230433.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp755_d0mk\aooojwkj.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp755_d0mk\eal0blsl.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=42162', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp755_d0mk\\aooojwkj.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp755_d0mk\\eal0blsl.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp755_d0mk\\prophet_modeld9zkb7p1\\prophet_model-20250926230434.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_024
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_054
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmplo6vmdn8\h8vyzw0x.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmplo6vmdn8\s0rdxaw2.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=73363', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmplo6vmdn8\\h8vyzw0x.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmplo6vmdn8\\s0rdxaw2.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmplo6vmdn8\\prophet_model6uvqrd49\\prophet_model-20250926230436.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfomrj35f\mbxfcr63.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfomrj35f\abp6rtta.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=69525', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfomrj35f\\mbxfcr63.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfomrj35f\\abp6rtta.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfomrj35f\\prophet_modelkk6g8sto\\prophet_model-20250926230437.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_007
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpzvexc19d\gjcqo06s.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpzvexc19d\tyimzxf2.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=53722', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpzvexc19d\\gjcqo06s.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpzvexc19d\\tyimzxf2.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpzvexc19d\\prophet_modelhkwyejwc\\prophet_model-20250926230439.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_008
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpi15x63pc\b9qr0pyb.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpi15x63pc\xfoarjze.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=53465', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpi15x63pc\\b9qr0pyb.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpi15x63pc\\xfoarjze.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpi15x63pc\\prophet_model_gwlybqk\\prophet_model-20250926230440.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_052
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpd9m8n10d\nyhpmzbd.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpd9m8n10d\m26j3_c4.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=63346', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpd9m8n10d\\nyhpmzbd.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpd9m8n10d\\m26j3_c4.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpd9m8n10d\\prophet_modelljvkjxcg\\prophet_model-20250926230442.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_005
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpr8xfu6xs\venlwxcd.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpr8xfu6xs\hn4r_8gp.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=80788', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpr8xfu6xs\\venlwxcd.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpr8xfu6xs\\hn4r_8gp.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpr8xfu6xs\\prophet_modelt0waddri\\prophet_model-20250926230443.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_037
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpm2ybacxt\t026ck0p.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpm2ybacxt\k7w4qx12.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=20320', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpm2ybacxt\\t026ck0p.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpm2ybacxt\\k7w4qx12.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpm2ybacxt\\prophet_modelkopno7qz\\prophet_model-20250926230445.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_046
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpjasj6k3t\5bpairmg.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpjasj6k3t\w08fgbgc.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=70084', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpjasj6k3t\\5bpairmg.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpjasj6k3t\\w08fgbgc.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpjasj6k3t\\prophet_model2l3vrccz\\prophet_model-20250926230447.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_035
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_031
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpf5v_ln6b\fv56ecdl.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpf5v_ln6b\tu18o4xa.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=23888', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpf5v_ln6b\\fv56ecdl.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpf5v_ln6b\\tu18o4xa.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpf5v_ln6b\\prophet_modelgrsdc5v9\\prophet_model-20250926230450.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpyp6hsa9s\8twbpro_.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpyp6hsa9s\jgjzh5or.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=25054', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpyp6hsa9s\\8twbpro_.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpyp6hsa9s\\jgjzh5or.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpyp6hsa9s\\prophet_modelipjwccri\\prophet_model-20250926230451.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_030
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_036
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpsp0c4q98\sv9s_pe5.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpsp0c4q98\6w5m1qz9.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=79509', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpsp0c4q98\\sv9s_pe5.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpsp0c4q98\\6w5m1qz9.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpsp0c4q98\\prophet_model43mczux_\\prophet_model-20250926230454.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpg3xrr2tx\i5_s9znt.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpg3xrr2tx\7tzhiza0.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=94175', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpg3xrr2tx\\i5_s9znt.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpg3xrr2tx\\7tzhiza0.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpg3xrr2tx\\prophet_modelmwvnd512\\prophet_model-20250926230455.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_009
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp9vyg2sxl\zy4s394y.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp9vyg2sxl\spibcjdl.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=55768', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp9vyg2sxl\\zy4s394y.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp9vyg2sxl\\spibcjdl.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp9vyg2sxl\\prophet_model34fa5z9g\\prophet_model-20250926230457.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_011
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpoyevg9gg\v8mszxnm.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpoyevg9gg\qezkz8pu.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=99850', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpoyevg9gg\\v8mszxnm.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpoyevg9gg\\qezkz8pu.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpoyevg9gg\\prophet_modeluy7lklka\\prophet_model-20250926230459.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_002
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_020
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpz7eb3zcb\c1l57yq1.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpz7eb3zcb\a61fqo_5.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=46054', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpz7eb3zcb\\c1l57yq1.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpz7eb3zcb\\a61fqo_5.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpz7eb3zcb\\prophet_modelpnrk45xo\\prophet_model-20250926230501.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_048
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 20.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpgz_jq9sz\qngvkcx1.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpgz_jq9sz\syspwnjv.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=62392', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpgz_jq9sz\\qngvkcx1.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpgz_jq9sz\\syspwnjv.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpgz_jq9sz\\prophet_modelr_4forny\\prophet_model-20250926230505.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_055
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpitw6vaq_\p7hg37ho.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpitw6vaq_\omcvokn8.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=92860', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpitw6vaq_\\p7hg37ho.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpitw6vaq_\\omcvokn8.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpitw6vaq_\\prophet_modelfbe2s3ts\\prophet_model-20250926230508.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_045
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 18.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpbniutrrw\bmw6g256.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpbniutrrw\69o0v52l.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=2363', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbniutrrw\\bmw6g256.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbniutrrw\\69o0v52l.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbniutrrw\\prophet_modelxihjpynb\\prophet_model-20250926230510.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:product_forecaster:Fetching sales data...
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp6hho_963\bphmz3mn.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp6hho_963\14gmjn1s.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=66739', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp6hho_963\\bphmz3mn.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp6hho_963\\14gmjn1s.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp6hho_963\\prophet_modelhf5l_ppe\\prophet_model-20250926230512.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_012
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 9.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpcuzsudbv\rtaiow5l.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpcuzsudbv\_6hqyvuy.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=26045', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpcuzsudbv\\rtaiow5l.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpcuzsudbv\\_6hqyvuy.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpcuzsudbv\\prophet_modely7atxgha\\prophet_model-20250926230514.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_003
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 11.
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_038
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfu7gseix\o5esbbv7.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfu7gseix\l5d_xxfg.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=73696', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfu7gseix\\o5esbbv7.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfu7gseix\\l5d_xxfg.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfu7gseix\\prophet_model_jf9n03c\\prophet_model-20250926230517.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_014
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_039
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+INFO:product_forecaster:Fetching sales data...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfkjkvuqk\0iw5e1un.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfkjkvuqk\w_zxvh2r.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=99672', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfkjkvuqk\\0iw5e1un.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfkjkvuqk\\w_zxvh2r.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfkjkvuqk\\prophet_modela9jm8709\\prophet_model-20250926230519.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpb0rcdiuu\gq6ig850.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpb0rcdiuu\ip87g5r_.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=76779', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpb0rcdiuu\\gq6ig850.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpb0rcdiuu\\ip87g5r_.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpb0rcdiuu\\prophet_modelncruv5v3\\prophet_model-20250926230520.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_026
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_044
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpqszkjhvn\djdai4qk.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpqszkjhvn\cgb4eqcg.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=21768', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpqszkjhvn\\djdai4qk.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpqszkjhvn\\cgb4eqcg.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpqszkjhvn\\prophet_model64cbqx90\\prophet_model-20250926230523.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 23.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpz_32egyy\7vpeh4cb.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpz_32egyy\bzfnrwp9.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=5267', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpz_32egyy\\7vpeh4cb.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpz_32egyy\\bzfnrwp9.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpz_32egyy\\prophet_model_x4z17uh\\prophet_model-20250926230523.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_021
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_001
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpcjg2aba5\wq315l31.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpcjg2aba5\y06i2wa7.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=2518', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpcjg2aba5\\wq315l31.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpcjg2aba5\\y06i2wa7.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpcjg2aba5\\prophet_modele3m5aodz\\prophet_model-20250926230526.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmppbh8hur2\ufkcb8ks.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmppbh8hur2\ih_89q53.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=66295', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmppbh8hur2\\ufkcb8ks.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmppbh8hur2\\ih_89q53.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmppbh8hur2\\prophet_model3yv7wl59\\prophet_model-20250926230528.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_019
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp3eq9d7ws\6lz5c5xv.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp3eq9d7ws\vfa51c8_.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=61151', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp3eq9d7ws\\6lz5c5xv.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp3eq9d7ws\\vfa51c8_.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp3eq9d7ws\\prophet_modelgnl8195u\\prophet_model-20250926230529.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_016
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmphhkr5vd6\__r7nnwd.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmphhkr5vd6\t1oo18cq.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=80538', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmphhkr5vd6\\__r7nnwd.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmphhkr5vd6\\t1oo18cq.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmphhkr5vd6\\prophet_modelzwsmhqpo\\prophet_model-20250926230531.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_033
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp1vqynr93\bfh_0i9u.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp1vqynr93\ocni0elx.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=16266', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp1vqynr93\\bfh_0i9u.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp1vqynr93\\ocni0elx.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp1vqynr93\\prophet_modelo4bgtb96\\prophet_model-20250926230535.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_017
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmplsr2b93w\8uugbd_1.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmplsr2b93w\vc9jq13o.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=58516', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmplsr2b93w\\8uugbd_1.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmplsr2b93w\\vc9jq13o.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmplsr2b93w\\prophet_model1yzzufmp\\prophet_model-20250926230538.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_022
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfwz_cg_8\76kktcc8.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfwz_cg_8\ov0nch86.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=80851', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfwz_cg_8\\76kktcc8.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfwz_cg_8\\ov0nch86.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfwz_cg_8\\prophet_model6pdokike\\prophet_model-20250926230541.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_058
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmppmqxnjw0\i1yautl4.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmppmqxnjw0\e0de0kor.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=69515', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmppmqxnjw0\\i1yautl4.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmppmqxnjw0\\e0de0kor.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmppmqxnjw0\\prophet_modelg5spn128\\prophet_model-20250926230544.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_027
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 15.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfm51jba0\d2jn11d6.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfm51jba0\ubu2nb_h.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=98778', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfm51jba0\\d2jn11d6.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfm51jba0\\ubu2nb_h.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfm51jba0\\prophet_modelxb24jaag\\prophet_model-20250926230549.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_042
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpbj81g7qe\08ssgvlq.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpbj81g7qe\6ekytksr.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=50418', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbj81g7qe\\08ssgvlq.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbj81g7qe\\6ekytksr.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbj81g7qe\\prophet_modeld21gre2m\\prophet_model-20250926230553.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_040
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpdeg12sqp\3kfnlcja.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpdeg12sqp\gt3b4mg6.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=68049', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpdeg12sqp\\3kfnlcja.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpdeg12sqp\\gt3b4mg6.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpdeg12sqp\\prophet_modelam8vfee3\\prophet_model-20250926230556.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_051
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 15.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpz61mayh4\zoau8sm6.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpz61mayh4\hznrweqz.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=14836', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpz61mayh4\\zoau8sm6.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpz61mayh4\\hznrweqz.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpz61mayh4\\prophet_modelmj5jc3km\\prophet_model-20250926230601.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_010
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp7j1283zx\hti2wbk5.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp7j1283zx\igynt87o.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=60021', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp7j1283zx\\hti2wbk5.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp7j1283zx\\igynt87o.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp7j1283zx\\prophet_modelyinq6voc\\prophet_model-20250926230605.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_043
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpp3325gt2\z0svxhur.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpp3325gt2\vdg19z24.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=47095', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpp3325gt2\\z0svxhur.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpp3325gt2\\vdg19z24.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpp3325gt2\\prophet_model3gy9s28j\\prophet_model-20250926230608.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_006
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 3.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp9gxfcrv0\l3wqkzlw.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp9gxfcrv0\bc9q7qsl.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=3276', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp9gxfcrv0\\l3wqkzlw.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp9gxfcrv0\\bc9q7qsl.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp9gxfcrv0\\prophet_modelixqn74xk\\prophet_model-20250926230612.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_015
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmptluj4mxn\i1579bwo.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmptluj4mxn\osk930y_.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=15747', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmptluj4mxn\\i1579bwo.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmptluj4mxn\\osk930y_.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmptluj4mxn\\prophet_modeldz4a2zub\\prophet_model-20250926230616.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_049
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpexn7902u\zu8nmoe6.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpexn7902u\fo9m1bd8.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=70628', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpexn7902u\\zu8nmoe6.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpexn7902u\\fo9m1bd8.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpexn7902u\\prophet_model9tbn035m\\prophet_model-20250926230620.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_047
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpmyepevmy\b46_ukmi.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpmyepevmy\2zm7s0sk.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=43710', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpmyepevmy\\b46_ukmi.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpmyepevmy\\2zm7s0sk.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpmyepevmy\\prophet_model8rlqxtgz\\prophet_model-20250926230624.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_046
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpk228_qde\2jvf1e0e.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpk228_qde\kq2y_5vw.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=43146', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpk228_qde\\2jvf1e0e.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpk228_qde\\kq2y_5vw.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpk228_qde\\prophet_model946r967a\\prophet_model-20250926231032.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_046
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp2logxe08\ky2n97z0.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp2logxe08\bukfoodv.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=90804', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp2logxe08\\ky2n97z0.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp2logxe08\\bukfoodv.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp2logxe08\\prophet_model44qtf9dy\\prophet_model-20250926231108.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_046
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp07ew1x5p\fmuyzcb5.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp07ew1x5p\2bi1_t4p.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=30980', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp07ew1x5p\\fmuyzcb5.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp07ew1x5p\\2bi1_t4p.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp07ew1x5p\\prophet_model6yx8rfu6\\prophet_model-20250926231341.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_046
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp4fqm6740\8f9yuned.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp4fqm6740\gtyarr8z.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=68533', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp4fqm6740\\8f9yuned.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp4fqm6740\\gtyarr8z.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp4fqm6740\\prophet_modela7krxsp8\\prophet_model-20250926231425.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_046
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp0fhavqix\epba0tbj.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp0fhavqix\9d4vajfy.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=96784', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp0fhavqix\\epba0tbj.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp0fhavqix\\9d4vajfy.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp0fhavqix\\prophet_modelzxhy0lsq\\prophet_model-20250926232048.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_041
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp2_5k5o3u\1huzul3g.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp2_5k5o3u\uvzf0qk9.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=30095', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp2_5k5o3u\\1huzul3g.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp2_5k5o3u\\uvzf0qk9.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp2_5k5o3u\\prophet_modeloq2jgml2\\prophet_model-20250926232102.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_046
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpi65j50j2\yzgn9ly5.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpi65j50j2\rodsnyna.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=41659', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpi65j50j2\\yzgn9ly5.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpi65j50j2\\rodsnyna.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpi65j50j2\\prophet_modelvd0jxdga\\prophet_model-20250926232138.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: PROD_046
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp4gv4abli\djwmu3oh.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp4gv4abli\q0veftb7.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=81934', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp4gv4abli\\djwmu3oh.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp4gv4abli\\q0veftb7.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp4gv4abli\\prophet_modelib7o866o\\prophet_model-20250926232150.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d6d627f28fea226c3e0e24
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+ERROR:product_forecaster:Error generating forecast: "['batch_id'] not in index"
+INFO:product_forecaster:Starting on-demand forecast for product: 68d6d627f28fea226c3e0e24
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches...
+INFO:product_forecaster:Joining data to link products...
+ERROR:product_forecaster:Error generating forecast: "['batch_id'] not in index"
+INFO:product_forecaster:Starting on-demand forecast for product: 68d6d627f28fea226c3e0e24
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+ERROR:product_forecaster:Error loading product batches: Cannot use MongoClient after close
+INFO:product_forecaster:Starting on-demand forecast for product: 68d6d627f28fea226c3e0e24
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 9986
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 9986
+INFO:product_forecaster:Items for product 68d6d627f28fea226c3e0e24: 9
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 6.
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d6d627f28fea226c3e0e24
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 9986
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 9986
+INFO:product_forecaster:Items for product 68d6d627f28fea226c3e0e24: 9
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 6.
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d6d627f28fea226c3e0e26
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 9986
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 9986
+INFO:product_forecaster:Items for product 68d6d627f28fea226c3e0e26: 63
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp837mhtnt\ps8n4822.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp837mhtnt\836mvi1v.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=1015', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp837mhtnt\\ps8n4822.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp837mhtnt\\836mvi1v.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp837mhtnt\\prophet_modeli38apr5c\\prophet_model-20250927002542.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d6d627f28fea226c3e0e30
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 9986
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 9986
+INFO:product_forecaster:Items for product 68d6d627f28fea226c3e0e30: 184
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfpewzc87\niux_bzg.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfpewzc87\3njodzw8.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=98164', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfpewzc87\\niux_bzg.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfpewzc87\\3njodzw8.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfpewzc87\\prophet_modelnl23o5r3\\prophet_model-20250927002552.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d6d627f28fea226c3e0e4c
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 9986
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 9986
+INFO:product_forecaster:Items for product 68d6d627f28fea226c3e0e4c: 750
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp6oicturc\wg3j7x40.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp6oicturc\sf7_r8w8.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=53799', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp6oicturc\\wg3j7x40.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp6oicturc\\sf7_r8w8.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp6oicturc\\prophet_modelvihhkmsk\\prophet_model-20250927002650.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d6d627f28fea226c3e0e4c
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 9986
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 9986
+INFO:product_forecaster:Items for product 68d6d627f28fea226c3e0e4c: 750
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpzc63ipvw\w_g76sar.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpzc63ipvw\qyomgqmh.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=47323', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpzc63ipvw\\w_g76sar.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpzc63ipvw\\qyomgqmh.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpzc63ipvw\\prophet_modeliyyamk1r\\prophet_model-20250927002709.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d6d627f28fea226c3e0e4c
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d6d627f28fea226c3e0e4c: 0
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea938
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d7054578436788b19ea938: 38
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpbyw_472t\g7s9dd92.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpbyw_472t\6zds26j8.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=92736', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbyw_472t\\g7s9dd92.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbyw_472t\\6zds26j8.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbyw_472t\\prophet_model309viu6r\\prophet_model-20250927033852.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea938
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d7054578436788b19ea938: 38
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp2ra0ziat\7zyy7kri.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp2ra0ziat\3mgtaouz.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=43262', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp2ra0ziat\\7zyy7kri.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp2ra0ziat\\3mgtaouz.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp2ra0ziat\\prophet_modelxxzcddm6\\prophet_model-20250927034151.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea950
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d7054578436788b19ea950: 28
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpvko7tj1f\zo8gpr18.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpvko7tj1f\ei7l6pae.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=59934', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpvko7tj1f\\zo8gpr18.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpvko7tj1f\\ei7l6pae.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpvko7tj1f\\prophet_model6c0uapgy\\prophet_model-20250927052210.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea950
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d7054578436788b19ea950: 28
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmplgsm3py6\fcclnkru.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmplgsm3py6\tw9tp8z_.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=65787', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmplgsm3py6\\fcclnkru.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmplgsm3py6\\tw9tp8z_.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmplgsm3py6\\prophet_modelaxut7xhg\\prophet_model-20250927052219.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea950
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d7054578436788b19ea950: 28
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpjcyh2p5g\dbimbp5q.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpjcyh2p5g\6xgmhgr4.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=6618', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpjcyh2p5g\\dbimbp5q.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpjcyh2p5g\\6xgmhgr4.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpjcyh2p5g\\prophet_model_7bmp5zv\\prophet_model-20250927052226.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea950
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d7054578436788b19ea950: 28
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpcai2daye\2hj714q8.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpcai2daye\rft7xlid.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=31783', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpcai2daye\\2hj714q8.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpcai2daye\\rft7xlid.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpcai2daye\\prophet_modelm8cd8s0o\\prophet_model-20250927052610.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea950
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d7054578436788b19ea950: 28
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpednixn51\xa8gd55_.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpednixn51\3srpvlzr.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=97194', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpednixn51\\xa8gd55_.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpednixn51\\3srpvlzr.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpednixn51\\prophet_modelhfzvxm_a\\prophet_model-20250927052827.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea950
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d7054578436788b19ea950: 28
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmphjpv16ln\cgggjsqw.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmphjpv16ln\ztscrblj.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=65786', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmphjpv16ln\\cgggjsqw.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmphjpv16ln\\ztscrblj.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmphjpv16ln\\prophet_modelnapms53e\\prophet_model-20250927060704.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea950
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea950
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea950
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d7054578436788b19ea950: 28
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpmjlqj4bj\pjmaen8u.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpmjlqj4bj\7dnoj_ma.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=53528', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpmjlqj4bj\\pjmaen8u.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpmjlqj4bj\\7dnoj_ma.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpmjlqj4bj\\prophet_modelp6x9r5tq\\prophet_model-20250927060729.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d7054578436788b19ea950: 28
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpbwzl92wy\szyuu1zm.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpbwzl92wy\y81qscyt.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=26707', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbwzl92wy\\szyuu1zm.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbwzl92wy\\y81qscyt.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpbwzl92wy\\prophet_modelk_h87g4z\\prophet_model-20250927060734.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d7054578436788b19ea950: 28
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfipq_gij\hs2qqvwl.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpfipq_gij\7pvamp0y.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=72482', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfipq_gij\\hs2qqvwl.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfipq_gij\\7pvamp0y.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpfipq_gij\\prophet_modelx3f6335k\\prophet_model-20250927060736.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea950
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea950
+ERROR:product_forecaster:Error generating forecast: The resolution lifetime expired after 20.006 seconds: Server Do53:8.8.8.8@53 answered The DNS operation timed out.; Server Do53:8.8.4.4@53 answered The DNS operation timed out.; Server Do53:172.16.40.2@53 answered The DNS operation timed out.; Server Do53:10.252.250.66@53 answered The DNS operation timed out.; Server Do53:8.8.8.8@53 answered The DNS operation timed out.; Server Do53:8.8.4.4@53 answered The DNS operation timed out.; Server Do53:172.16.40.2@53 answered The DNS operation timed out.; Server Do53:10.252.250.66@53 answered The DNS operation timed out.; Server Do53:8.8.8.8@53 answered The DNS operation timed out.; Server Do53:8.8.4.4@53 answered The DNS operation timed out.
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea950
+INFO:product_forecaster:Fetching sales data...
+ERROR:product_forecaster:Error generating forecast: operation cancelled
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d7054578436788b19ea950: 28
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpsipub411\daxjmzfh.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpsipub411\54yqk4ke.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=64840', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpsipub411\\daxjmzfh.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpsipub411\\54yqk4ke.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpsipub411\\prophet_model372jhgw7\\prophet_model-20250927061307.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea950
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d7054578436788b19ea950: 28
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpq4by5od0\g5c3cixr.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpq4by5od0\f4r9bpvf.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=2852', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpq4by5od0\\g5c3cixr.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpq4by5od0\\f4r9bpvf.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpq4by5od0\\prophet_modeld9s_zj93\\prophet_model-20250927065708.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea950
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d7054578436788b19ea950: 28
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp6_y7d_ek\tih_5ou_.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmp6_y7d_ek\qckb8pnr.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=16647', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp6_y7d_ek\\tih_5ou_.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp6_y7d_ek\\qckb8pnr.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmp6_y7d_ek\\prophet_modelh0t77rug\\prophet_model-20250927071055.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
+INFO:product_forecaster:Starting on-demand forecast for product: 68d7054578436788b19ea950
+INFO:product_forecaster:Fetching sales data...
+INFO:product_forecaster:Loading product batches from MongoDB...
+INFO:product_forecaster:Successfully loaded 314 product batches
+INFO:product_forecaster:Joining data to link products...
+INFO:product_forecaster:Total sale items: 10074
+INFO:product_forecaster:Total batches: 314
+INFO:product_forecaster:Items with products after join: 10074
+INFO:product_forecaster:Items for product 68d7054578436788b19ea950: 28
+INFO:product_forecaster:Training model...
+DEBUG:cmdstanpy:cmd: where.exe tbb.dll
+cwd: None
+DEBUG:cmdstanpy:Adding TBB (C:\Users\uday0\miniconda3\envs\stockpilot\lib\site-packages\prophet\stan_model\cmdstan-2.33.1\stan\lib\stan_math\lib\tbb) to PATH
+INFO:prophet:n_changepoints greater than number of observations. Using 19.
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpzu4r_xid\zcv0ach5.json
+DEBUG:cmdstanpy:input tempfile: C:\Users\uday0\AppData\Local\Temp\tmpzu4r_xid\su0ujkn3.json
+DEBUG:cmdstanpy:idx 0
+DEBUG:cmdstanpy:running CmdStan, num_threads: None
+DEBUG:cmdstanpy:CmdStan args: ['C:\\Users\\uday0\\miniconda3\\envs\\stockpilot\\Lib\\site-packages\\prophet\\stan_model\\prophet_model.bin', 'random', 'seed=13432', 'data', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpzu4r_xid\\zcv0ach5.json', 'init=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpzu4r_xid\\su0ujkn3.json', 'output', 'file=C:\\Users\\uday0\\AppData\\Local\\Temp\\tmpzu4r_xid\\prophet_modelbeu1qdi_\\prophet_model-20250927072122.csv', 'method=optimize', 'algorithm=newton', 'iter=10000']
+INFO:cmdstanpy:Chain [1] start processing
+INFO:cmdstanpy:Chain [1] done processing
+INFO:product_forecaster:Generating forecast...
